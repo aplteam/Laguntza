@@ -1,0 +1,27 @@
+ Code←{
+
+     r←⊂'Title' 'Code'
+
+     c←'{{⍵/⍨2=+⌿0=⍵∘.|⍵}⍳⍵}'
+
+     r,←⊂'Body' 'Ordinary code:'
+     r,←⊂'Code'c
+
+     r,←⊂'Body' 'Code styled via an ID:'
+     r,←⊂'Code id="id001"'c
+
+     r,←⊂'Body' 'Code styled via a class:'
+     r,←⊂'Code class="foo"'c
+
+     css←⊂'#id001 {'
+     css,←⊂' font-weight: 800;'
+     css,←⊂' padding-left: 30px;'
+     css,←⊂'}'
+     css,←⊂'pre.foo {'
+     css,←⊂' color: white;'
+     css,←⊂' background-color: gray;'
+     css,←⊂' padding: 15px;'
+     css,←⊂'}'
+     r,←⊂'CSS'css
+     r
+ }

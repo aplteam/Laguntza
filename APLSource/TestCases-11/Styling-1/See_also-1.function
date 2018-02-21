@@ -1,0 +1,19 @@
+ See_also←{
+
+     r←⊂'Title' 'See also'
+
+     r,←⊂'SeeAlso' 'Body, Code'
+     r,←⊂'SeeAlso ID="id001"' 'Body, Code'
+     r,←⊂'SeeAlso class="foo"' 'Body, Code'
+
+     css←⊂'#id001 {'
+     css,←⊂'  background-color: gray;'
+     css,←⊂'}'
+     css,←⊂'.foo {'
+     css,←⊂'  color: red;'
+     css,←⊂'}'
+
+     r,←⊂'CSS'css
+
+     r
+ }

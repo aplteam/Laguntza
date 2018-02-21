@@ -1,0 +1,40 @@
+ R←Test_Link_002(stopFlag batchFlag);⎕TRAP;ref;html;filename;brokenLinks;ambiguousLinks;noOf;has
+⍝ Test for a link in a para after some code.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page←''
+ #.TestHelp.Page,←⊂'# A topic'
+ #.TestHelp.Page,←⊂''
+ #.TestHelp.Page,←⊂'Some _APL_: `{+/⍳⍵} →[*.does_not_exist1]` followed by an (unknown) link: →[*.does_not_exist2].'
+ ref←StartHelp 0        ⍝ Default
+
+ ∆Process ref
+ brokenLinks←¯1 ##.Markdown2Help.Lint_.CheckBrokenLinks ref
+ →GoToTidyUp 2≠↑⍴brokenLinks                                   ⍝ We expect 2 broken links plus one header line
+ ambiguousLinks←¯1 ##.Markdown2Help.Lint_.CheckAmbiguousLinks ref
+ →GoToTidyUp~0∊⍴ambiguousLinks                                ⍝ We expect no ambiguous link
+ filename←##.Markdown2Help.BuildDocFromAllPages ref
+ html←'flat'#.APLTreeUtils.ReadUtf8File filename
+
+ noOf←2 ⍝ There is one application of italic ...
+ noOf+←2×+/html∘{+/⍵⍷⍺}'Invalid link'
+ noOf+←2×+/html∘{+/⍵⍷⍺}'Ambiguous link'
+ has←+/¨html∘{+/⍵⍷⍺}¨'<em>' '</em>'
+ →GoToTidyUp≠/has
+ →GoToTidyUp noOf≠+/has
+
+ noOf←0 ⍝ There is no application of bold ...
+ noOf+←2×+/html∘{+/⍵⍷⍺}'Invalid link'
+ noOf+←2×+/html∘{+/⍵⍷⍺}'Ambiguous link'
+ has←+/¨html∘{+/⍵⍷⍺}¨'<strong>' '</strong>'
+ →GoToTidyUp≠/has
+ →GoToTidyUp noOf≠+/has
+
+ R←∆OK
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

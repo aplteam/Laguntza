@@ -1,0 +1,52 @@
+# ∆TopicProperties
+
+Normally all children of a given node, namespaces and help functions alike, are listed
+alphabetically with the namespaces first.
+
+This may or may not be appropriate. Therefore there must be a way to define a
+different sequence.
+
+Also, the names of namespaces are used for the captions in the tree
+view (after replacing any "`_`" character by a space). Again this might not
+be appropriate; for example, you cannot have a page name "Cameron's disasters".
+
+Both problems can be addressed by introducing a function `∆TopicProperties` into
+a node. As a bonus you can define that a certain item is inactive (won't make
+an appearance) or is on display only when not running with `→[*.userMode|userMode=0]`.
+
+Such a function can easily be introduced via the tree view's context menu:
+select "Manage ∆TopicProperties" and your are done. This will introduce a skeleton
+of such a function which comprises all the children of that node.
+
+Here is an example of what such a function looks like:
+
+~~~
+     TopicProperties←{
+     r←0 4⍴''
+     r⍪←'Simple_Links' '' 1 0
+     r⍪←'Complex_Links' '' 1 0
+     r⍪←'Camerons_Desasters' 'Cameron''s_Desasters' 0 0
+     r
+     }
+~~~
+
+The columns:
+
+* [0]: The node or function name.
+* [1]: The caption for the tree view; if this is empty the name of the function is taken
+       but any `_` characters are replaced by blanks.
+* [2]: Boolean that defines whether this node/topic is active.
+* [3]: Boolean that defines whether this node/topic show show up in developer's mode only.
+
+Notes:
+
+* You **must** recompile the help in order to reflect the introduction of such a
+  function, or any changes you've made to it. ⋄When you click on a node and
+  select the "Manage ∆TopicProperties" command you will end up editing the function
+  of the **parent node**. If you think you might have trouble to remember this then
+  think of any other way to introduce/edit a `∆TopicProperties` function to
+  the top level (there is none).
+* Of course it is easy to introduce a new help function (or sub namespace) and then
+  to forget putting it into `∆TopicProperties`. Same for deletion. In the Developer's
+  menu there is a command "Report\TopicProperties" which checks a help system and
+  reports its findings to the session.

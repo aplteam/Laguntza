@@ -1,0 +1,40 @@
+ Tables←{
+
+     r←⊂'Title' 'Tables'
+
+     r,←⊂'Body' 'Ordinary table:'
+     r,←⊂'OpenTable' 'Table Caption'
+     r,←⊂'TableColumns' 'Col-1-⋄Col-2-⋄Col-3-'
+     r,←⊂'TableRows' 'R1Col1⋄R2Col1⋄R3Col1⋄APL Code⋄Minmal link⋄Relative link'
+     r,←⊂'TableRows' 'R1Col2⋄R2Col2⋄R3Col2⋄{{⍵/⍨2=+⌿0=⍵∘.|⍵}⍳⍵}⋄`→[*.Title]`⋄123'
+     r,←⊂'TableRows' 'R1Col3⋄R2Col3⋄R3Col3⋄○/○⋄○/○⋄○/○'
+     r,←⊂'CloseTable' ''
+
+     r,←⊂'Body' 'Table styles by ID:'
+     r,←⊂'OpenTable id="id001"' 'Table Caption'
+     r,←⊂'TableColumns' 'Col-1-⋄Col-2-⋄Col-3-'
+     r,←⊂'TableRows' 'R1Col1⋄R2Col1⋄R3Col1⋄APL Code⋄Minmal link⋄Relative link'
+     r,←⊂'TableRows' 'R1Col2⋄R2Col2⋄R3Col2⋄{{⍵/⍨2=+⌿0=⍵∘.|⍵}⍳⍵}⋄`→[*.Title]`⋄123'
+     r,←⊂'TableRows' 'R1Col3⋄R2Col3⋄R3Col3⋄○/○⋄○/○⋄○/○'
+     r,←⊂'CloseTable' ''
+
+     r,←⊂'Body' 'Table styles by class:'
+     r,←⊂'OpenTable class="foo"' 'Table Caption'
+     r,←⊂'TableColumns' 'Col-1-⋄Col-2-⋄Col-3-'
+     r,←⊂'TableRows' 'R1Col1⋄R2Col1⋄R3Col1⋄APL Code⋄Minmal link⋄Relative link'
+     r,←⊂'TableRows' 'R1Col2⋄R2Col2⋄R3Col2⋄{{⍵/⍨2=+⌿0=⍵∘.|⍵}⍳⍵}⋄`→[*.Title]`⋄123'
+     r,←⊂'TableRows' 'R1Col3⋄R2Col3⋄R3Col3⋄○/○⋄○/○⋄○/○'
+     r,←⊂'CloseTable' ''
+
+     css←⊂'#id001 * {'
+     css,←⊂' font-weight: 800;'
+     css,←⊂' padding-left: 30px;'
+     css,←⊂'}'
+     css,←⊂'.foo * {'
+     css,←⊂' color: white;'
+     css,←⊂' background-color: gray;'
+     css,←⊂' padding: 15px;'
+     css,←⊂'}'
+     r,←⊂'CSS'css
+     r
+ }

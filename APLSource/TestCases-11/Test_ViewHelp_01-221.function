@@ -1,0 +1,31 @@
+ R←Test_ViewHelp_01(stopFlag batchFlag);⎕TRAP;ref;report;path;tempPath;myZipper;rc;processInfo;result;more;parms;pid;flag;success
+⍝ Test `ViewHelp.exe`. You must run ]runmake first for this to test the right version!
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+
+ R←∆Failed
+
+ path←'expand'#.FilesAndDirs.NormalizePath'Dest\'
+ tempPath←#.FilesAndDirs.GetTempFilename''
+ #.FilesAndDirs.DeleteFile tempPath
+ tempPath←¯4↓tempPath
+ success←'Create!'#.FilesAndDirs.CheckPath tempPath
+ 'Something went terribly wrong'Assert success
+
+ myZipper←⎕NEW #.SevenZip(,⊂path,'Markdown2Help.zip')
+ rc←myZipper.Unzip tempPath
+ 'Something went terribly wrong'Assert 0=↑rc
+
+ parms←#.Execute.DefaultParms
+ parms.wait←0
+ (rc processInfo result more)←parms #.Execute.Application tempPath,'/help/ViewHelp.exe'
+ 'Something went terribly wrong'Assert 0=↑rc
+ pid←2⊃processInfo
+ Assert pid∊(GetAllTasks ⍬)[;1]
+ {}#.OS.KillPID pid
+ Assert~pid∊(GetAllTasks ⍬)[;1]
+
+ R←∆OK
+
+∆TidyUp:
+ #.FilesAndDirs.DeleteFile tempPath

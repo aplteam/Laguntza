@@ -1,0 +1,27 @@
+ Image←{
+     r←⊂'Title' 'Image'
+
+     fn←⍵.p.folderName,'\FlipDB-Team.png'
+     r,←⊂'Image alt="The FlipDB development team"'fn
+
+     r,←⊂'Body' 'Ordinary image:'
+
+     css←⊂'img#flipimg-01 {'
+     css,←⊂'  margin-top:20px;'
+     css,←⊂'  padding:20px;'
+     css,←⊂'  width=100%;'
+     css,←⊂'  margin-left:auto;'
+     css,←⊂'  margin-right:auto;'
+     css,←⊂'}'
+     css,←⊂'img.imgborder {'
+     css,←⊂'  border-style:dotted;'
+     css,←⊂'  border-width:2px;'
+     css,←⊂'}'
+     r,←⊂'CSS'css
+
+     r,←⊂'Body' 'Styled:'
+
+     r,←⊂'Image id="flipimg-01" class="imgborder" alt="The FlipDB development team"'fn
+
+     r
+ }

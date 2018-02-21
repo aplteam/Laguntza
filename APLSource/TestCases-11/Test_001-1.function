@@ -1,0 +1,32 @@
+ R←Test_001(stopFlag batchFlag);⎕TRAP;ref;buff;html;filename
+⍝ Test Markdown2Help's own help system
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ref←##.Markdown2Help.Selfie ⍬
+ ref.p.reportToSession←0
+ #.FilesAndDirs.DeleteFile ref.∆tempFilename
+
+ filename←##.Markdown2Help.GUI.OnBuildDocFromAllPages ref
+ html←#.APLTreeUtils.ReadUtf8File filename
+ →GoToTidyUp 0<+/'<span'⍷∊html                          ⍝ Invalid links would be marked up by <span
+
+ buff←##.Markdown2Help.Lint_.{A←#.APLTreeUtils ⋄ ¯1 CheckBrokenLinks ⍵}ref
+ →GoToTidyUp~0∊⍴buff                                    ⍝ There should be no broken links of course
+
+ buff←##.Markdown2Help.Lint_.{A←#.APLTreeUtils ⋄ ¯1 CheckAmbiguousLinks ⍵}ref
+ →GoToTidyUp~0∊⍴buff                                    ⍝ There should be no ambiguous links of course
+
+ buff←##.Markdown2Help.Lint_.ReportTopicProperties ref
+ →GoToTidyUp~0∊⍴buff                                    ⍝ There should be nothing to report
+
+ buff←##.Markdown2Help.ReportMissingIndexEntries ref
+ →GoToTidyUp'All help pages carry index entries'≢buff
+
+ R←∆OK
+
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ :Trap 0 ⋄ #.FilesAndDirs.DeleteFile filename ⋄ :EndTrap
+ ⎕EX'#.TestHelp'

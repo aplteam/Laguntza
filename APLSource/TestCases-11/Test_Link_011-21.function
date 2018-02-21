@@ -1,0 +1,26 @@
+ R←Test_Link_011(stopFlag batchFlag);⎕TRAP;ref;html;filename;brokenLinks;ambiguousLinks;has
+⍝ Test for a fully qualified external link with <> syntax.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page←⊂'# A Topic'
+ #.TestHelp.Page,←⊂''
+ #.TestHelp.Page,←⊂'This is an external link: <http://aplwiki.com>'
+ ref←StartHelp 0        ⍝ Default
+
+ ∆Process ref
+ brokenLinks←¯1 ##.Markdown2Help.Lint_.CheckBrokenLinks ref
+ →GoToTidyUp~0∊⍴brokenLinks                                  ⍝ We expect no broken links
+ ambiguousLinks←¯1 ##.Markdown2Help.Lint_.CheckAmbiguousLinks ref
+ →GoToTidyUp~0∊⍴ambiguousLinks                                ⍝ We expect no ambiguous link
+ filename←##.Markdown2Help.BuildDocFromAllPages ref
+ html←'flat'#.APLTreeUtils.ReadUtf8File filename
+ →GoToTidyUp 1≠+/'<a href="http://aplwiki.com"'⍷html
+
+ R←∆OK
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

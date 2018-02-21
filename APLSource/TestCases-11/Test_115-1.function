@@ -1,0 +1,32 @@
+ R←Test_115(stopFlag batchFlag);⎕TRAP;report;ps;ref;myTimer
+⍝ Exercise the "DeleteTopicOrNode" on a topic. There is no ∆TopicProperties that could be affected.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ∆CreateStructure1
+ ∆CreatePagesSet1
+
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject'Test_115'
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.visible←1
+ ps.reportToSession←0
+ ref←1 ##.Markdown2Help.New ps
+ ref.n.form.Event,←⊂9955 1
+ ∆Process ref
+
+ ref.n.tree.SelItems[1]←1
+ →GoToTidyUp 20≠↑⍴ref.d.tree
+ →GoToTidyUp 2≠#.TestHelp.Level1_a.⎕NC'Topic_0'
+ 1 ##.Markdown2Help.DeleteTopicOrNode ref
+ →GoToTidyUp 0≠#.TestHelp.Level1_a.⎕NC'Topic_0'
+ →GoToTidyUp 19≠↑⍴ref.d.tree
+
+ R←∆OK
+
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TEMP'

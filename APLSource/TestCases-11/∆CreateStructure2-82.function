@@ -1,0 +1,11 @@
+ ∆CreateStructure2;ps
+
+ ⎕EX'#.TestHelp'
+ '#.TestHelp'⎕NS''
+ 'Level1_a'#.TestHelp.⎕NS''
+
+ 'Level2_First'#.TestHelp.Level1_a.⎕NS''
+ 'Level2_Second'#.TestHelp.Level1_a.⎕NS''
+ 'Level2_Third'#.TestHelp.Level1_a.⎕NS''
+
+ 'Level1_b'#.TestHelp.⎕NS''

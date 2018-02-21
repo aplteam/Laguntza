@@ -1,0 +1,19 @@
+ R←Test_002(stopFlag batchFlag);⎕TRAP;ref;html;filename;brokenLinks;ambiguousLinks;noOf;has;noOfOpenFiles
+⍝ Test for the main file being closed be calling "Reset`.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ noOfOpenFiles←⍴⎕FNUMS
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page←''
+ #.TestHelp.Page,←⊂'# A topic'
+ ref←StartHelp 0        ⍝ Default
+ ∆Process ref
+ ##.Markdown2Help.Reset
+ →GoToTidyUp noOfOpenFiles≠⍴⎕FNUMS
+ R←∆OK
+
+∆TidyUp:
+ ⎕EX'#.TestHelp'

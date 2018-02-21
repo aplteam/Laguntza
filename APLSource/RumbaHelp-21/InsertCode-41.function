@@ -1,0 +1,6 @@
+ InsertCode←{
+     ns←⍵
+     body←⎕NR⍎⍺
+     (↑body)←'<pre><code>',↑body
+     body,⊂'</code></pre>'
+ }

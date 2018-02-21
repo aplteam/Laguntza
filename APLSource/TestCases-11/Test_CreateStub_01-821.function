@@ -1,0 +1,15 @@
+ R←Test_CreateStub_01(stopFlag batchFlag);⎕TRAP;dmx
+⍝ Test the `CreateStub` method with an invalid name
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ :Trap 0
+     ##.Markdown2Help.CreateStub ⎕THIS
+     →FailsIf 1
+ :Else
+     dmx←⎕DMX
+     →PassesIf'Invalid name'≡dmx.EM
+ :EndTrap
+
+ R←∆OK

@@ -1,0 +1,19 @@
+ R←Test_CreateStub_04(stopFlag batchFlag);⎕TRAP;ref
+⍝ Test the `CreateStub` method with a valid name and an invalid left argument.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'Test_04'
+
+ :Trap 0
+     ref←(1 2 3)##.Markdown2Help.CreateStub'#.Test_04'
+     →GoToTidyUp 1
+ :Else
+     →GoToTidyUp'Invalid container namespace'≢⎕DMX.EM
+ :EndTrap
+
+ R←∆OK
+
+∆TidyUp:
+ :Trap 0 ⋄ 2 ⎕NQ ref'Close' ⋄ :EndTrap

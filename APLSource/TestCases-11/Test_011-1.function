@@ -1,0 +1,42 @@
+ R←Test_011(stopFlag batchFlag);⎕TRAP;ref;report;ps
+⍝ Test the "##.Markdown2Help.SetNoClose" as well as  the "##.Markdown2Help.GetNoClose" method.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page←''
+ #.TestHelp.Page,←⊂'# A topic'
+
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.trapErrors←0
+ ps.visible←1
+ ps.noClose←1
+ ref←1 ##.Markdown2Help.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ →GoToTidyUp 1≠##.Markdown2Help.GetNoClose ref
+ →GoToTidyUp 1≠ref ##.Markdown2Help.SetNoClose 1
+ →GoToTidyUp 1≠##.Markdown2Help.GetNoClose ref
+ 1 ⎕NQ ref.n.quitApp'Select'
+ ∆Process ref
+ →GoToTidyUp 1≠##.Markdown2Help.GetNoClose ref
+ →GoToTidyUp 0≠##.Markdown2Help.GetVisible ref
+ →GoToTidyUp 1≠ref ##.Markdown2Help.SetNoClose 1
+ {}ref ##.Markdown2Help.SetVisible 1
+ →GoToTidyUp 1≠ref ##.Markdown2Help.SetNoClose 0
+ →GoToTidyUp 0≠##.Markdown2Help.GetNoClose ref
+ ref.on9999←1
+ 1 ⎕NQ ref.n.quitApp'Select'
+ ∆Process ref
+ {}{0::⍬ ⋄ ∆Wait ⍵}ref
+ →GoToTidyUp 0≠{6::0 ⋄ 1⊣⍵.Type}ref
+
+ R←∆OK
+∆TidyUp:
+ :Trap 0 ⋄ #.FilesAndDirs.DeleteFile ref.∆tempFilename ⋄ :EndTrap
+ ⎕EX'#.TestHelp'

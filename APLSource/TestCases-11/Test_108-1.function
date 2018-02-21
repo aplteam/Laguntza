@@ -1,0 +1,24 @@
+ R←Test_108(stopFlag batchFlag);⎕TRAP;ps;ref;fn
+⍝ Exercise the "BuildDocFromAllPages" method
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject'Test_108'
+ ps.source←##.Markdown2Help.HelpHelp
+ ps.trapErrors←0
+ ps.visible←1
+ ref←1 ##.Markdown2Help.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+
+ fn←##.Markdown2Help.BuildDocFromAllPages ref
+ →GoToTidyUp~#.FilesAndDirs.Exists fn
+ #.FilesAndDirs.DeleteFile fn
+ →GoToTidyUp 0≠##.Markdown2Help.CloseHelp ref
+
+ R←∆OK
+∆TidyUp:
+ ##.Markdown2Help.Reset

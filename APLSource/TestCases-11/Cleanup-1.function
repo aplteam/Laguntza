@@ -1,0 +1,10 @@
+ Cleanup;path;rc;more;en
+ ⎕EX'#.TestHelp'
+ ⎕FUNTIE ⎕FNUMS
+ path←#.FilesAndDirs.NormalizePath GetPathForTempHelpProject''
+ :If #.FilesAndDirs.Exists path
+     (rc en more)←#.FilesAndDirs.RmDir path
+     ⍎(0≠rc)/'.'
+ :EndIf
+ ∆AcreChangeFiles
+⍝Done

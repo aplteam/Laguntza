@@ -1,0 +1,32 @@
+ R←Test_019(stopFlag batchFlag);⎕TRAP;ref;ps;css
+⍝ Test functions embedded into help pages that takes an argument.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.TestFns←{
+     'Arguments: >',⍺,', ',⍵,'<'
+ }
+ #.TestHelp.Page1←,¨'# First topic' '' '## ⍎⍎⍎TestFns''array''⍎⍎⍎'
+ #.TestHelp.Page2←,¨'# First topic' '' '## ⍎⍎⍎TestFns 1234⍎⍎⍎'
+ #.TestHelp.Page3←,¨'# First topic' '' '## ⍎⍎⍎TestFns(1 2 3)⍎⍎⍎'
+
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.notifyAcre←0
+ ps.regPath←0
+
+ ref←1 ##.Markdown2Help.New ps
+ →PassesIf∨/'<h2>Arguments: &gt;''array'', #.TestHelp.Page1&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 11
+ →PassesIf∨/'<h2>Arguments: &gt; 1234, #.TestHelp.Page2&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 12
+ →PassesIf∨/'<h2>Arguments: &gt;(1 2 3), #.TestHelp.Page3&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 13
+
+ R←∆OK
+
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

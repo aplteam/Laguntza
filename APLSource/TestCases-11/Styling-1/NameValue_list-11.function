@@ -1,0 +1,27 @@
+ NameValue_list←{
+
+     r←⊂'Title' 'Name-value lists'
+
+     t←'Styling Tag⋄Meaning'
+     t,←'⎕Bold⋄*Embolden the text*'
+     t,←'⎕Italic⋄_Italicize the text_'
+     t,←'⎕APL Code⋄`{{⍵/⍨2=+⌿0=⍵∘.|⍵}⍳⍵}`'
+     r,←⊂'NameValueList id="id001"'t
+
+     t←'Styling Tag⋄Meaning'
+     t,←'⎕Bold⋄*Embolden the text*'
+     t,←'⎕Italic⋄_Italicize the text_'
+     t,←'⎕APL Code⋄`{{⍵/⍨2=+⌿0=⍵∘.|⍵}⍳⍵}`'
+     r,←⊂'NameValueList class="foo"'t
+
+     css←⊂'#id001 {'
+     css,←⊂'  background-color: gray;'
+     css,←⊂'}'
+     css,←⊂'.foo {'
+     css,←⊂'  color: red;'
+     css,←⊂'}'
+
+     r,←⊂'CSS'css
+
+     r
+ }

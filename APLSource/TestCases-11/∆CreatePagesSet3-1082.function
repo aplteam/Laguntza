@@ -1,0 +1,58 @@
+ ∆CreatePagesSet3;ps;r;t
+
+ r←⊂'# My First Help Topic'
+ r,←⊂'The next paragraph contains a minmal link that should carry you to the *first* "Topic2"'
+ t←'	Lorem →[↑*.Topic2] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.Topic1←r
+
+ r←⊂'# My second Help Topic'
+ r,←⊂'The next paragraph contains a minmal link that should carry you to Topic3'
+ t←'	Lorem ipsum →[↑*.Topic3] dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.Topic2←r
+
+ r←⊂'# My third Help Topic'
+ r,←⊂'The next paragraph contains a minmal link pointing to Topic1 which is the very first topic.'
+ t←'	Lorem →[*.Topic1|(points to first topic)] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.Topic3←r
+
+ r←⊂'# My fourth help page (Topic4)'
+ r,←⊂'The next paragraph contains a minmal link pointing to TopicID=10001 which is the very first topic.'
+ t←'	Lorem →[*.Topic1  |    (points to first topic)   ] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.Level2_First.Topic4←r
+
+ r←⊂'# My fifth help page'
+ r,←⊂'This topic has TopicID=10005. The next paragraph contains a minmal link pointing to TopicID=10001 which is the very first topic.'
+ t←'	Lorem →[*.Topic1|(points to first topic)] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.Level2_Second.Topic5←r
+
+ r←⊂'# My sixth help page (#.TestHelp.Level1_a.Level2_Third.Topic6)'
+ r,←⊂'The next paragraph contains a minmal link pointing to Topic1 which is the very first topic.'
+ t←'	Lorem →[##.Level2_Second.Topic5|(points to first topic)] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.Level2_Third.Topic6←r
+
+ r←⊂'# My seventh help page'
+ r,←⊂'The next paragraph contains a minmal link pointing to Topic=1 which is the very first topic.'
+
+ t←'	Lorem →[*.Topic6|(points to first topic)] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_b.Topic3←r

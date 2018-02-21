@@ -1,0 +1,4 @@
+ r←Version
+ ⍝ See also `History`
+ :Access Public shared
+ r←'Markdown2Help' '2.6.0' '2018-02-20'

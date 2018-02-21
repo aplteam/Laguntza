@@ -1,0 +1,9 @@
+ ∆CreateHelpPagesForTest105←{
+     ⍺←9
+     rf←⍵
+     _←rf.⍎¨{'Hello',⍵,'←''# Sample ',⍵,''' ''This is help page number ',⍵,''''}¨⍕¨1+⍳⍺
+     (0∊⍴l←rf.⎕NL-9):⍬
+     l←rf.⍎¨l
+     ∇¨l
+     ⍬
+ }

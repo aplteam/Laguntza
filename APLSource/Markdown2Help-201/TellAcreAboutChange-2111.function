@@ -1,0 +1,10 @@
+ {r}←∆Ref TellAcreAboutChange name
+ r←⍬
+ :If ∆Ref.p.notifyAcre
+  ⍝ Tell acre 4.
+ :AndIf 9=⎕SE.⎕NC'acre'
+     :If ~0∊⍴⎕SE.UCMD'acre.Projects [messages←''off''] '
+         {}⎕SE.UCMD'acre.SetChanged ',name
+     :EndIf
+     {}⎕SE.UCMD'acre.Projects [messages←''on''] '
+ :EndIf

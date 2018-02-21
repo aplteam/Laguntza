@@ -1,0 +1,7 @@
+ Child_02←{
+     r←⊂'Title' 'Child 02'
+
+     r,←⊂'Body' '...'
+
+     r
+ }

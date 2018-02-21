@@ -1,0 +1,12 @@
+ Title←{
+
+     r←⊂'Title id="id001"' 'The "Title" tag'
+
+     r,←⊂'Body' 'The title should show in red.'
+
+     css←⊂'#id001 {'
+     css,←⊂' color: red;'
+     css,←⊂'}'
+     r,←⊂'CSS'css
+     r
+ }

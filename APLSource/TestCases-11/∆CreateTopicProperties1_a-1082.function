@@ -1,0 +1,22 @@
+ ∆CreateTopicProperties1_a;b
+ b←⊂'∆TopicProperties←{'
+ b,←⊂'r←0 4⍴'''''
+ b,←⊂'r⍪←''Level1_a'' ''Top level A'' 1 0'
+ b,←⊂'r⍪←''Level1_b'' ''Top level B'' 1 0'
+ b,←⊂'r⍪←''Level1_c'' ''Top level C'' 1 0'
+ b,←⊂'r'
+ b,←⊂'}'
+
+ ⍎(' '≠1↑0⍴#.TestHelp.⎕FX b)/'.'
+
+ b←⊂'∆TopicProperties←{'
+ b,←⊂'r←0 4⍴'''''
+ b,←⊂'r⍪←''Topic_0'' ''Topic zero'' 1 0'
+ b,←⊂'r⍪←''level2_First'' ''Second level A'' 1 0'
+ b,←⊂'r⍪←''level2_Second'' ''Second level B'' 1 0'
+ b,←⊂'r⍪←''level2_Third'' ''Second level C'' 1 0'
+ b,←⊂'r'
+ b,←⊂'}'
+ ⍎(' '≠1↑0⍴#.TestHelp.Level1_a.⎕FX b)/'.'
+
+ ⍝Done

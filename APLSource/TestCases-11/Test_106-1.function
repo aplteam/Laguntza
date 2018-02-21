@@ -1,0 +1,17 @@
+ R←Test_106(stopFlag batchFlag);⎕TRAP;ref;list
+⍝ Exercise the Inject∆TopicProperties method.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ∆CreateStructure2
+ list←##.Markdown2Help.Inject∆TopicProperties #.TestHelp
+ →GoToTidyUp #.TestHelp≢list
+
+ ∆CreateStructure2
+ list←'recursive'##.Markdown2Help.Inject∆TopicProperties #.TestHelp
+ →GoToTidyUp~list LazyMatch #.TestHelp #.TestHelp.Level1_a
+
+ R←∆OK
+∆TidyUp:
+ ⎕EX'#.TestHelp'

@@ -1,0 +1,15 @@
+ R←Test_CreateStub_05(stopFlag batchFlag);⎕TRAP;ref
+⍝ Test the `CreateStub` method with a valid name and no parent. Will be created as a sibling.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ⎕SHADOW'__Test_05'
+ ref←##.Markdown2Help.CreateStub'__Test_05'
+ →GoToTidyUp 9≠⎕NC'__Test_05'
+ →GoToTidyUp 9≠⍴↑('recursive' 1)#.FilesAndDirs.Dir ref.∆parms.folderName,'/'
+
+ R←∆OK
+
+∆TidyUp:
+ 2 ⎕NQ ref'Close'

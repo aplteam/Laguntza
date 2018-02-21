@@ -1,0 +1,6 @@
+ GetAllTasks←{
+     r←3↓⊃{#.APLTreeUtils.(' 'Split¨dmb ⍵)}⎕CMD'tasklist'
+     r←(↑∘↑∘⎕VFI¨r[;1])⌿r ⍝ Only those with a process ID
+     r[;1]←↑∘↑∘(//)∘⎕VFI¨r[;1]
+     r
+ }

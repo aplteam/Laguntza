@@ -1,0 +1,118 @@
+ ∆CreatePagesSet1;ps;r;t
+
+ r←⊂'# Topic Number Zero'
+ r,←⊂'## →[#.TestHelp.Level1_a.level2_First.Topic1|Caption]'
+ r,←⊂'This and that.'
+ #.TestHelp.Level1_a.Topic_0←r
+
+ r←⊂'# My First Help Topic'
+ r,←⊂'The next paragraph contains a minmal link that should carry you to the *first* "Topic2"'
+ t←'	Lorem →[↑*.Topic2] *ipsum* dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ r,←⊂'First link is →[↑*.Topic2] *and* second link is →[↑*.Topic2]'
+ r,←⊂'This is a link →[##.##.Level1_b.Topic_10], _really_'
+ r,←⊂'Two links: `→[↑*.Topic2]` and `→[↑*.Topic2]`.'
+ r,←⊂'This is a link →[##.Topic_0], _really_.'
+ #.TestHelp.Level1_a.level2_First.Topic1←r
+
+ r←⊂'# My second Help Topic'
+ r,←⊂'The next paragraph contains a minmal link that should carry you to Topic 3'
+
+ t←'	Lorem ipsum →[*.Topic3] dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.level2_First.Topic2←r
+
+ r←⊂'# My Third Help Topic'
+ r,←⊂'The next paragraph contains a minmal link pointing to "JohnDoe" which does not exist'
+ t←'	Lorem →[↑*.Topic2] ipsum dolor sit _amet_, consectetur adipisicing elit, sed do eiusmod'
+ t,←' tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.level2_First.Topic3←r
+
+ r←⊂'# The forth topic'
+ r,←⊂'The next paragraph contains a relative link pointing to "Unknown" which does not exist.'
+
+ t←'	Lorem →[Unknown] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_a.level2_Second.Topic4←r
+
+ r←⊂'# Another Topic2!'
+ t←'The next paragraph contains a minmal link pointing to "Topic2", It should carry you'
+ t,←' to the **first** Topic2!'
+ r,←⊂t
+ t←'	Lorem →[↑*.Topic2] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_b.Topic2←r
+
+ r←⊂'# My sixth topic'
+ r,←⊂'The next paragraph contains a relative link to "Topic" which is ambiguous.'
+ t←'	Lorem →[Topic2] ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_b.Topic5←r
+
+ r←⊂'# My seventh topic'
+ r,←⊂' This topic contains a table created with OpenTable that carries a link in a cell'
+ r,←⊂'|`Range`|`Domain`|'
+ r,←⊂'|`0≤R≤1`⋄→[↑*.Topic2]|→10005|`0≤R≤○1`|'
+ r,←⊂'|abc|→Unknown|`→10005 (no link!)`|→[*.Topic2]|'
+ r,←⊂'|This:|→99999|is an unknown|TopicID|'
+ r,←⊂'|These:|→[##.Level1_a.level2_Second.Topic4] →[Topic5] |are two links|'
+ #.TestHelp.Level1_b.Topic6←r
+
+ r←⊂'# My ninth topic'
+ r,←⊂'This topic contains a table created with "NameValueList"'
+ r,←⊂'|Styling Tag|Meaning|'
+ r,←⊂'|Bold|Embolden the text.|'
+ r,←⊂'|Italic|Italicize the text.|'
+ r,←⊂'|Underline|Underline the text.|'
+ r,←⊂'|`→↑*.Topic2`⋄`→[↑*.Topic2]`|'
+ r,←⊂'|`→[Topic2]`|→[Topic2]|'
+ r,←⊂'|`→10003`|→10003|'
+ r,←⊂'|`→99999`|→99999|'
+ r,←⊂'|`→[Unknown]`|→[Unknown]|'
+ #.TestHelp.Level1_b.Topic8←r
+
+ r←⊂'# My tenth topic'
+ r,←⊂'This topic contains a an unordered list with links'
+ r,←⊂'A list with links'
+ r,←⊂'* `→↑*.Topic2:` →[↑*.Topic2]'
+ r,←⊂'* `→Topic2:` →[Topic2]'
+ r,←⊂'* 10003: →10003'
+ r,←⊂'* 99999: →99999'
+ r,←⊂'* Unknown: →[Unknown]'
+ #.TestHelp.Level1_b.Topic9←r
+
+ r←⊂'# My eleventh topic'
+ r,←⊂'This and that.'
+ #.TestHelp.Level1_b.Topic_10←r
+
+ r←⊂'# My eleventh topic'
+ r,←⊂'This topic contains a Table with links'
+ r,←⊂'|`→↑*.Topic2:`|→[↑*.Topic2]|'
+ r,←⊂'|`→Topic2:`|→[Topic2]|'
+ r,←⊂'|10003:|→10003|'
+ r,←⊂'|99999:|→99999|'
+ #.TestHelp.Level1_b.Topic10←r
+
+ r←⊂'# Headers'
+ r,←⊂'This topic contains all possible levels of headers'
+ r,←⊂'## This is a header of level 2'
+ r,←⊂'### This is a header of level 3'
+ r,←⊂'#### This is a header of level 4'
+ r,←⊂'##### This is a header of level 5'
+ t←'	Lorem  ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor'
+ t,←' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis'
+ t,←' nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+ r,←⊂t
+ #.TestHelp.Level1_b.Topic11←r

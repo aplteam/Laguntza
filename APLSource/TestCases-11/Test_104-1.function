@@ -1,0 +1,32 @@
+ R←Test_104(stopFlag batchFlag);⎕TRAP;ref;ok;gui
+⍝ Test for complex indexing
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page1←'[DATA]:index=''Non-Simple'' ' '# Page 1' 'Carries just "Non-Simple" as index'
+ #.TestHelp.Page2←'[DATA]:index=''Simple'' ' '# Page 2' 'Carries just "Simple" as index'
+ #.TestHelp.Page3←'[DATA]:index=''Non-Simple ⋄ Foo'' ' '# Page 3' 'Carries "Non-Simple" and "Foo" as index on a single line.'
+ #.TestHelp.Page4←'[DATA]:index=''Non-Simple'' ' '[DATA]:index=''Foo'' ' '# Page 4' 'Carries "Non-Simple" and "Foo" on two seperate lines.'
+ #.TestHelp.Page5←'[DATA]:index=''Realm⋄AlsoSimple'' ' '# Page 5' 'Carries the indices "Realm" and "AlsoSimple".'
+ #.TestHelp.Page6←'[DATA]:index=''Realm'' ' '# Page 6' 'Carries just the index "Realm".'
+ #.TestHelp.Page7←'[DATA]:index=''Realm'' ' '# Page 7' 'Carries just the index "Realm".'
+ #.TestHelp.Page8←'[DATA]:index=''Realm   ⋄   Realm'' ' '# Page 8' 'Carries just the index "Realm" but TWICE!.'
+ #.TestHelp.Page9←'# Page 9' 'Carries a link → to nothing and no index entry.'
+
+ ref←StartHelp 0        ⍝ Default
+ ∆Process ref
+
+ →GoToTidyUp 11≠⍴ref.n.indexList.Items
+ ok←'AlsoSimple' 'Foo' '' 'Non-Simple' '' '' 'Realm' '' '' '' 'Simple'
+ →GoToTidyUp(ref.n.indexList.Items~¨' ')≢ok
+ gui←ref.n.indexList.ReportInfo
+ ok←'Page'∘,¨⍕¨1+⍳8
+ →GoToTidyUp~gui[;0]LazyMatch ok
+
+ R←∆OK
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

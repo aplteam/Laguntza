@@ -1,0 +1,29 @@
+ R←Test_013(stopFlag batchFlag);⎕TRAP;ref;ps;source
+⍝ Test whether regPath←0 really stops Markdown2Help saving stuff in the Windows Registry
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.page1←⊂'# My First Help Topic'
+ #.TestHelp.page1,←⊂'Carries an image'
+ source←(0⊃#.APLTreeUtils.SplitPath ⎕WSID),'..\Markdown2Help\files\FlipDB-Team.png'
+ #.TestHelp.page1,←⊂'|[Ths FlipDB Team](',source,')'
+ #.TestHelp.page1,←⊂'This is a simple example for how to include an image.'
+
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.notifyAcre←0
+ ps.regPath←0
+ ref←1 ##.Markdown2Help.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+
+ R←∆OK
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

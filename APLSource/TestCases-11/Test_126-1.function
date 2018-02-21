@@ -1,0 +1,57 @@
+ R←Test_126(stopFlag batchFlag);⎕TRAP;ps;ref;sa;lines;names
+⍝ Exercise full-text "as is" search. See Test_110 for a "words" test.
+⍝ Because `syntaxSugar` is 0 in Markdown2Help we can search for `"` rather than their typographical correct replacements.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject'Test_126'
+ ps.source←#._Markdown2Help.TestCases.TestCase_110_Data
+ ps.visible←0
+ ps.reportToSession←0
+ ref←1 ##.Markdown2Help.New ps
+ ref.n.form.Event,←⊂9955 1
+ ∆Process ref
+
+ sa←1                     ⍝ 1: Ignore container in search
+ sa,←⊂'and'               ⍝ 2: Search string
+ sa,←1                    ⍝ 3: "full text search" flag
+ sa,←1                    ⍝ 4: lower case flag
+ sa,←0                    ⍝ 5: Match whole words only
+ sa,←1                    ⍝ 6: Search "As is" flag
+ (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ →GoToTidyUp'Layout' 'Page1' 'Sub1/Page2'≢names
+
+ sa←1                     ⍝ 1: Ignore container in search
+ sa,←⊂'And'               ⍝ 2: Search string
+ sa,←1                    ⍝ 3: full text search
+ sa,←0                    ⍝ 4: lower case flag
+ sa,←0                    ⍝ 5: Match whole words only
+ sa,←1                    ⍝ 6: Search "As is" flag
+ (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ →GoToTidyUp(,⊂'Sub1/Page2')≢names
+
+ sa←1                     ⍝ 1: Ignore container in search
+ sa,←⊂'ActiveX'           ⍝ 2: Search string
+ sa,←1                    ⍝ 3: full text search
+ sa,←1                    ⍝ 4: lower case flag
+ sa,←0                    ⍝ 5: Match whole words only
+ sa,←1                    ⍝ 6: Search "As is" flag
+ (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ →GoToTidyUp(,⊂'Overview')≢names
+
+ sa←1                     ⍝ 1: Ignore container in search
+ sa,←⊂'"View source'      ⍝ 2: Search string
+ sa,←1                    ⍝ 3: full text search
+ sa,←0                    ⍝ 4: lower case flag
+ sa,←0                    ⍝ 5: Match whole words only
+ sa,←1                    ⍝ 6: Search "As is" flag
+ (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ →GoToTidyUp(,⊂'Layout')≢names
+
+ R←∆OK
+
+∆TidyUp:
+ ##.Markdown2Help.Reset

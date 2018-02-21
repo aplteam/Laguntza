@@ -1,0 +1,10 @@
+ {r}←test3;parms;source
+ parms←Markdown2Help.CreateParms ⍬
+ parms.helpAbout←'This and that' '' 'More' 'Much more!'
+ parms.(helpVersion helpVersionDate)←⊂⍬
+ parms.helpCaption←'Markdown2Help''s Help'
+ parms.source←Markdown2Help.HelpHelp
+ parms.expand←'None'
+ r←1 Markdown2Help.New parms
+
+⍝Done

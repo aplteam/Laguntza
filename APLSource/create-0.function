@@ -1,0 +1,9 @@
+ create;parms;name
+ parms←Markdown2Help.CreateParms ⍬
+ parms.saltFolder←'D:\Temp\'
+ name←'#.KaisHelp'
+ #.FilesAndDirs.RmDir parms.saltFolder,'\',name
+ #.⎕EX name
+⍝ #.⎕EX'Container'
+⍝ parms Markdown2Help.CreateStub'#.Container.',name
+ parms Markdown2Help.CreateStub name

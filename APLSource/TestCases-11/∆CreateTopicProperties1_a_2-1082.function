@@ -1,0 +1,12 @@
+ ∆CreateTopicProperties1_a_2;b
+
+ b←⊂'∆TopicProperties←{'
+ b,←⊂'r←0 4⍴'''''
+ b,←⊂'r⍪←''Topic1'' '''' 1 0'
+ b,←⊂'r⍪←''Topic2'' '''' 1 0'
+ b,←⊂'r⍪←''Topic13'' '''' 1 0'
+ b,←⊂'r'
+ b,←⊂'}'
+ ⍎(' '≠1↑0⍴#.TestHelp.Level1_a.level2_First.⎕FX b)/'.'
+
+⍝Done

@@ -1,0 +1,15 @@
+ {r}←test1;ps;source;tempFolder;ref
+ #.⎕SHADOW'TEMP'
+ 'TEMP'#.⎕NS''
+ tempFolder←¯4↓#.FilesAndDirs.GetTempFilename''
+ ps←Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'Test CreateStub'
+ ps.saltFolder←tempFolder
+ ref←ps Markdown2Help.CreateStub'#.TEMP.Kai'
+ ps.source←#.TEMP.Kai
+ ps.expand←'None'
+ r←1 Markdown2Help.New ps
+ ⎕DQ'.'
+ #.FilesAndDirs.RmDir tempFolder
+ :Trap 0 ⋄ ref.Close ⍬ ⋄ :EndTrap
+⍝Done

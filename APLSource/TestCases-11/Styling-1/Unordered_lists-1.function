@@ -1,0 +1,30 @@
+ Unordered_lists←{
+
+     r←⊂'Title' 'Unordered lists'
+
+     l←'One'
+     l,←'⋄Two'
+     l,←'⋄Three'
+
+     r,←⊂'Body' 'Ordinary list:'
+     r,←⊂'ListU'l
+
+     r,←⊂'Body' 'List styled via an ID:'
+     r,←⊂'ListU id="id002"'l
+
+     r,←⊂'Body' 'List styled via a class:'
+     r,←⊂'ListU class="foo"'l
+
+     css←⊂'#id002 {'
+     css,←⊂' color: white;'
+     css,←⊂' background-color: gray;'
+     css,←⊂' padding: 15px;'
+     css,←⊂'}'
+     css,←⊂'div.foo {'
+     css,←⊂' color: white;'
+     css,←⊂' background-color: gray;'
+     css,←⊂' padding: 15px;'
+     css,←⊂'}'
+     r,←⊂'CSS'css
+     r
+ }

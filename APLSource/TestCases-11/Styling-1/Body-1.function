@@ -1,0 +1,24 @@
+ Body←{
+
+     r←⊂'Title' 'The "Body" tag'
+
+     r,←⊂'Body' 'Ordinary "Body"'
+
+     t←'This is a "Body" tag with non-standard background color and paddings assigned via an ID.'
+     r,←⊂'Body id="id002"'t
+
+     t←'This is a "Body" tag with non-standard font (BIG!) assigned via a class.'
+     r,←⊂'Body class="bigbody"'t
+
+     css←⊂'p#id002 {'
+     css,←⊂' color: white;'
+     css,←⊂' background-color: gray;'
+     css,←⊂' padding: 15px;'
+     css,←⊂'}'
+     css,←⊂'p.bigbody {'
+     css,←⊂'  font-family: "APL385 Unicode";'
+     css,←⊂'  font-size: 32px;'
+     css,←⊂'}'
+     r,←⊂'CSS'css
+     r
+ }

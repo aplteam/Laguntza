@@ -1,0 +1,28 @@
+ R←Test_100(stopFlag batchFlag);⎕TRAP;ref;tree
+⍝ Test the "LookUpComplexLink" method.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ∆CreateStructure1
+ ∆CreateTopicProperties1_a
+ ∆CreatePagesSet1
+ ref←StartHelp 0        ⍝ Default
+
+ →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'*.Topic4|AltText'⍬
+ →GoToTidyUp 2≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'*.Topic2|AltText'⍬
+ →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First.Topic2|AltText'⍬
+ →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First'⍬
+ →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'#.TestHelp.Level1_b.Topic2|AltText'⍬
+ →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'Topic2|AltText' 11
+ →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'##.Level1_a.level2_Second|AltText' 11
+ →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'Level99999.Topic2|AltText' 11
+ →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'a.b.c.de2|AltText' 11
+ →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'*.DoesNotExist'⍬
+ →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'↑*.DoesNotExist'⍬
+ →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'##.##.DoesNotExist' 11
+
+ R←∆OK
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

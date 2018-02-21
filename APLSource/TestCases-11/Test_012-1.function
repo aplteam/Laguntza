@@ -1,0 +1,28 @@
+ R←Test_012(stopFlag batchFlag);⎕TRAP;report;ps;ref;myTimer
+⍝ Attempts to put a page in display that does not exist
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ :If batchFlag
+     R←∆NoBatchTest
+     :Return
+ :EndIf
+
+ ∆CreateStructure2
+ ∆CreatePagesSet3
+ ps←##.Markdown2Help.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject'Test_008'
+ ps.source←#.TestHelp
+ ps.trapErrors←0
+ ref←1 ##.Markdown2Help.New ps
+ ref ##.Markdown2Help.ShowTopic'ThisDoesNotExist'
+ ⎕DL 0.2
+ :If ∆YesOrNo'Do you see "Page not found" ?'
+     R←∆OK
+ :EndIf
+
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ ⎕EX'#.TestHelp'

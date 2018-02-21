@@ -1,0 +1,2 @@
+ r←GetPathForTempHelpProject add
+ r←(#.FilesAndDirs.GetTempPath),'\Markdown2Help_TestCases\',add

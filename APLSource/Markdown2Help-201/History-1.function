@@ -1,0 +1,16 @@
+ History
+ :Access Public shared
+⍝ * 2.6.0
+⍝   * Converted from the APL wiki to GitHub.
+⍝ * 2.5.6
+⍝   * ViewHelp.exe should always runs in user mode but did not.
+⍝ * 2.5.5
+⍝   * Headers of level 6 were ill-defined for the screen: way too small.
+⍝ * 2.5.4
+⍝   * Bug fixes:
+⍝     * ViewHelp.exe sometimes crashed.
+⍝     * ViewHelp.exe sometimes did not show a page specified.
+⍝     * Neither `Close` nor `Reset` cleaned up temp files.
+⍝     * The test cases left behind a considerable amount of temp files.
+⍝ * 2.5.3
+⍝   * Bug fix: "About" always showed Markdown2Help information rather than the relevenat one.
