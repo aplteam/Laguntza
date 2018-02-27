@@ -7,3 +7,5 @@
 *.script linguist-language=apl
 *.charstring linguist-language=apl
 *.charList linguist-language=apl
+*.dws linguist-language=apl
+*.dyapp linguist-language=apl
