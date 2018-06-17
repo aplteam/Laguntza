@@ -3,6 +3,7 @@
 ⍝ empty vector instead then ALL instances of Markdown2Help will be closed.\\
 ⍝ Returns 0 for succecss and `⎕en` otherwise.
  r←0
+ ⎕DL 0.2
  ⎕TRAP←(0 'E' '→0,⍴r←⎕EN')
  :If ⍬≢A←{0::⍬ ⋄ ⍵.d.A}∆Ref
      File.CloseFile ∆Ref

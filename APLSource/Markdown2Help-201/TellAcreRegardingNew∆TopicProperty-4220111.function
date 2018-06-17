@@ -2,14 +2,14 @@
 ⍝ Tell acre
  r←0
  :If 9=⎕SE.⎕NC'acre'
-     {}⎕SE.UCMD'acre.Projects [ messages←''off'']'
-     :If 0∊⍴buf←⎕SE.UCMD'acre.SetChanged ',(⍕where),'.∆TopicProperties'
+     :If 0∊⍴buf←⎕SE.UCMD'acre.SetChanged ',(⍕where),'.∆TopicProperties -messages=off'
+     :AndIf ∆Ref.p.reportToSession
          ⎕←'*** acre was told about ∆TopicProperties in ',(⍕where),' but it wasn''t interested'
          r←1
      :EndIf
-     {}⎕SE.UCMD'acre.Projects [ messages←''on'']'
  :ElseIf 9=#.⎕NC'acre'
-     :If 0∊⍴buf←#.acre.SetChanged(⍕where),'.∆TopicProperties'
+     :If 0∊⍴buf←#.acre.SetChanged(⍕where),'.∆TopicProperties -messages=off'
+     :AndIf ∆Ref.p.reportToSession
          ⎕←'*** acre was told about ∆TopicProperties in ',(⍕where),' but it wasn''t interested'
          r←1
      :EndIf

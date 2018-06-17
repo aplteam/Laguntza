@@ -16,4 +16,4 @@
  R←∆OK
 
 ∆TidyUp:
- :Trap 0 ⋄ 2 ⎕NQ ref'Close' ⋄ :EndTrap
+ :Trap 0 ⋄ ⎕NQ ref'Close' ⋄ :EndTrap

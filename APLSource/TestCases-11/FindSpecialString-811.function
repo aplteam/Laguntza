@@ -4,7 +4,7 @@
 ⍝ However, at the time of writing the user command ]locate does not work on #.
 ⍝ Reported as bug <01355> to Dyalog on 2017-04-24.
  startIn←{0<⎕NC ⍵:⍎⍵ ⋄ '#'}'startIn'
- r←⍉1↓[1+⎕IO]⎕SE.UCMD'locate ',what,' -return=count -objects=',⍕startIn
- :If 0<1↑⍴r←(0<r[;⎕IO+1])⌿r                                    ⍝ Drop those with no hits
+ :If ~0∊⍴r←⍉1↓[1+⎕IO]⎕SE.UCMD'locate ',what,' -return=count -objects=',⍕startIn
+ :AndIf 0<1↑⍴r←(0<r[;⎕IO+1])⌿r                                    ⍝ Drop those with no hits
      r[;⎕IO]←{2>'#'+.=⍵:⍵ ⋄ {⎕IO←0 ⋄ ⌽⍵↑⍨1+⍵⍳'#'}⌽⍵}¨r[;⎕IO]   ⍝ Circumvent bug <01356>
  :EndIf

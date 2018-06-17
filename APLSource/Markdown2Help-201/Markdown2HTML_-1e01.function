@@ -8,7 +8,7 @@
      parms.bookmarkLink←0
      parms.markdownStrict←1
      parms.syntaxSugar←0
-     parms.homeFolder←∆Ref.p.folderName,'\'
+     parms.projectPathFolder←∆Ref.p.folderName,'\'
      ns←##.MarkAPL.Init parms md
      ns←##.MarkAPL.Process ns
      0∊⍴ns.report:ns.html

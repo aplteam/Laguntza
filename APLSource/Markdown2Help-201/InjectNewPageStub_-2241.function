@@ -35,9 +35,8 @@
      path←GetSaltPath parent
      cmd←'SALT.Save ',(⍕parent),'.',name,' ''',path,'\',name,'.dyalog'' -makedir -noprompt'
      {}⎕SE.UCMD cmd
- :ElseIf 0∊⍴∆Ref TellAcreAboutChange(⍕parent),'.',name
- :AndIf ∆Ref.p.reportToSession
-     ⎕←'*** acre was told that "',name,'" was introduced into ',(⍕parent),' but wasn''t interested.'
+ :Else
+     ∆Ref TellAcreAboutChange(⍕parent),'.',name
  :EndIf
  ∆Ref AddToTopicProperties name parent
  {}Compile ∆Ref

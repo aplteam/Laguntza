@@ -10,14 +10,14 @@
 
  R←∆Failed
 
- path←#.FilesAndDirs.NormalizePath #.FilesAndDirs.PWD,'\Dest\'
+ path←#.FilesAndDirs.NormalizePath #.FilesAndDirs.PWD,'\Dist\'
  tempPath←#.FilesAndDirs.GetTempFilename''
  #.FilesAndDirs.DeleteFile tempPath
  tempPath←¯4↓tempPath
  success←'Create!'#.FilesAndDirs.CheckPath tempPath
  'Something went terribly wrong'Assert success
 
- myZipper←⎕NEW #.SevenZip(,⊂path,'Markdown2Help.zip')
+ myZipper←⎕NEW #.SevenZip(,⊂path,'Markdown2Help-',(1⊃##.Markdown2Help.Version),'.zip')
  rc←myZipper.Unzip tempPath
  'Something went terribly wrong'Assert 0=↑rc
 

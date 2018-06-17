@@ -1,3 +1,8 @@
  Initial
+ ∆DEBUG←' '#.APLTreeUtils.Last ⎕SE.UCMD'udebug on'
  #.Tester.EstablishHelpersIn ⍬
  ∆AcreChangeFiles
+ ∆TestFolder←#.FilesAndDirs.GetTempPath,'Markdown2Help'
+ #.FilesAndDirs.RmDir ∆TestFolder
+ #.FilesAndDirs.CheckPath ∆TestFolder
+⍝Done

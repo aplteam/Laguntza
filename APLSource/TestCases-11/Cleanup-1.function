@@ -7,4 +7,8 @@
      ⍎(0≠rc)/'.'
  :EndIf
  ∆AcreChangeFiles
+ {}⎕SE.UCMD'udebug ',∆DEBUG
+ #.FilesAndDirs.RmDir ∆TestFolder
+ ⎕EX'∆TestFolder'
+ ⎕EX'∆DEBUG'
 ⍝Done

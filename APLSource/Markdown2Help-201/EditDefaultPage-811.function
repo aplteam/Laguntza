@@ -12,10 +12,7 @@
      ⍎parent,'.∆DefaultPage←⎕SE.TEMP.buffer'
      okFlag←1
  :Until okFlag
- :If 0∊⍴∆Ref TellAcreAboutChange parent,'.∆DefaultPage'
- :AndIf ∆Ref.p.reportToSession
-     ⎕←'*** acre was told that "',(⍕parent),'.∆DefaultPage" was changed but it wasn''t interested?!'
- :EndIf
+ ∆Ref TellAcreAboutChange parent,'.∆DefaultPage'
  {}Compile ∆Ref
  ∆Ref ShowTopic parent
 ⍝Done

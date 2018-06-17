@@ -6,11 +6,11 @@
          result←⎕SE.UCMD'acre.Erase ',fnsName
      :ElseIf 9=#.⎕NC'acre'
          result←#.acre.Erase fnsName
+         :If ∆Ref.p.reportToSession∧0∊⍴result
+             ⎕←'*** acre was told that "',fnsName,'" was deleted but wasn''t interested'
+         :EndIf
      :Else
          result←'No acre anywhere'
-     :EndIf
-     :If ∆Ref.p.reportToSession∧0∊⍴result
-         ⎕←'*** acre was told that "',fnsName,'" was deleted but wasn''t interested'
      :EndIf
  :EndIf
  ⎕EX name

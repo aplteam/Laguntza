@@ -1,0 +1,25 @@
+ R←Test_acre_002(stopFlag batchFlag);⎕TRAP;projectName;ref;M;res;changeFolder
+⍝ Is adding a TopicProperty page noticed by acre?
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ projectName←'_',1⊃⎕SI
+ #.⎕SHADOW projectName
+ res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,projectName,'" #.',projectName,' -messages=off'
+ →GoToTidyUp res≢'#.',projectName
+ M←##.Markdown2Help
+ ref←M.CreateStub'#.',projectName,'.',1↓projectName
+ changeFolder←∆TestFolder,projectName,'\.acre\changes\'
+ →GoToTidyUp 4≠⍴↑#.FilesAndDirs.Dir changeFolder
+
+ 1 M.HandleTopicProperties ref.n.∆Ref
+ →GoToTidyUp 5≠⍴↑#.FilesAndDirs.Dir changeFolder
+
+ R←∆OK
+
+∆TidyUp:
+ ##.Markdown2Help.Reset
+ #.⎕EX projectName
+ ##.FilesAndDirs.RmDir ∆TestFolder,projectName
+⍝Done

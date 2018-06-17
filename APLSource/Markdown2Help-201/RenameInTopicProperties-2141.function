@@ -1,4 +1,4 @@
- {r}←∆Ref RenameInTopicProperties(oldname newName parent);result;body;ind;rc;cmd;path
+ {r}←testflag RenameInTopicProperties(∆Ref oldname newName parent);result;body;ind;rc;cmd;path
 ⍝ Rename an entry in ∆TopicProiperties.
  :If r←3=parent.⎕NC'∆TopicProperties'
      result←parent.⍎'∆TopicProperties ⍬'
@@ -7,15 +7,15 @@
      body←⍪GetTopicPropertyTemplate ⍬
      body⍪←⍪ReformatTopicPropertyResult result
      parent.⎕FX,body
-     :If 0=1↑0⍴rc←parent EditFnsByQED'∆TopicProperties'
+     :If 0=testflag
+     :AndIf 0=1↑0⍴rc←parent EditFnsByQED'∆TopicProperties'
          . ⍝ Something went wrong - please investigate
      :EndIf
      :If CheckOnEditFixForSaltHandler parent
          path←GetSaltPath parent
          cmd←(⍕parent),'.∆TopicProperties ',path,'/∆TopicProperties.dyalog -noprompt'
          {}⎕SE.SALT.Save cmd
-     :ElseIf 0∊⍴∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
-     :AndIf ∆Ref.p.reportToSession
-         ⎕←'*** acre was told about ∆TopicProperties but it wasn''t interested'
+     :Else
+         ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
      :EndIf
  :EndIf

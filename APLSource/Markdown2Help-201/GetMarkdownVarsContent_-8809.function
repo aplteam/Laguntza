@@ -12,7 +12,7 @@
  result←⍎varsName
  result←ExecEmbeddedFns result varsName
 ⍝ ⍎(∨/'FlipDB'⍷∊result)/'.'
- ticks←0≠2|+/¨'`'=result
+ ticks←0≠2|+/¨'`'=RemoveCodeBlock result
  :If 1∊ticks
      :If ∆Ref.p.userMode
         ⍝ Returning two empty vectors is the best we can do in user mode.

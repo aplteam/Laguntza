@@ -1,5 +1,10 @@
  History
  :Access Public shared
+⍝ * 2.6.1
+⍝   * acre 4 compatible now (messages)
+⍝   * Bug fixes:
+⍝     * Odd number of back-ticks in code blocks must be allowed in a help page.
+⍝     * Deleting nodes never really worked (needed an acre fix).
 ⍝ * 2.6.0
 ⍝   * Converted from the APL wiki to GitHub.
 ⍝ * 2.5.6

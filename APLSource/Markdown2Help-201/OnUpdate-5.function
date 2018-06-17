@@ -3,6 +3,10 @@
  r←1
  rf←∆Ref.n.form
  ⎕TRAP←∆Ref.p.userMode⊃(994 'C' '→∆Error')(994 'C' '→0')
+ :If 0<∆Ref.f.⎕NC'tieNo'
+ :AndIf ~∆Ref.f.tieNo∊⎕FNUMS
+     :Return        ⍝ Timing issue: does not exist anymore.
+ :EndIf
  :If {11::1 ⋄ 'Namespace'≡rf.Type}⍬            ⍝ The user might just have closed the GUI (Alt+F4...)
      Cleanup ⍬
  :Else

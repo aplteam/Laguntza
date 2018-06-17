@@ -1,4 +1,4 @@
- {r}←{refToParent}EditByQED name;body;noOf;flag;msg;old;acreSettings;acreProjects
+ {r}←{refToParent}EditByQED name;body;noOf;flag;msg;old
 ⍝ Allows "edit-through" in version 14.1 and later.
 ⍝ Returns 1 if the user has entered something, otherwise 0 if name points to a vars.
 ⍝ Returns the result of ⎕FX if name points to a function (∆TopicProperties)
@@ -9,13 +9,11 @@
      old←refToParent⍎name
  :EndIf
  :Repeat
-     (acreProjects acreSettings)←AcreMessages⊂'off'
      :If 14.1≤↑(//)⎕VFI{⍵/⍨2>+\'.'=⍵}1⊃'#'⎕WG'APLVersion'
          {}(refToParent.⎕ED⍠('EditName' 'Allow'))name
      :Else
          {}refToParent.⎕ED name
      :EndIf
-     {}acreProjects AcreMessages'on'  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  ⍝TODO⍝  acreSettings  ⍝ Restore original settings but how in acre 4?!
      :If 3=refToParent.⎕NC name
          body←⎕CR name
          r←refToParent.⎕FX body
@@ -24,19 +22,21 @@
          body←refToParent.⍎name
      :EndIf
      :If r←~0∊⍴(∊body)~' '
-         ⍝ Strictly speaking the RegEx is not correct: it allows more than 3 leading spaces. However,
-         ⍝ this is a necessity here because it might be part of a list, and we don't have the means
-         ⍝ to check this here.
-         noOf←+/(⊂,'#')≡¨{⍵↑⍨⍵⍳' '}¨A.dlb'(^\s{0,}~{3,}).*?(?1)'⎕R''⍠('Mode' 'M')('DotAll' 1)⊣body
-         :Select noOf
-         :Case 0
-             msg←'Please make sure that you have a header of level one.'
-         :Case 1
-             flag←1
+         :If 1=2|⍴'^\s{0,}~{3,} {0,}$'⎕S 0⍠('Mode' 'L')⊣body,⊂'~~~ 1'  ⍝ Odd number of code block fences?!
+             msg←'There is an odd number of code block fences; please fix.'
          :Else
-             msg←'Please make sure that you have just one header of level one; you have '
-             msg,←(⍕noOf),' right now.'
-         :EndSelect
+         ⍝ The following line checks for any level-1 headers.
+             noOf←+/(⊂,'#')≡¨{⍵↑⍨⍵⍳' '}¨A.dlb RemoveCodeBlock body
+             :Select noOf
+             :Case 0
+                 msg←'Please make sure that you have a header of level one.'
+             :Case 1
+                 flag←1
+             :Else
+                 msg←'Please make sure that you have just one header of level one; you have '
+                 msg,←(⍕noOf),' right now.'
+             :EndSelect
+         :EndIf
          :If 0=flag
              ('Problem with ',name)ShowError msg
          :EndIf

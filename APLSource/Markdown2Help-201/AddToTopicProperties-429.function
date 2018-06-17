@@ -16,8 +16,7 @@
      :If CheckOnEditFixForSaltHandler ⍬
          cmd←(⍕parent),'.∆TopicProperties ',(GetSaltPath parent),'∆TopicProperties.dyalog -noprompt'
          {}⎕SE.SALT.Save cmd
-     :ElseIf 0∊⍴∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
-     :AndIf ∆Ref.p.reportToSession
-         ⎕←'*** acre was told that "∆TopicProperties" in ',(⍕parent),' was changed but it wasn''t interested.'
+     :Else
+         ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
      :EndIf
  :EndIf

@@ -15,4 +15,7 @@
  R←∆OK
 
 ∆TidyUp:
- 2 ⎕NQ ref'Close'
+ ⎕NQ ref'Close'
+ ⎕DL 0.2
+ #.FilesAndDirs.RmDir ref.∆parms.folderName
+⍝Done
