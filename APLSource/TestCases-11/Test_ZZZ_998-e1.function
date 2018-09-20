@@ -5,29 +5,27 @@
  R←∆OK
 
  r←∆Inactive
- :If 0   ⍝ User command "locate" does NOT work! We need a replacement for this.
 
-     report←''
+ report←''
 
-     xml←⎕XML'flat'#.APLTreeUtils.ReadUtf8File'publish.config'
-     source←2⊃xml[xml[;1]⍳⊂'container';]
+ xml←⎕XML'flat'#.APLTreeUtils.ReadUtf8File'publish.config'
+ source←2⊃xml[xml[;1]⍳⊂'container';]
 
-     :If ~0∊⍴buff←source FindSpecialString'⍝CHECK⍝'
-         buff←(buff[;0]≢¨⎕XSI[0])⌿buff ⍝ remove caller
-     :AndIf ~0∊⍴buff
-         report,←↓(⊂' ⍝CHECK⍝ found:'),(⊂'   '),¨buff
-     :EndIf
+ :If ~0∊⍴buff←source FindSpecialString'⍝CHECK⍝'
+     buff←(buff[;0]≢¨⎕XSI[0])⌿buff ⍝ remove caller
+ :AndIf ~0∊⍴buff
+     report,←↓(⊂' ⍝CHECK⍝ found:'),(⊂'   '),¨buff
+ :EndIf
 
-     :If ~0∊⍴buff←source FindSpecialString'⍝TODO⍝'
-         buff←(buff[;0]≢¨⎕XSI[0])⌿buff ⍝ remove caller
-     :AndIf ~0∊⍴buff
-         report,←↓(⊂' ⍝TODO⍝ found:'),(⊂'   '),¨buff
-     :EndIf
+ :If ~0∊⍴buff←source FindSpecialString'⍝TODO⍝'
+     buff←(buff[;0]≢¨⎕XSI[0])⌿buff ⍝ remove caller
+ :AndIf ~0∊⍴buff
+     report,←↓(⊂' ⍝TODO⍝ found:'),(⊂'   '),¨buff
+ :EndIf
 
-     :If 1=⍴,report
-         report,←⊂'    Nothing found!'
-     :Else
-         ⎕←'Checking for ⍝TODO⍝ and ⍝CHECK⍝ '{⍵↑,'--- ',⍺,' ',⍵⍴'-'}80⌊⎕PW-1
-         ⎕←⊃report
-     :EndIf
+ :If 1=⍴,report
+     report,←⊂'    Nothing found!'
+ :Else
+     ⎕←'Checking for ⍝TODO⍝ and ⍝CHECK⍝ '{⍵↑,'--- ',⍺,' ',⍵⍴'-'}80⌊⎕PW-1
+     ⎕←⊃report
  :EndIf

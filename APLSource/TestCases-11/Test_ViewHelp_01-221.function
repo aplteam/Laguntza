@@ -1,4 +1,4 @@
- R←Test_ViewHelp_01(stopFlag batchFlag);⎕TRAP;ref;report;path;tempPath;myZipper;rc;processInfo;result;more;parms;pid;flag;success
+ R←Test_ViewHelp_01(stopFlag batchFlag);⎕TRAP;ref;report;path;tempPath;myZipper;rc;processInfo;result;more;parms;pid;flag;success;zipFilename
 ⍝ Test `ViewHelp.exe`. You must run ]runmake first for this to test the right version!
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
@@ -12,9 +12,12 @@
  success←'Create!'#.FilesAndDirs.CheckPath tempPath
  'Something went terribly wrong'Assert success
 
- myZipper←⎕NEW #.SevenZip(,⊂path,'Markdown2Help-',(1⊃##.Markdown2Help.Version),'.zip')
+ zipFilename←path,'Markdown2Help-',(1⊃##.Markdown2Help.Version),'.zip'
+ 'Did you run ]runmake and ]acre.rfresh?!'Assert #.FilesAndDirs.IsFile zipFilename
+
+ myZipper←⎕NEW #.SevenZip(,⊂zipFilename)
  rc←myZipper.Unzip tempPath
- 'Something went terribly wrong'Assert 0=↑rc
+ 'Something went terribly wrong'Assert 0=↑rc   ⍝ Fails?! See first comment line!
 
  parms←#.Execute.DefaultParms
  parms.wait←0
@@ -29,3 +32,4 @@
 
 ∆TidyUp:
  #.FilesAndDirs.DeleteFile tempPath
+⍝Done

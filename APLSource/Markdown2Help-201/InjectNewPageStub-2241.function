@@ -9,7 +9,7 @@
              :Return                ⍝ Cancelled!
          :Else
              :If sibling≡'into'
-                 parent←⍎↑{⍺,'.',⍵}/row[I.(Parent TopicName)]
+                 parent←⍎↑{(⍕⍺),'.',⍵}/row[I.(Parent TopicName)]
              :Else
                  parent←I.Parent⊃row
              :EndIf

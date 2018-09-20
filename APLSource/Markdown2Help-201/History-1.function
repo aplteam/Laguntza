@@ -1,5 +1,8 @@
  History
  :Access Public shared
+⍝ * 2.6.2
+⍝   * Bug fix: under certain circumstances injecting a new help page ("into") crashed.
+⍝   * Test cases improved.
 ⍝ * 2.6.1
 ⍝   * acre 4 compatible now (messages)
 ⍝   * Bug fixes:
