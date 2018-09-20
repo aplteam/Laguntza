@@ -22,7 +22,7 @@ If you want to investigate `Markdown2Help`'s own help pages look into `#.Markdow
 
 Note how the namespaces reflect nodes and the variables reflect help topics.
 
-You can edit any help page by pressing Ctrl+Enter or from the context menu.
+You can edit any help page by pressing Ctrl+Enter or selecting "Edit Help page" from the context menu.
 
 This is what a typical help variable looks like:
 
@@ -32,10 +32,18 @@ This is what a typical help variable looks like:
 
 Since version version 2.2.0 there is a method `CreateStub` available that makes it easy to start a new help system. 
 
-Just call it and provide a proper name as the right argument. If it's not supposed to live in `#` you can specify the name of the namespace it shall be created in as the left argument.
+Just call it and provide a proper name as the right argument.
 
-It will then create a couple of pages and a node and finally display it.
+If the defaults do not suit you then create a parameter spaces with  
+
+```
+parms←Markdown2Help.CreateParms ''
+```
+
+make the amendments and pass `parms` as left argument to `CreateStub`.
+
+`CreateStub` will create a couple of pages and a node and finally put the new help system on display.
 
 ## Requirements 
 
-`Markdown2Help` needs at least version 14.0.
+`Markdown2Help` needs at least Dyalog version 15.0.
