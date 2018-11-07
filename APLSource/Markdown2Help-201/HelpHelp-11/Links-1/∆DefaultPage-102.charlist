@@ -20,7 +20,7 @@ By default the name of the topic will be used as link text unless a
 `→[*.TopicProperties|∆TopicProperties]` function specifies a title for a help page 
 which trumps the name of the variable holding the help page.
 
-Note that any "\_" character in the name is exchanged against a space character.
+Note that any `_` character in the name is exchanged against a space character.
 
 ### Alternative link text
 

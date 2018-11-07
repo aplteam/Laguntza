@@ -6,8 +6,6 @@
      in←tree.SelItems{(⍴⍺)=l←⍺⍳1:⍬ ⋄ l}1     ⍝ Currently selected item
      hc←0<in NoOfChildren ∆Ref.d.tree[;I.Depth]  ⍝ Has it children?
      n.menu←⎕NEW⊂'Menu'
-     n.cancel←n.menu.⎕NEW'MenuItem'(⊂'Caption' 'Cancel this menu')
-     n.sep1←n.menu.⎕NEW⊂'Separator'
      n.collaps←n.menu.⎕NEW'MenuItem'(('Caption' 'Collapse incl. children')('Active'hc))
      n.expand←n.menu.⎕NEW'MenuItem'(('Caption' 'Expand incl. children')('Active'hc))
      bm←∆Ref IsBookmarkable in               ⍝ Gets 1 if item may be bookmarked

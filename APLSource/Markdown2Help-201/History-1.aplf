@@ -1,5 +1,11 @@
  History
  :Access Public shared
+⍝ * 3.0.0
+⍝   * Breaking change: the way special attributes were handled by MarkAPL, the
+⍝     Markdown-to-HTML5 converter used by Markdown2Help, was inconsistent and buggy.
+⍝     That's fixed now, but if you are using special attributes you _may_ find that
+⍝     this new version breaks something.
+⍝   * Documentation polished.
 ⍝ * 2.6.2
 ⍝   * Bug fix: under certain circumstances injecting a new help page ("into") crashed.
 ⍝   * Test cases improved.

@@ -4,7 +4,6 @@
      res←⎕DQ n.menu                         ⍝ Hand over to user
      (0∊⍴res):0                             ⍝ cancelled?!
      sel←0⊃res                              ⍝ Which menu item got selected?
-     (n.cancel≡sel):0                       ⍝ User selected "Cancel this menu"
      (n.bookmark≡sel):∆Ref ##.Bookmark in   ⍝ Bookmark current item
 
      (n.edit≡sel):∆Ref ##.EditFromSearch in ⍝ Let user edit a help function

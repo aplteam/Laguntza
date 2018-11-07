@@ -12,19 +12,19 @@ best understood by providing an example.
 Let's start with this image which is shown with default CSS rules:
 
 ~~~
-![FlipDB Team](Images/FlipDB-Team.png)
+![FlipDB Team](FlipDB-Team.png)
 ~~~
 
-![FlipDB Team](Images/FlipDB-Team.png)
+![FlipDB Team](FlipDB-Team.png)
 
 We want to center the picture. This can be achieved simply by assigning the class "center" to it. We also want the image 
 to separate clearly from previous and following elements, so we specify a top- and bottom margin of 40px for this:
 
 ~~~
-![FlipDB Team](Images/FlipDB-Team.png){.center style="margin-top:40px;margin-bottom:40px"}
+![FlipDB Team](FlipDB-Team.png{.center style="margin-top:40px;margin-bottom:40px"})
 ~~~
 
-![FlipDB Team](Images/FlipDB-Team.png){.center style="margin-top:40px;margin-bottom:40px"}
+![FlipDB Team](FlipDB-Team.png{.center style="margin-top:40px;margin-bottom:40px"})
 
 
 Finally we want to add a caption underneath the image. The text should be small, and it should be centered as well. In
@@ -33,12 +33,12 @@ we make sure that the distance between the image and the caption is small but th
 caption title.
 
 ~~~
-![FlipDB Team](Images/FlipDB-Team.png){.center style="margin-top:40px;margin-bottom:0"}
+![FlipDB Team](FlipDB-Team.png{.center style="margin-top:40px;margin-bottom:0"})
 
 The FlipDB Team{.small .center style="margin-top:0;margin-bottom:30px;"}
 ~~~
 
-![FlipDB Team](Images/FlipDB-Team.png){.center style="margin-top:40px;margin-bottom:0"}
+![FlipDB Team](FlipDB-Team.png{.center style="margin-top:40px;margin-bottom:0"})
 
 The FlipDB Team{.small .center style="margin-top:0;margin-bottom:30px;"}
 

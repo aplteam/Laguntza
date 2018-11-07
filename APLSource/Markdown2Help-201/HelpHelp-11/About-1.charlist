@@ -20,7 +20,7 @@ In 2016 it was decided to keep the source in variables which contain Markdown. B
 a change of paradigm a new project `Markdown2Help` was created. The functionality has not changed
 however.
 
-In 2018 the project was moved from the APL wiki to <https://github.com/aplteam/markdown2help>.
+In 2018 the project was moved from the APL wiki to GitHub: <https://github.com/aplteam/markdown2help>.
 
 `APLTreeHelp` as well as `Markdown2Help` were both implemented by Kai Jaeger. 
 [Kai Jaeger on LinkedIn](https://www.linkedin.com/in/kaijaeger).

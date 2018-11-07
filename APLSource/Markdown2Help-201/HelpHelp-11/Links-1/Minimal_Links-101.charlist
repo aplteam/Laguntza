@@ -15,7 +15,7 @@ There are two types of minimal links.
 Such a link will work only if there is a **sibling page** with that name.
 
 
-## With a wildcard character (\*)
+## With a wildcard character (`*`)
 
 ~~~
 →[*.CreateParms]

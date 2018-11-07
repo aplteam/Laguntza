@@ -7,8 +7,6 @@
 
      n←⎕NS''
      n.menu←⎕NEW⊂'Menu'
-     n.cancel←n.menu.⎕NEW'MenuItem'((⊂'Caption' 'Cancel this menu'))
-     n.sep1←n.menu.⎕NEW⊂'Separator'
      bm←∆Ref ##.IsBookmarkable in                   ⍝ Gets 1 if item may be bookmarked
      tx←'Bookmark this item',tab,'Ctrl+D'
      n.bookmark←n.menu.⎕NEW'MenuItem'(('Caption'tx)('Active'bm))
