@@ -1,4 +1,8 @@
-# Markdown2Help
+# Laguntza
+
+_Laguntza_ means "Help" in Basque. 
+
+Laguntza takes Markdown as input and creates a help system from it.
 
 ## Overview 
 
