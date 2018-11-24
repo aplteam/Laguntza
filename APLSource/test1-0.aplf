@@ -2,13 +2,13 @@
  #.⎕SHADOW'TEMP'
  'TEMP'#.⎕NS''
  tempFolder←¯4↓#.FilesAndDirs.GetTempFilename''
- ps←Markdown2Help.CreateParms ⍬
+ ps←Laguntza.CreateParms ⍬
  ps.helpCaption←'Test CreateStub'
  ps.saltFolder←tempFolder
- ref←ps Markdown2Help.CreateStub'#.TEMP.Kai'
+ ref←ps Laguntza.CreateStub'#.TEMP.Kai'
  ps.source←#.TEMP.Kai
  ps.expand←'None'
- r←1 Markdown2Help.New ps
+ r←1 Laguntza.New ps
  ⎕DQ'.'
  #.FilesAndDirs.RmDir tempFolder
  :Trap 0 ⋄ ref.Close ⍬ ⋄ :EndTrap

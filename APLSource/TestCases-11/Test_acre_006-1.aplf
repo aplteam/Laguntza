@@ -6,9 +6,9 @@
  projectName←'_',1⊃⎕SI
 
  #.⎕SHADOW projectName
- res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,projectName,'" #.',projectName,' -messages=off'
+ res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,projectName,'" #.',projectName,' -keephistory=on'
  →GoToTidyUp res≢'#.',projectName
- M←##.Markdown2Help
+ M←##.Laguntza
  home←'#.',projectName,'.',1↓projectName                            ⍝ Where does the help system (pages and nodes) live?
  ref←M.CreateStub home
  home←⍎home
@@ -34,7 +34,7 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ##.FilesAndDirs.RmDir ∆TestFolder,projectName
  #.⎕EX projectName
 ⍝Done

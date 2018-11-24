@@ -12,8 +12,8 @@
  success←'Create!'#.FilesAndDirs.CheckPath tempPath
  'Something went terribly wrong'Assert success
 
- zipFilename←path,'Markdown2Help-',(1⊃##.Markdown2Help.Version),'.zip'
- 'Did you run ]runmake and ]acre.rfresh?!'Assert #.FilesAndDirs.IsFile zipFilename
+ zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
+ 'Did you run ]runmake and ]acre.refresh?!'Assert #.FilesAndDirs.IsFile zipFilename
 
  myZipper←⎕NEW #.SevenZip(,⊂zipFilename)
  rc←myZipper.Unzip tempPath

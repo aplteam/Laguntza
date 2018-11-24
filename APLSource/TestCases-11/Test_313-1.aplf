@@ -14,10 +14,10 @@
  ref←StartHelp 0        ⍝ Default
 
  ∆Process ref
- report←##.Markdown2Help.Lint_.ReportTopicProperties ref
+ report←##.Laguntza.Lint_.ReportTopicProperties ref
  →GoToTidyUp~0∊⍴report
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

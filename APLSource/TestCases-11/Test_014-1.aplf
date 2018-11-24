@@ -9,7 +9,7 @@
  #.TestHelp.Page1←⊂'# First topic'
  #.TestHelp.Page2←⊂'# Second topic'
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
  ps.source←#.TestHelp
@@ -18,34 +18,34 @@
  ps.regPath←0
  ps.page←1 ⍝ Second page
 
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
  →GoToTidyUp 1≠#.APLTreeUtils.Where ref.n.tree.SelItems
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
 
  ps.page←'#.TestHelp.Page2'
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
  →GoToTidyUp 1≠#.APLTreeUtils.Where ref.n.tree.SelItems
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
 
  ps.page←'*.DoesNotExist'
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
  →GoToTidyUp 0≠#.APLTreeUtils.Where ref.n.tree.SelItems
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
 
  ps.page←'Page2'
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
  →GoToTidyUp 1≠#.APLTreeUtils.Where ref.n.tree.SelItems
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

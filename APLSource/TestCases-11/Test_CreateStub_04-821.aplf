@@ -7,7 +7,7 @@
  #.⎕SHADOW'Test_04'
 
  :Trap 0
-     ref←(1 2 3)##.Markdown2Help.CreateStub'#.Test_04'
+     ref←(1 2 3)##.Laguntza.CreateStub'#.Test_04'
      →GoToTidyUp 1
  :Else
      →GoToTidyUp'Invalid container namespace'≢⎕DMX.EM

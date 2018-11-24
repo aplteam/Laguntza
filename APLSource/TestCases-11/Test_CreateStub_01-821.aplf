@@ -5,7 +5,7 @@
  R←∆Failed
 
  :Trap 0
-     ##.Markdown2Help.CreateStub ⎕THIS
+     ##.Laguntza.CreateStub ⎕THIS
      →FailsIf 1
  :Else
      dmx←⎕DMX

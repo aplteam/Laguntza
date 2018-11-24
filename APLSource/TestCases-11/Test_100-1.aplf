@@ -9,20 +9,20 @@
  ∆CreatePagesSet1
  ref←StartHelp 0        ⍝ Default
 
- →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'*.Topic4|AltText'⍬
- →GoToTidyUp 2≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'*.Topic2|AltText'⍬
- →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First.Topic2|AltText'⍬
- →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First'⍬
- →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'#.TestHelp.Level1_b.Topic2|AltText'⍬
- →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'Topic2|AltText' 11
- →GoToTidyUp 1≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'##.Level1_a.level2_Second|AltText' 11
- →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'Level99999.Topic2|AltText' 11
- →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'a.b.c.de2|AltText' 11
- →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'*.DoesNotExist'⍬
- →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'↑*.DoesNotExist'⍬
- →GoToTidyUp 0≠ref ##.Markdown2Help.Lint_.LookUpComplexLink'##.##.DoesNotExist' 11
+ →GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'*.Topic4|AltText'⍬
+ →GoToTidyUp 2≠ref ##.Laguntza.Lint_.LookUpComplexLink'*.Topic2|AltText'⍬
+ →GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First.Topic2|AltText'⍬
+ →GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First'⍬
+ →GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'#.TestHelp.Level1_b.Topic2|AltText'⍬
+ →GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'Topic2|AltText' 11
+ →GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'##.Level1_a.level2_Second|AltText' 11
+ →GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'Level99999.Topic2|AltText' 11
+ →GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'a.b.c.de2|AltText' 11
+ →GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'*.DoesNotExist'⍬
+ →GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'↑*.DoesNotExist'⍬
+ →GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'##.##.DoesNotExist' 11
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

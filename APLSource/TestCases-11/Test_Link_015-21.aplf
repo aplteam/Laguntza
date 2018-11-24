@@ -1,5 +1,5 @@
  R←Test_Link_015(stopFlag batchFlag);⎕TRAP;ref;html
-⍝ Test a link that is not really a link (closing ] is missing). This once crashed Markdown2Help.
+⍝ Test a link that is not really a link (closing ] is missing). This once crashed Laguntza.
 ⍝ See also Test_Link_016 which does not end with the link.
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
@@ -19,5 +19,5 @@
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

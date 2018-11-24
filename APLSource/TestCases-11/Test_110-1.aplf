@@ -4,13 +4,13 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_110'
- ps.source←#._Markdown2Help.TestCases.TestCase_110_Data
+ ps.source←TestCase_110_Data
  ps.visible←0
  ps.reportToSession←0
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
 
@@ -20,7 +20,7 @@
  sa,←1                    ⍝ 4: lower case flag
  sa,←1                    ⍝ 5: Match whole words only
  sa,←0                    ⍝ 6: Search "As is" flag
- (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ (lines names)←ref ##.Laguntza.Search.Search sa ⍝ Perform the search
  →GoToTidyUp'Layout' 'Page1' 'Sub1/Page2'≢names
 
  sa←1                     ⍝ 1: Ignore container in search
@@ -29,7 +29,7 @@
  sa,←0                    ⍝ 4: lower case flag
  sa,←1                    ⍝ 5: Match whole words only
  sa,←0                    ⍝ 6: Search "As is" flag
- (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ (lines names)←ref ##.Laguntza.Search.Search sa ⍝ Perform the search
  →GoToTidyUp(,⊂'Layout')≢names
 
  sa←1                     ⍝ 1: Ignore container in search
@@ -38,7 +38,7 @@
  sa,←1                    ⍝ 4: lower case flag
  sa,←1                    ⍝ 5: Match whole words only
  sa,←0                    ⍝ 6: Search "As is" flag
- (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ (lines names)←ref ##.Laguntza.Search.Search sa ⍝ Perform the search
  →GoToTidyUp('Layout' 'Overview')≢names
 
  sa←1                     ⍝ 1: Ignore container in search
@@ -47,7 +47,7 @@
  sa,←0                    ⍝ 4: lower case flag
  sa,←1                    ⍝ 5: Match whole words only
  sa,←0                    ⍝ 6: Search "As is" flag
- (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ (lines names)←ref ##.Laguntza.Search.Search sa ⍝ Perform the search
  →GoToTidyUp~0∊⍴names
 
  sa←1                     ⍝ 1: Ignore container in search
@@ -56,7 +56,7 @@
  sa,←0                    ⍝ 4: lower case flag
  sa,←1                    ⍝ 5: Match whole words only
  sa,←0                    ⍝ 6: Search "As is" flag
- (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ (lines names)←ref ##.Laguntza.Search.Search sa ⍝ Perform the search
  →GoToTidyUp(,⊂'Overview')≢names
 
  sa←1                     ⍝ 1: Ignore container in search
@@ -65,11 +65,11 @@
  sa,←1                    ⍝ 4: lower case flag
  sa,←1                    ⍝ 5: Match whole words only
  sa,←0                    ⍝ 6: Search "As is" flag
- (lines names)←ref ##.Markdown2Help.Search.Search sa ⍝ Perform the search
+ (lines names)←ref ##.Laguntza.Search.Search sa ⍝ Perform the search
  →GoToTidyUp~0∊⍴lines
  →GoToTidyUp~0∊⍴names
 
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset

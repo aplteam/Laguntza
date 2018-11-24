@@ -6,9 +6,9 @@
 
  projectName←'_',1⊃⎕SI
  #.⎕SHADOW projectName
- res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,projectName,'" #.',projectName,' -messages=off'
+ res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,projectName,'" #.',projectName,' -keephistory=on'
  →GoToTidyUp res≢'#.',projectName
- M←##.Markdown2Help
+ M←##.Laguntza
  ref←M.CreateStub'#.',projectName,'.',1↓projectName
  changeFolder←∆TestFolder,projectName,'\.acre\changes\'
  →GoToTidyUp 4≠⍴↑#.FilesAndDirs.Dir changeFolder
@@ -19,7 +19,7 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  #.⎕EX projectName
  ##.FilesAndDirs.RmDir ∆TestFolder,projectName
 ⍝Done

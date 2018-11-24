@@ -1,10 +1,10 @@
  {r}←test3;parms;source
- parms←Markdown2Help.CreateParms ⍬
+ parms←Laguntza.CreateParms ⍬
  parms.helpAbout←'This and that' '' 'More' 'Much more!'
  parms.(helpVersion helpVersionDate)←⊂⍬
- parms.helpCaption←'Markdown2Help''s Help'
- parms.source←Markdown2Help.HelpHelp
+ parms.helpCaption←'Laguntza''s Help'
+ parms.source←Laguntza.HelpHelp
  parms.expand←'None'
- r←1 Markdown2Help.New parms
+ r←1 Laguntza.New parms
 
 ⍝Done

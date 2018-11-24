@@ -1,0 +1,10 @@
+ {r}←∆Ref TellAcreAboutErase name;res
+ r←⍬
+ :If ∆Ref.p.notifyAcre
+  ⍝ Tell acre 4.
+ :AndIf 9=⎕SE.⎕NC'acre'
+     :If 0∊⍴res←⎕SE.UCMD'acre.Erase ',name,((9=⎕NC⍕name)/'.*'),' -confirm=off '
+     :AndIf ∆Ref.p.reportToSession
+         ⎕←'*** acre was told that ',name,' was erased but wasn''t interested.'
+     :EndIf
+ :EndIf

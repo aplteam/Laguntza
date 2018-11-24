@@ -4,7 +4,7 @@ Changing the layout is possible: you enhance or change the CSS definition
 and the job is done. There are features available that make the process smooth.
 Follow these steps for best results:
 
-* Start an instance of `Markdown2Help` to see results.
+* Start an instance of `Laguntza` to see results.
 * Navigate to the page you want to change the layout for (=carries the elements
   you want to change).
 * Select the "Show topic in browser" command from the "Developers" menu.

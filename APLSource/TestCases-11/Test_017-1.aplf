@@ -12,19 +12,19 @@
  }
  #.TestHelp.Pages.Page←,¨'# First topic' '' '~~~' '## ⍎⍎⍎##._TestFns⍎⍎⍎' '~~~' ''
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
  ps.source←#.TestHelp
  ps.notifyAcre←0
  ps.regPath←0
 
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  html←⎕FREAD ref.f.tieNo 12
  →PassesIf 1=+/'<pre><code>## ⍎⍎⍎##._TestFns⍎⍎⍎</code></pre>'⍷∊html
 
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

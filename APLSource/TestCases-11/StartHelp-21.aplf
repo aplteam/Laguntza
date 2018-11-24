@@ -1,6 +1,6 @@
  {form}←{trapErrorsFlag}StartHelp userModeFlag;ps
  trapErrorsFlag←userModeFlag{0<⎕NC ⍵:⍎⍵ ⋄ ⍺}'trapErrorsFlag'
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 1⊃⎕XSI
  ps.source←#.TestHelp
@@ -9,5 +9,5 @@
  ps.notifyAcre←0
  ps.regPath←∆RegPath,'.'#.APLTreeUtils.Last 1⊃⎕XSI
  ps.reportToSession←0
- form←1 ##.Markdown2Help.New ps
+ form←1 ##.Laguntza.New ps
  form.⎕WS'Event' 9955 1

@@ -4,21 +4,21 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_108'
- ps.source←##.Markdown2Help.HelpHelp
+ ps.source←##.Laguntza.HelpHelp
  ps.trapErrors←0
  ps.visible←1
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
 
- fn←##.Markdown2Help.BuildDocFromAllPages ref
+ fn←##.Laguntza.BuildDocFromAllPages ref
  →GoToTidyUp~#.FilesAndDirs.Exists fn
  #.FilesAndDirs.DeleteFile fn
- →GoToTidyUp 0≠##.Markdown2Help.CloseHelp ref
+ →GoToTidyUp 0≠##.Laguntza.CloseHelp ref
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset

@@ -9,7 +9,7 @@
  #.TestHelp.Page1←,⊂'# First topic'
  #.TestHelp.Page2←,⊂'# Second topic'
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
  ps.source←#.TestHelp
@@ -18,8 +18,8 @@
  ps.regPath←0
  ps.maxWidth←'1200px'
 
- ref←1 ##.Markdown2Help.New ps
- fn←##.Markdown2Help.HTML.GetCssFileName ref'screen'
+ ref←1 ##.Laguntza.New ps
+ fn←##.Laguntza.HTML.GetCssFileName ref'screen'
  fn←(⍴'file:///')↓fn
  css←#.APLTreeUtils.ReadUtf8File fn
  →PassesIf~0∊⍴'^\s{0,}max-width: 1200px;\s{0,}\n'⎕S 0⍠('Mode' 'M')⊣css
@@ -27,5 +27,5 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

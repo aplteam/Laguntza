@@ -1,6 +1,7 @@
- {r}←oldName RenameTestFnsTo newName;body;rc;header;comment;res;name;right;left;newParent;oldParent;delFilanme;A
+ {r}←oldName RenameTestFnsTo newName;body;rc;header;comment;res;name;right;left;newParent;oldParent;delFilanme;A;⎕ML;⎕IO
 ⍝ Renames a test function and tells acre.
 ⍝ r ← ⍬
+ ⎕IO←0 ⋄ ⎕ML←3
  :If 9=#.⎕NC'APLTreeUtils'
      A←#.APLTreeUtils
  :ElseIf 9=⎕NC'APLTreeUtils'
@@ -89,7 +90,7 @@
              :If ⎕NEXISTS delFilanme
                  ⎕NDELETE delFilanme
              :EndIf
-             :If 0∊⍴rc←'putchange'⎕SE.acre.run,newName
+             :If 0∊⍴rc←⎕SE.UCMD'acre.SetChanged ',newName
                  ⎕←'acre was told about the introduction of a new test fns but it was not interested.'
              :EndIf
              :If 0∊⍴rc←⎕SE.UCMD'acre.Erase ',oldName

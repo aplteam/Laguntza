@@ -29,7 +29,7 @@
 
  ∆Process ref
 
- tieNo←(∨/'markdown2help_testcases\test_link_013\markdown2help.dcf'⍷#.APLTreeUtils.Lowercase ⎕FNAMES)/⎕FNUMS
+ tieNo←(∨/'laguntza_testcases\test_link_013\laguntza.dcf'⍷#.APLTreeUtils.Lowercase ⎕FNAMES)/⎕FNUMS
 
  html←⎕FREAD tieNo,10+1
  →PassesIf(⊂'<p>This: <code>~~~</code> is inline code.</p>')∊html
@@ -41,5 +41,5 @@
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

@@ -1,10 +1,10 @@
  {r}←test2;ps;source
  ps←⎕NS''
- ps.helpCaption←'Markdown2Help''s Help'
- ps.source←Markdown2Help.HelpHelp
+ ps.helpCaption←'Laguntza''s Help'
+ ps.source←Laguntza.HelpHelp
 
  ps.expand←'None'
- ps.cssPrintFilename←'C:\T\APLTreeProjects\Markdown2Help\Files\Markdown2Help_Print.css'
- ps.cssScreenFilename←'C:\T\APLTreeProjects\Markdown2Help\Files\Markdown2Help_Screen.css'
- r←1 Markdown2Help.New ps
+ ps.cssPrintFilename←'C:\T\APLTreeProjects\Laguntza\Files\Laguntza_Print.css'
+ ps.cssScreenFilename←'C:\T\APLTreeProjects\Laguntza\Files\Laguntza_Screen.css'
+ r←1 Laguntza.New ps
 ⍝Done

@@ -4,18 +4,18 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
 
- saltHandler←##.Markdown2Help.CheckOnEditFixForSaltHandler ⍬
+ saltHandler←##.Laguntza.CheckOnEditFixForSaltHandler ⍬
  qed←'⎕SE'⎕WG'editor'
  acreHandler←'⎕SE.acre.'{⍺≡(⍴⍺)↑' '~⍨⍕⍵}qed.onFix
 
  ⎕SE.SALTUtils.EditorFix'Start'
 
  ⎕EX'#.TestHelp'
- parms←##.Markdown2Help.CreateParms ⍬
+ parms←##.Laguntza.CreateParms ⍬
  name←#.FilesAndDirs.GetTempFilename''
  #.FilesAndDirs.DeleteFile name
  parms.saltFolder←¯4↓name
- ref←parms ##.Markdown2Help.CreateStub'#.TestHelp'
+ ref←parms ##.Laguntza.CreateStub'#.TestHelp'
  ⎕DL 0.2
  ref.Close
  list←↑('recursive' 1)#.FilesAndDirs.Dir parms.saltFolder,'\*'
@@ -23,7 +23,7 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'
  #.⎕EX'SALT_Var_Data'
  :If acreHandler

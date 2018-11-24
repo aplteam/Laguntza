@@ -11,7 +11,7 @@
  #.TestHelp.Page,←⊂'# A topic'
  ref←StartHelp 0        ⍝ Default
  ∆Process ref
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  →GoToTidyUp noOfOpenFiles≠⍴⎕FNUMS
  R←∆OK
 

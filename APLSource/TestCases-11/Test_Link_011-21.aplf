@@ -12,15 +12,15 @@
  ref←StartHelp 0        ⍝ Default
 
  ∆Process ref
- brokenLinks←¯1 ##.Markdown2Help.Lint_.CheckBrokenLinks ref
+ brokenLinks←¯1 ##.Laguntza.Lint_.CheckBrokenLinks ref
  →GoToTidyUp~0∊⍴brokenLinks                                  ⍝ We expect no broken links
- ambiguousLinks←¯1 ##.Markdown2Help.Lint_.CheckAmbiguousLinks ref
+ ambiguousLinks←¯1 ##.Laguntza.Lint_.CheckAmbiguousLinks ref
  →GoToTidyUp~0∊⍴ambiguousLinks                                ⍝ We expect no ambiguous link
- filename←##.Markdown2Help.BuildDocFromAllPages ref
+ filename←##.Laguntza.BuildDocFromAllPages ref
  html←'flat'#.APLTreeUtils.ReadUtf8File filename
  →GoToTidyUp 1≠+/'<a href="http://aplwiki.com"'⍷html
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

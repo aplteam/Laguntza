@@ -9,14 +9,14 @@
  ∆CreatePagesSet1
  ∆AcreChangeFiles
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_116'
  ps.source←#.TestHelp
  ps.trapErrors←1
  ps.visible←1
  ps.reportToSession←0
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.n.form.Event,←⊂9955 1
  ∆Process ref
 
@@ -25,7 +25,7 @@
  →GoToTidyUp 2≠#.TestHelp.Level1_a.⎕NC'Topic_0'
  result←#.TestHelp.Level1_a.∆TopicProperties ⍬
  →GoToTidyUp~(⊂'Topic_0')∊result[;0]
- 1 ##.Markdown2Help.DeleteTopicOrNode ref
+ 1 ##.Laguntza.DeleteTopicOrNode ref
  →GoToTidyUp 0≠#.TestHelp.Level1_a.⎕NC'Topic_0'
  result2←#.TestHelp.Level1_a.∆TopicProperties ⍬
  →GoToTidyUp 1≠-/↑¨⍴¨result result2
@@ -35,5 +35,5 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TEMP'

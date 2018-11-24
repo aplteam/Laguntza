@@ -7,30 +7,30 @@
  ∆CreateStructure1
  ∆CreatePagesSet1
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_123'
  ps.source←#.TestHelp
  ps.trapErrors←1
  ps.visible←1
  ps.reportToSession←0
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.n.form.Event,←⊂9955 1
  ∆Process ref
 
 ⍝ Setting SelItem[2]←1 has no effect, therefore we need to perform some gymnastics
- ref ##.Markdown2Help.SelectItemInTreeView 2
+ ref ##.Laguntza.SelectItemInTreeView 2
  ∆Process ref
 
  →FailsIf 0≠#.TestHelp.Level1_a.level2_First.⎕NC⊂'Test_01'
- 'into'##.Markdown2Help.InjectNewPageStub ref 2 1
+ 'into'##.Laguntza.InjectNewPageStub ref 2 1
  →FailsIf 2≠#.TestHelp.Level1_a.level2_First.⎕NC'Test_01'
  →FailsIf 0≠#.TestHelp.Level1_a.level2_First.⎕NC⊂'Test_02'
- 'into'##.Markdown2Help.InjectNewPageStub ref 2 1
+ 'into'##.Laguntza.InjectNewPageStub ref 2 1
  →FailsIf 2≠#.TestHelp.Level1_a.level2_First.⎕NC'Test_02'
 
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TEMP'

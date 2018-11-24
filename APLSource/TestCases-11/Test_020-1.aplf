@@ -7,7 +7,7 @@
  #.⎕SHADOW'TestHelp'
  'TestHelp'#.⎕NS''
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
  ps.source←#.TestHelp
@@ -15,7 +15,7 @@
  ps.regPath←0
 
  :Trap 11
-     ref←1 ##.Markdown2Help.New ps
+     ref←1 ##.Laguntza.New ps
      →GoToTidyUp 1
  :Else
      →GoToTidyUp'The source namespace is empty!'≢↑⎕DM
@@ -24,5 +24,5 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

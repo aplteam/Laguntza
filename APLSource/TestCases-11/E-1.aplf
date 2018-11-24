@@ -3,7 +3,11 @@
  :If 0∊⍴list
      list←'T'⎕NL 3
  :ElseIf 2=⍴⍴list
-     list←{⎕ML←1 ⋄ ↑⍵}list[;⎕IO]
+     :If 2=≡list
+         list←{⎕ML←1 ⋄ ↑⍵}list[;⎕IO]
+     :Else
+         list←{⎕ML←1 ⋄ ↑⍵}{⍵↑⍨+/∧\⍵≠' '}¨{⍵↓⍨+/∧\' '=⍵}¨↓list
+     :EndIf
  :Else
      'Invalid right argument'⎕SIGNAL 11
  :EndIf

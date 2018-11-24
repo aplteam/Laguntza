@@ -1,0 +1,26 @@
+ R←Test_InsertNode_002(stopFlag batchFlag);⎕TRAP;ref;html;expected
+⍝ Test inserting a node with the first node of the stub selected.
+⍝ The node is then inserted into the selected node.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ ⎕SHADOW'__Test_InsertNode_01'
+ ref←##.Laguntza.CreateStub'__Test_InsertNode_01'
+ ref.⎕WS'Event' 9955 1
+ ref.n.tree.SelItems{b←0×⍺ ⋄ b[⍵]←1 ⋄ b}←¯1+ref.n.tree.Depth⍳1 ⍝ Select first node
+ ∆Process ref
+
+ 1 ##.Laguntza.InjectNewNode ref
+ ∆Process ref
+ html←⎕FREAD ref.f.tieNo 14
+ →GoToTidyUp 1≠∨/'<h1>Test_01</h1>'⍷∊html
+ →GoToTidyUp 0 0 0 1 0 0 0≢ref.n.tree.SelItems
+ expected←'Copyright' 'Overview' 'Node 01' 'Test 01' 'Sub' 'Foo' 'Goo'
+ →GoToTidyUp expected≢ref.n.tree.Items
+
+ R←∆OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

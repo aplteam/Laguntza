@@ -48,5 +48,5 @@ Notes:
   the top level (there is none).
 * Of course it is easy to introduce a new help function (or sub namespace) and then
   to forget putting it into `∆TopicProperties`. Same for deletion. In the Developer's
-  menu there is a command "Report\TopicProperties" which checks a help system and
+  menu there is a command "ReportTopicProperties" which checks a help system and
   reports its findings to the session.

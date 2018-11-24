@@ -11,18 +11,18 @@
 
  ∆CreateStructure2
  ∆CreatePagesSet3
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_008'
  ps.source←#.TestHelp
  ps.trapErrors←0
- ref←1 ##.Markdown2Help.New ps
- ref ##.Markdown2Help.ShowTopic'ThisDoesNotExist'
+ ref←1 ##.Laguntza.New ps
+ ref ##.Laguntza.ShowTopic'ThisDoesNotExist'
  ⎕DL 0.2
  :If ∆YesOrNo'Do you see "Page not found" ?'
      R←∆OK
  :EndIf
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

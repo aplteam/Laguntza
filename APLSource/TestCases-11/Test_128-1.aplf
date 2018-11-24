@@ -4,17 +4,17 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
 
- ref←##.Markdown2Help.Selfie ⍬
+ ref←##.Laguntza.Selfie ⍬
  ⎕DL 0.2
- Get←ref.d.tree[;##.Markdown2Help.I.TopicName]∘{⍺⍳⊂⍵}
+ Get←ref.d.tree[;##.Laguntza.I.TopicName]∘{⍺⍳⊂⍵}
 
- p←⍕ref ##.Markdown2Help.GetParentOf Get'Overview'
- →GoToTidyUp'#._Markdown2Help.Markdown2Help.HelpHelp'≢p
+ p←⍕ref ##.Laguntza.GetParentOf Get'Overview'
+ →GoToTidyUp p≢(↑{⍺,'.',⍵}/2↑'.'#.APLTreeUtils.Split⍕⎕THIS),'.Laguntza.HelpHelp'
 
- p←⍕ref ##.Markdown2Help.GetParentOf Get'CloseHelp'
- →GoToTidyUp'#._Markdown2Help.Markdown2Help.HelpHelp.Methods'≢p
+ p←⍕ref ##.Laguntza.GetParentOf Get'CloseHelp'
+ →GoToTidyUp p≢(↑{⍺,'.',⍵}/2↑'.'#.APLTreeUtils.Split⍕⎕THIS),'.Laguntza.HelpHelp.Methods'
 
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset

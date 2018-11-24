@@ -13,14 +13,14 @@
  #.TestHelp.Page2←,¨'# First topic' '' '## ⍎⍎⍎TestFns 1234⍎⍎⍎'
  #.TestHelp.Page3←,¨'# First topic' '' '## ⍎⍎⍎TestFns(1 2 3)⍎⍎⍎'
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
  ps.source←#.TestHelp
  ps.notifyAcre←0
  ps.regPath←0
 
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  →PassesIf∨/'<h2>Arguments: &gt;''array'', #.TestHelp.Page1&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 11
  →PassesIf∨/'<h2>Arguments: &gt; 1234, #.TestHelp.Page2&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 12
  →PassesIf∨/'<h2>Arguments: &gt;(1 2 3), #.TestHelp.Page3&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 13
@@ -28,5 +28,5 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

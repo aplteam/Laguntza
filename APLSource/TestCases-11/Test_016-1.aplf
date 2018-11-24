@@ -15,14 +15,14 @@
  #.TestHelp.Pages.Page3←,¨'# Third topic' '' '⍎⍎⍎DoesNotExist⍎⍎⍎'           ⍝ Wrong (VALUE ERROR)
  #.TestHelp.Pages.Page4←,¨'# Fourth topic' '' '## ⍎⍎⍎#.TestHelp.TestFns⍎⍎⍎' ⍝ Absolute path
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'#.APLTreeUtils.Split 0⊃⎕XSI
  ps.source←#.TestHelp
  ps.notifyAcre←0
  ps.regPath←0
 
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  →PassesIf'<h2>Argument: &gt;#.TestHelp.Pages.Page1&lt;</h2>'≡4⊃⎕FREAD ref.f.tieNo 12
  →PassesIf∨/'INVALID FUNCTION'⍷∊⎕FREAD ref.f.tieNo 13
  →PassesIf∨/'INVALID FUNCTION'⍷∊⎕FREAD ref.f.tieNo 14
@@ -31,5 +31,5 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

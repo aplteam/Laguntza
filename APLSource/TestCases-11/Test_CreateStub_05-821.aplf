@@ -5,7 +5,7 @@
  R←∆Failed
 
  ⎕SHADOW'__Test_05'
- ref←##.Markdown2Help.CreateStub'__Test_05'
+ ref←##.Laguntza.CreateStub'__Test_05'
  →GoToTidyUp 9≠⎕NC'__Test_05'
  →GoToTidyUp 9≠⍴↑('recursive' 1)#.FilesAndDirs.Dir ref.∆parms.folderName,'/'
 

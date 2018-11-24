@@ -9,19 +9,19 @@
  ∆CreateTopicProperties1_a
  ∆CreateTopicProperties1_a_2
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_122'
  ps.source←#.TestHelp
  ps.trapErrors←1
  ps.visible←1
  ps.reportToSession←0
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.n.form.Event,←⊂9955 1
  ∆Process ref
 
 ⍝ Setting SelItem[2]←1 has no effect, therefore we need to perform some gymnastics
- ref ##.Markdown2Help.SelectItemInTreeView 2
+ ref ##.Laguntza.SelectItemInTreeView 2
  ∆Process ref
 
  →FailsIf 9≠#.TestHelp.Level1_a.⎕NC'level2_First'
@@ -29,8 +29,8 @@
  →FailsIf 0=(⊂'level2_First')∊result[;0]
  noOfDeleted←1+1⍳⍨2-/2↓ref.d.tree[;0]
  noOfRows←↑⍴ref.d.tree
- 1 ##.Markdown2Help.DeleteTopicOrNode ref
- {}##.Markdown2Help.Compile ref
+ 1 ##.Laguntza.DeleteTopicOrNode ref
+ {}##.Laguntza.Compile ref
  →FailsIf(↑⍴ref.d.tree)≠noOfRows-noOfDeleted
  result2←#.TestHelp.Level1_a.∆TopicProperties ⍬
  →FailsIf 1≠-/↑¨⍴¨result result2
@@ -39,5 +39,5 @@
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TEMP'

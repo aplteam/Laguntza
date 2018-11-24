@@ -1,5 +1,5 @@
  R←Test_111(stopFlag batchFlag);⎕TRAP;report;ps;ref;myTimer
-⍝ Brings the help to life but without #.APLTreeUtils being visible to #.Markdown2Help
+⍝ Brings the help to life but without #.APLTreeUtils being visible to #.Laguntza
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←∆Failed
@@ -9,7 +9,7 @@
  #.TEMP.⎕FIX ⎕SRC #.APLTreeUtils
  ∆CreateStructure2
  ∆CreatePagesSet3
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_111'
  ps.source←#.TestHelp
@@ -17,11 +17,11 @@
  ps.visible←0
  ps.noClose←1
  #.⎕SHADOW'APLTreeUtils'   ⍝ !! If APLTreeUtils cannot be found this will cause a crash
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

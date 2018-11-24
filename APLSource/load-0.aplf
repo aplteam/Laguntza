@@ -1,7 +1,7 @@
  load
- parms←Markdown2Help.CreateParms''
+ parms←Laguntza.CreateParms''
  parms.saltFolder←'D:\Temp\KaisHelp'
 ⍝ parms.source←'#.Container.KaisHelp'
  parms.source←'#.KaisHelp'
- parms←Markdown2Help.LoadHelpWithSalt parms
+ parms←Laguntza.LoadHelpWithSalt parms
 ⍝Done

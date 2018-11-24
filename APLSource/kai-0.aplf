@@ -1,6 +1,6 @@
  kai;parms
- parms←Markdown2Help.CreateParms ⍬
+ parms←Laguntza.CreateParms ⍬
  parms.folderName←'D:\Temp\KaisHelp'
  #.FilesAndDirs.RmDir parms.folderName
  #.⎕EX'Kai'
- parms Markdown2Help.CreateStub'#.Kai'
+ parms Laguntza.CreateStub'#.Kai'

@@ -2,6 +2,6 @@
     CaseCode←'On'
     KeepHistory←'On'
     Open←''
-    ProjectSpace←'#._Markdown2Help'
+    ProjectSpace←'#._Laguntza'
     StartUp←''
 :EndNamespace

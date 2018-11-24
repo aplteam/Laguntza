@@ -7,14 +7,14 @@
  ∆CreateStructure1
  ∆CreatePagesSet1
 
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
  ps.folderName←GetPathForTempHelpProject'Test_117'
  ps.source←#.TestHelp
  ps.trapErrors←1
  ps.visible←1
  ps.reportToSession←0
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.n.form.Event,←⊂9955 1
  ∆Process ref
 
@@ -27,12 +27,12 @@
  1 ∆Process ref.n.tree
 
  →FailsIf 0≠#.TestHelp.Level1_a.level2_First.⎕NC'Node_01'
- 1 ##.Markdown2Help.InjectNewNode ref
+ 1 ##.Laguntza.InjectNewNode ref
  →FailsIf 9≠#.TestHelp.Level1_a.level2_First.⎕NC'Node_01'
  →FailsIf 1≠↑⍴#.TestHelp.Level1_a.level2_First.Node_01.⎕NL 2
 
  R←∆OK
 
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TEMP'

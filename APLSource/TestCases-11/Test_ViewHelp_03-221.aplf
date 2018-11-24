@@ -17,7 +17,7 @@
  success←'Create!'#.FilesAndDirs.CheckPath tempPath
  'Something went terribly wrong'Assert success
 
- myZipper←⎕NEW #.SevenZip(,⊂path,'Markdown2Help-',(1⊃##.Markdown2Help.Version),'.zip')
+ myZipper←⎕NEW #.SevenZip(,⊂path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip')
  rc←myZipper.Unzip tempPath
  'Something went terribly wrong'Assert 0=↑rc
  'Create!'#.FilesAndDirs.CheckPath tempPath,'/help/files/Images'

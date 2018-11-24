@@ -7,15 +7,15 @@
 
  ∆CreateStructure2
  ∆CreatePagesSet3
- ps←##.Markdown2Help.CreateParms ⍬
+ ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases with special CSS'
  ps.folderName←GetPathForTempHelpProject'My Test Case 009'
- ps.source←##.Markdown2Help.HelpHelp
- parentFolder←(0⊃#.APLTreeUtils.SplitPath ⎕WSID),'..\Markdown2Help\'
+ ps.source←##.Laguntza.HelpHelp
+ parentFolder←(0⊃#.APLTreeUtils.SplitPath ⎕WSID),'..\Laguntza\'
  ps.cssPrintFilename←parentFolder,'Files\TestData\Special Print.css'
  ps.cssScreenFilename←parentFolder,'Files\TestData\Special Screen.css'
  ps.trapErrors←0
- ref←1 ##.Markdown2Help.New ps
+ ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref
 
@@ -29,5 +29,5 @@
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'

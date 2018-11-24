@@ -15,9 +15,9 @@
  ref←StartHelp 0        ⍝ Default
  ∆Process ref
 
- →PassesIf 1=⍴##.Markdown2Help.ListHelpForms
+ →PassesIf 1=⍴##.Laguntza.ListHelpForms
 
  R←∆OK
 ∆TidyUp:
- ##.Markdown2Help.Reset
+ ##.Laguntza.Reset
  ⎕EX'#.TestHelp'
