@@ -1,4 +1,4 @@
- r←{depth}CollectChildren NS;list;list1;list2
+ r←{depth}CollectChildren NS;list;list1;list2;list3
 ⍝ Takes a ref pointing to a namespace as right argument.
 ⍝ Tries to find ∆TopicProperties and executes it if it exists.
 ⍝ If it cannot find ∆TopicProperties it compiles a table with default values.
@@ -10,9 +10,17 @@
  :If 0<NS.⎕NC'∆TopicProperties'
      r←(NS CheckItemTitle DropUnwanted depth{(0∊⍴⍺):⍵ ⋄ ⍺,⍵}NS.⍎'∆TopicProperties ⍬'),NS
  :Else
-     list1←NS.⎕NL-2
+     list1←' '~¨⍨↓NS.⎕NL 2
      list1←list1[Alpha⍋⊃list1]
-     list2←NS.⎕NL-9.1
+     list2←' '~¨⍨↓NS.⎕NL 9.1
+     :If (⊂'AcreConfig')∊list2
+        ⍝ This is a temporary measure because until 5.0.1 acre created a namespace "AcreConfig"
+        ⍝ in the root of any project. If that's a help project then Laguntza gets confused
+        ⍝ because it expects every namespace to be a node, populated with variables that hold markdown.
+     :AndIf 0≠≢list3←' '~¨⍨↓NS.AcreConfig.⎕NL 2
+     :AndIf ∨/~NS.AcreConfig.{2=≡⍎⍵}¨list3   ⍝ Except only if all variables are of depth 2: they mights then be markdown-holding vars.
+         list2~←⊂'AcreConfig'
+     :EndIf
      list2←list2[Alpha⍋⊃list2]
      list←list1,list2
      list←(~(↑¨list)∊¨⊂'∆_')⌿list

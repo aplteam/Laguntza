@@ -1,5 +1,11 @@
  History
  :Access Public shared
+⍝ * 3.0.1
+⍝   * Bug fix: if an acre project consists of nothing but a help project (rarely the case!) then the namespace
+⍝     `AcreConfig`, which will be injected by acre into the root of any project at the time of writing (acre 5.0.0)
+⍝      would cause havoc because Laguntza considers this a node with variables holding markdown.\\
+⍝      This version checks the depth of the variables and if they are not all 2 then it ignores the `AcreConfig`
+⍝      namespace.
 ⍝ * 3.0.0
 ⍝   **Note that this version comes with three breaking changes!**
 ⍝   * Breaking change: the way special attributes were handled by MarkAPL, the
