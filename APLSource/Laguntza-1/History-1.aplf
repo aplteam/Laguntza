@@ -6,31 +6,5 @@
 ⍝      would cause havoc because Laguntza considers this a node with variables holding markdown.\\
 ⍝      This version checks the depth of the variables and if they are not all 2 then it ignores the `AcreConfig`
 ⍝      namespace.
-⍝ * 3.0.0
-⍝   **Note that this version comes with three breaking changes!**
-⍝   * Breaking change: the way special attributes were handled by MarkAPL, the
-⍝     Markdown-to-HTML5 converter used by Laguntza, was inconsistent and buggy.\\
-⍝     That's fixed now, but if you are using special attributes you _may_ find that
-⍝     this new version breaks something.
-⍝   * Breaking change: This version of Laguntza requires acre 5.x.x. It is NOT compatiable with earlier versions!
-⍝   * Breaking change: The project has been renamed to "Laguntza" which is Basque for "Help".\\
-⍝   * Documentation polished.
-⍝   * The font size of the tree view can now be changed as well. Ctrl+{MouseWheel} is supported,
-⍝     and so is Ctrl++ and Ctrl+-, the standard keys used by any browser. Ctrl+0 re-establishes
-⍝     the default size. Numeric keypad is supported, too.
-⍝   * The keyboard shortcuts Ctrl++ and Ctrl+-, which previously expanded / collapsed the
-⍝     tree view, have been moved to Ctrl+Shift++ and Ctrl+Shift+-.
-⍝   * After inserting a node from the context menu Laguntza tells the user that the node is inserted
-⍝     alphabetically, and how that can be changed.
-⍝   * Bug fixes:
-⍝     * The "Next" and "Back" buttons did not show tool tips.
-⍝ * 2.6.2
-⍝   * Bug fix: under certain circumstances injecting a new help page ("into") crashed.
-⍝   * Test cases improved.
-⍝ * 2.6.1
-⍝   * acre 4 compatible now (messages)
-⍝   * Bug fixes:
-⍝     * Odd number of back-ticks in code blocks must be allowed in a help page.
-⍝     * Deleting nodes never really worked (needed an acre fix).
-⍝ * 2.6.0
-⍝   * Converted from the APL wiki to GitHub.
+⍝\\
+⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>
