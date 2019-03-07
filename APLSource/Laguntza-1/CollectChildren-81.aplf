@@ -7,21 +7,16 @@
 ⍝ page otherwise one is created on the fly carrying just links.
 ⍝ ⍺ is, when specified, the level in the tree view. It defaults to 0.
  depth←{0<⎕NC ⍵:⍎⍵ ⋄ 0}'depth'
+ r←''
  :If 0<NS.⎕NC'∆TopicProperties'
      r←(NS CheckItemTitle DropUnwanted depth{(0∊⍴⍺):⍵ ⋄ ⍺,⍵}NS.⍎'∆TopicProperties ⍬'),NS
  :Else
      list1←' '~¨⍨↓NS.⎕NL 2
      list1←list1[Alpha⍋⊃list1]
-     list2←' '~¨⍨↓NS.⎕NL 9.1
-     :If (⊂'AcreConfig')∊list2
-        ⍝ This is a temporary measure because until 5.0.1 acre created a namespace "AcreConfig"
-        ⍝ in the root of any project. If that's a help project then Laguntza gets confused
-        ⍝ because it expects every namespace to be a node, populated with variables that hold markdown.
-     :AndIf 0≠≢list3←' '~¨⍨↓NS.AcreConfig.⎕NL 2
-     :AndIf ∨/~NS.AcreConfig.{2=≡⍎⍵}¨list3   ⍝ Except only if all variables are of depth 2: they mights then be markdown-holding vars.
-         list2~←⊂'AcreConfig'
+     :If 0<≢list2←' '~¨⍨↓NS.⎕NL 9.1
+     :AndIf 0<≢list2←(NS{((⍕⍺),'.',⍵)≡ShowDisplayFormat ⍺.⍎⍵}¨list2)/list2  ⍝ Remove all refs)
+         list2←list2[Alpha⍋⊃list2]
      :EndIf
-     list2←list2[Alpha⍋⊃list2]
      list←list1,list2
      list←(~(↑¨list)∊¨⊂'∆_')⌿list
      r←(depth{(0∊⍴⍺):⍵ ⋄ ⍺,⍵}⊃{(⊂⍵),(⊂PolishName ⍵),1 0}¨list),NS   ⍝ name, caption, active, dev only, ref

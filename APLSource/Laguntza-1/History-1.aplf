@@ -1,10 +1,7 @@
  History
  :Access Public shared
-⍝ * 3.0.1
-⍝   * Bug fix: if an acre project consists of nothing but a help project (rarely the case!) then the namespace
-⍝     `AcreConfig`, which will be injected by acre into the root of any project at the time of writing (acre 5.0.0)
-⍝      would cause havoc because Laguntza considers this a node with variables holding markdown.\\
-⍝      This version checks the depth of the variables and if they are not all 2 then it ignores the `AcreConfig`
-⍝      namespace.
+⍝ * 3.0.2
+⍝   * Regarding `AcreConfig` and other refs: Laguntza now checks whether any namespaces are refs.
+⍝     All refs are just ignored when building the help node tree.
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>

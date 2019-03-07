@@ -1,7 +1,6 @@
  Initial
  ∆DEBUG←' '#.APLTreeUtils.Last ⎕SE.UCMD'udebug on'
  #.Tester.EstablishHelpersIn ⍬
- ∆AcreChangeFiles
  ∆TestFolder←#.FilesAndDirs.GetTempPath,'Laguntza'
  #.FilesAndDirs.RmDir ∆TestFolder
  #.FilesAndDirs.CheckPath ∆TestFolder

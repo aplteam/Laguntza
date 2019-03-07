@@ -6,7 +6,6 @@
      (rc en more)←#.FilesAndDirs.RmDir path
      ⍎(0≠rc)/'.'
  :EndIf
- ∆AcreChangeFiles
  {}⎕SE.UCMD'udebug ',∆DEBUG
  #.FilesAndDirs.RmDir ∆TestFolder
  ⎕EX'∆TestFolder'

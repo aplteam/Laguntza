@@ -1,6 +1,0 @@
- ∆AcreChangeFiles;list;path
-⍝ Deletes change files left behind by test cases.
- path←'.acre/changes/'
- :If ~0∊⍴list←↑#.FilesAndDirs.Dir path,'#.TestHelp.*'
-     #.FilesAndDirs.DeleteFile list
- :EndIf

@@ -23,8 +23,8 @@
 
  parms←#.Execute.DefaultParms
  parms.wait←0
- (rc processInfo result more)←parms #.Execute.Application tempPath,'/help/ViewHelp.exe'
- 'Something went terribly wrong'Assert 0=↑rc
+ (rc processInfo result more)←parms #.Execute.Application tempPath,'/ViewHelp.exe'
+ 'Something went terribly wrong'Assert 0=rc
  pid←2⊃processInfo
 
  R←~∆YesOrNo'Now click on the "Names and conventions" link - does it jump to the right page?'

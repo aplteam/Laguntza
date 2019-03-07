@@ -3,7 +3,12 @@
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
 
- R←∆Failed
+ :If 0=∆YesOrNo'Did you run ]runmake and ]acre.refresh?!'
+     R←∆NoBatchTest
+     :Return
+ :Else
+     R←∆Failed
+ :EndIf
 
  path←'expand'#.FilesAndDirs.NormalizePath'Dist\'
  tempPath←#.FilesAndDirs.GetTempFilename''
@@ -13,16 +18,16 @@
  'Something went terribly wrong'Assert success
 
  zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
- 'Did you run ]runmake and ]acre.refresh?!'Assert #.FilesAndDirs.IsFile zipFilename
+
 
  myZipper←⎕NEW #.SevenZip(,⊂zipFilename)
- rc←myZipper.Unzip tempPath
- 'Something went terribly wrong'Assert 0=↑rc   ⍝ Fails?! See first comment line!
+ (rc more)←myZipper.Unzip tempPath
+ (1↓↑,/(⎕UCS 10),¨more)Assert 0=rc   ⍝ Fails?! See first comment line!
 
  parms←#.Execute.DefaultParms
  parms.wait←0
- (rc processInfo result more)←parms #.Execute.Application tempPath,'/help/ViewHelp.exe'
- 'Something went terribly wrong'Assert 0=↑rc
+ (rc processInfo result more)←parms #.Execute.Application tempPath,'/ViewHelp.exe'
+ 'Something went terribly wrong'Assert 0=rc
  pid←2⊃processInfo
  Assert pid∊(GetAllTasks ⍬)[;1]
  {}#.OS.KillPID pid

@@ -8,7 +8,6 @@
  ∆CreatePagesSet1
  ∆CreateTopicProperties1_a
  ∆CreateTopicProperties1_a_2
- ∆AcreChangeFiles
 
  ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
