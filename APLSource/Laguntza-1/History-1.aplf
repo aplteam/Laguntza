@@ -1,7 +1,8 @@
  History
  :Access Public shared
-⍝ * 3.0.2
-⍝   * Regarding `AcreConfig` and other refs: Laguntza now checks whether any namespaces are refs.
-⍝     All refs are just ignored when building the help node tree.
+⍝ * 3.0.3
+⍝   * `Make` did not add the workspace `Laguntza` to the release. \\
+⍝     This makes a difference for those who integrate Laguntza into an APL application. If you
+⍝     just use the compiled EXE then there is no change.
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>
