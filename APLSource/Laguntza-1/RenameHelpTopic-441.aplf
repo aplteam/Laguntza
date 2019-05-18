@@ -34,8 +34,8 @@
      :Else
          :If ∆Ref.p.notifyAcre
              :If 0<⎕SE.⎕NC'acre'
-                 {}⎕SE.UCMD'acre.SetChanged ',(⍕parent),'.',newName,' -messages=off'
-                 {}⎕SE.UCMD'acre.Erase ',fullPageName,' -messages=off'
+                 {}⎕SE.UCMD'acre.SetChanged ',(⍕parent),'.',newName
+                 {}⎕SE.UCMD'acre.Erase ',fullPageName
              :ElseIf 0<#.⎕NC'acre'
                  #.acre.SetChanged(⍕parent),'.',newName
                  :If 0∊⍴#.acre.Erase fullPageName

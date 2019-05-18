@@ -25,5 +25,5 @@
 
 ∆TidyUp:
  ##.Laguntza.Reset
- :Trap 0 ⋄ ##.FilesAndDirs.DeleteFile ps.folderName ⋄ :EndTrap
+ :Trap 0 ⋄ ##.FilesAndDirs.RmDir ps.folderName ⋄ :EndTrap
  ⎕EX'#.TestHelp'

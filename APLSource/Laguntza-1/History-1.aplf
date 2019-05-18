@@ -1,8 +1,9 @@
  History
  :Access Public shared
-⍝ * 3.0.3
-⍝   * `Make` did not add the workspace `Laguntza` to the release. \\
-⍝     This makes a difference for those who integrate Laguntza into an APL application. If you
-⍝     just use the compiled EXE then there is no change.
+⍝ * 3.0.4
+⍝   * Error workspace improved
+⍝   * Bug fixes:
+⍝     * `ViewHelp.exe` did not always find the help system it was supposed to find.
+⍝     * When trying to communicate with acre Laguntza aded the (now invalid) -message= switch.
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>

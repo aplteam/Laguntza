@@ -1,7 +1,11 @@
- HandleError;⎕TRAP
+ HandleError;⎕TRAP;folder;currentDir;commandline
  ⎕TRAP←0 'S'
- ⎕WSID←'Continue'
+ folder←(#.WinSys.ExpandEnv'%LocalAppData%'),'\Laguntza\'
+ 'Create!'#.FilesAndDirs.CheckPath folder
+ ⎕WSID←folder,'Error-WS-',(#.APLTreeUtils.FormatDateTime ⎕TS)~' :-'
  ⎕LX←'⍝',⎕LX
+ currentDir←#.FilesAndDirs.PWD
+ commandline←2 ⎕NQ #'GetCommandLine'
  1 ⎕SAVE ⎕WSID
- Show'An error has occurred. The Help Viewer cannot continue'
+ Show'An error has occurred. The Help Viewer cannot continue' ''('(A dump was created in ',folder,')')
  ⎕OFF

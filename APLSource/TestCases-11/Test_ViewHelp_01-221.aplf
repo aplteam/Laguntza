@@ -19,7 +19,6 @@
 
  zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
 
-
  myZipper←⎕NEW #.SevenZip(,⊂zipFilename)
  (rc more)←myZipper.Unzip tempPath
  (1↓↑,/(⎕UCS 10),¨more)Assert 0=rc   ⍝ Fails?! See first comment line!
@@ -36,5 +35,5 @@
  R←∆OK
 
 ∆TidyUp:
- #.FilesAndDirs.DeleteFile tempPath
+ #.FilesAndDirs.RmDir tempPath
 ⍝Done
