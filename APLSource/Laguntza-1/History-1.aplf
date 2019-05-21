@@ -1,9 +1,8 @@
  History
  :Access Public shared
-⍝ * 3.0.4
-⍝   * Error workspace improved
+⍝ * 3.0.5
 ⍝   * Bug fixes:
-⍝     * `ViewHelp.exe` did not always find the help system it was supposed to find.
-⍝     * When trying to communicate with acre Laguntza aded the (now invalid) -message= switch.
+⍝     * Entering a, say, special character like "&" into "Search for" led to an error message even when "Search as entered" was ticked.
+⍝     * Searching for `<`, `>` and `&` did not work correctly because they were &gt; etc. internally the moment the search was performed.
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>

@@ -5,7 +5,7 @@
 ## General
 
 Any text between two empty lines that does not have any leading character(s) recognized as Markdown 
-directives (like # for a header etc.) will result in a single paragraph. 
+directives (like `#` for a header etc.) will result in a single paragraph. 
 
 The only exceptions are →[*.Definition_lists | definition lists]; they consist of two parts, a term and a 
 definition.
