@@ -1,5 +1,7 @@
  History
  :Access Public shared
+⍝ * 3.1.1
+⍝   * The WS created by "Make" contained more than it should (Tester, Execute...).
 ⍝ * 3.1.0
 ⍝   * Icon improved.
 ⍝ * 3.0.5
