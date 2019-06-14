@@ -10,19 +10,19 @@ This application allows you to create a CHM-like help file (including an "Index"
 
 It has the benefit of allowing you to edit your help pages while developing or tracing your application.
 
-This is what `Markdown2Help`'s own help page looks like:
+This is what `Laguntza`'s own help page looks like:
 
-![](Markdown2Help_01.png)
+![](Laguntza_01.png)
 
-To give it a try just download `Markdown2Help`, unzip it, load it into a Dyalog session and call this function:
+To give it a try just download `Laguntza`, unzip it, load it into a Dyalog session and call this function:
 
 ```
-      #.Markdown2Help.Selfie 1
+      #.Laguntza.Selfie 1
 ```
 
-If you want to investigate `Markdown2Help`'s own help pages look into `#.Markdown2Help.HelpHelp` with the Workspace Explorer:
+If you want to investigate `Laguntza`'s own help pages look into `#.Laguntza.HelpHelp` with the Workspace Explorer:
 
-![](Markdown2Help_02.png)
+![](Laguntza_02.png)
 
 Note how the namespaces reflect nodes and the variables reflect help topics.
 
@@ -30,7 +30,7 @@ You can edit any help page by pressing Ctrl+Enter or selecting "Edit Help page" 
 
 This is what a typical help variable looks like:
 
-![](Markdown2Help_03.png)
+![](Laguntzap_03.png)
 
 ## How to start 
 
@@ -41,7 +41,7 @@ Just call it and provide a proper name as the right argument.
 If the defaults do not suit you then create a parameter spaces with  
 
 ```
-parms←Markdown2Help.CreateParms ''
+parms←Laguntza.CreateParms ''
 ```
 
 make the amendments and pass `parms` as left argument to `CreateStub`.
@@ -50,4 +50,4 @@ make the amendments and pass `parms` as left argument to `CreateStub`.
 
 ## Requirements 
 
-`Markdown2Help` needs at least Dyalog version 15.0.
+`Laguntza` needs at least Dyalog version 15.0.
