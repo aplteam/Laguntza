@@ -30,7 +30,7 @@ You can edit any help page by pressing Ctrl+Enter or selecting "Edit Help page" 
 
 This is what a typical help variable looks like:
 
-![](Laguntzap_03.png)
+![](Laguntza_03.png)
 
 ## How to start 
 
