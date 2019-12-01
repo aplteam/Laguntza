@@ -1,2 +1,0 @@
- r←GetPathForTempHelpProject add
- r←(#.FilesAndDirs.GetTempPath),'\Laguntza_TestCases\',add

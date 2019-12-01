@@ -1,0 +1,12 @@
+ History
+ :Access Public shared
+⍝ * 4.0.0
+⍝   * Now supports (and requires!) acre 4.*
+⍝   * Breaking change: ViewHelp.exe now expects `Laguntza.dcf` and all assets (CSS, JavaScript, images...) to be siblings.
+⍝   * Bug fixes
+⍝     * When specifying a path via the command line paramter "HelpFile" any hyphens in the path got wrongly removed, mutilating the path.
+⍝   * Internal stuff
+⍝     * Tally (≢) introduced.
+⍝     * The WS created by "Make" contained more than it should (Tester, Execute...).
+⍝\\
+⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>

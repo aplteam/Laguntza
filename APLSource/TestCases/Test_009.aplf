@@ -1,0 +1,33 @@
+ R←Test_009(stopFlag batchFlag);⎕TRAP;ref;report;ok;ps;parentFolder;buffer;bool;A;fn1
+⍝ This uses non-standard CSS files which happen to have a blank in the filename
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+ A←##.APLTreeUtils
+
+ ∆CreateStructure2
+ ∆CreatePagesSet3
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases with special CSS'
+ ps.folderName←GetPathForTempHelpProject↑⎕SI
+ ps.source←##.Laguntza.HelpHelp
+ parentFolder←(0⊃##.APLTreeUtils.SplitPath ⎕WSID),'..\Laguntza\'
+ ps.cssPrintFilename←parentFolder,'Files\TestData\Special Print.css'
+ ps.cssScreenFilename←parentFolder,'Files\TestData\Special Screen.css'
+ ps.trapErrors←0
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+
+ :If 0≠≢buffer←##.APLTreeUtils.ReadUtf8File ref.∆tempFilename
+ :AndIf 0<+/bool←∨/¨'rel=stylesheet '∘⍷¨buffer
+     buffer←(bool⍳1)⊃buffer
+     buffer←A.Lowercase buffer
+     fn1←{⍵↑⍨⍵⍳'"'}('file:///'{(≢⍺)+1⍳⍨⍺⍷⍵}buffer)↓buffer
+     →T.PassesIf≡/A.ReadUtf8File¨fn1 ps.cssScreenFilename
+ :EndIf
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+ ⎕EX'#.TestHelp'

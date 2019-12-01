@@ -1,0 +1,28 @@
+ R←Test_100(stopFlag batchFlag);⎕TRAP;ref;tree
+⍝ Test the "LookUpComplexLink" method.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ ∆CreateStructure1
+ ∆CreateTopicProperties1_a
+ ∆CreatePagesSet1
+ ref←StartHelp 0        ⍝ Default
+
+ →T.GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'*.Topic4|AltText'⍬
+ →T.GoToTidyUp 2≠ref ##.Laguntza.Lint_.LookUpComplexLink'*.Topic2|AltText'⍬
+ →T.GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First.Topic2|AltText'⍬
+ →T.GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'#.TestHelp.Level1_a.level2_First'⍬
+ →T.GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'#.TestHelp.Level1_b.Topic2|AltText'⍬
+ →T.GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'Topic2|AltText' 11
+ →T.GoToTidyUp 1≠ref ##.Laguntza.Lint_.LookUpComplexLink'##.Level1_a.level2_Second|AltText' 11
+ →T.GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'Level99999.Topic2|AltText' 11
+ →T.GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'a.b.c.de2|AltText' 11
+ →T.GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'*.DoesNotExist'⍬
+ →T.GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'↑*.DoesNotExist'⍬
+ →T.GoToTidyUp 0≠ref ##.Laguntza.Lint_.LookUpComplexLink'##.##.DoesNotExist' 11
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+ ⎕EX'#.TestHelp'

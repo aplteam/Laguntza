@@ -1,0 +1,13 @@
+ R←Test_ZZZ_997(stopFlag batchFlag);⎕IO;⎕ML;⎕TRAP;buff;version;CutVersionNo
+⍝ Checks whether the version of Laguntza (major and minor) mentioned in the help system matches the actual version
+ ⎕IO←0 ⋄ ⎕ML←3
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ buff←1↓↑,/(⎕UCS 13),¨#.Laguntza.Laguntza.HelpHelp.Overview
+ version←{⍵↑⍨¯1+⍵⍳' '}'This Help refers to Laguntza version '{⍵↓⍨(≢⍺)+1⍳⍨⍺⍷⍵}buff
+ CutVersionNo←{⍵/⍨2>+\'.'=⍵}
+ →T.PassesIf≡/CutVersionNo¨(1⊃##.Laguntza.Version)version
+
+ R←T._OK
+⍝Done

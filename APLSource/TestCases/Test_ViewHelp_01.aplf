@@ -1,0 +1,39 @@
+ R←Test_ViewHelp_01(stopFlag batchFlag);⎕TRAP;ref;report;path;tempPath;myZipper;rc;processInfo;result;more;parms;pid;flag;success;zipFilename
+⍝ Test `ViewHelp.exe`. You must run ]runmake first for this to test the right version!
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+
+ :If 0=1 ∆YesOrNo'Did you run ]runmake and ]acre.refresh?!'
+     R←T._NoBatchTest
+     :Return
+ :Else
+     R←T._Failed
+ :EndIf
+
+ path←'expand'##.FilesAndDirs.NormalizePath'Dist\'
+ tempPath←##.FilesAndDirs.GetTempFilename''
+ ##.FilesAndDirs.DeleteFile tempPath
+ tempPath←¯4↓tempPath
+ success←'Create!'##.FilesAndDirs.CheckPath tempPath
+ 'Something went terribly wrong'Assert success
+
+ zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
+
+ myZipper←⎕NEW ##.SevenZip(,⊂zipFilename)
+ (rc more)←myZipper.Unzip tempPath
+ (1↓↑,/(⎕UCS 10),¨more)Assert 0=rc   ⍝ Fails?! See first comment line!
+
+ parms←##.Execute.DefaultParms
+ parms.wait←0
+ (rc processInfo result more)←parms ##.Execute.Application tempPath,'/ViewHelp.exe'
+ 'Something went terribly wrong'Assert 0=rc
+ pid←2⊃processInfo
+ Assert pid∊(GetAllTasks ⍬)[;1]
+ {}##.OS.KillPID pid
+ Assert~pid∊(GetAllTasks ⍬)[;1]
+
+ R←T._OK
+
+∆TidyUp:
+ ##.FilesAndDirs.RmDir tempPath
+⍝Done

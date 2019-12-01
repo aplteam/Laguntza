@@ -1,9 +1,0 @@
- r←∆YesOrNo msg;flag;answer
- flag←0
- :Repeat
-     ⍞←'     >>> ',msg,' (y/n) :'
-     answer←↑' '~⍨¯1↑⍞
-     :If flag←answer∊'YynN'
-         r←answer∊'Yy'
-     :EndIf
- :Until flag

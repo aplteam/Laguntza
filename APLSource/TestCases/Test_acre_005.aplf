@@ -1,0 +1,26 @@
+ R←Test_acre_005(stopFlag batchFlag);⎕TRAP;projectName;ref;L;res;aplsourceFolder;list;nodeName
+⍝ Are all affected pages deleted when a node is deleted?
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW projectName←0⊃⎕SI
+ res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,'\',projectName,'" #.',projectName
+ →T.GoToTidyUp res≢'#.',projectName
+ L←##.Laguntza
+
+ ref←L.CreateStub'#.',projectName,'.',projectName
+ aplsourceFolder←∆TestFolder,'\',projectName,'\APLSource\'
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ ref.n.tree.SelItems←{w←(≢⍵)⍴0 ⋄ w[⍵⍳1]←1 ⋄ w}ref.d.tree[;6]                ⍝ Select first node
+ nodeName←2⊃,ref.n.tree.SelItems⌿ref.d.tree
+ 1 L.DeleteTopicOrNode ref.n.∆Ref                                           ⍝ Delete currently selected item (the node)
+ →T.GoToTidyUp 5≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 3≠≢list←'recursive'##.FilesAndDirs.ListFiles aplsourceFolder    ⍝ Two help pages + QuadVars.apln
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+ ##.FilesAndDirs.RmDir ∆TestFolder,'\',projectName
+⍝Done

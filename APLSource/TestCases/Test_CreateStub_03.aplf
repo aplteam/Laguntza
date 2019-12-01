@@ -1,0 +1,21 @@
+ R←Test_CreateStub_03(stopFlag batchFlag);⎕TRAP;ref;parms
+⍝ Test the `CreateStub` method with a valid name and a left argument specifying the hosting namespace
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'__Test_03'
+
+ parms←##.Laguntza.CreateParms''
+ parms.source←#
+ ref←parms ##.Laguntza.CreateStub'__Test_03'
+ →T.GoToTidyUp 9≠#.⎕NC'__Test_03'
+ →T.GoToTidyUp 9≠≢↑('recursive' 1)##.FilesAndDirs.Dir ref.∆parms.folderName,'/'
+
+ R←T._OK
+
+∆TidyUp:
+ ⎕NQ ref'Close'
+ ⎕DL 0.2
+ ##.FilesAndDirs.RmDir ref.∆parms.folderName
+⍝Done

@@ -1,0 +1,32 @@
+ R←Test_115(stopFlag batchFlag);⎕TRAP;report;ps;ref;myTimer
+⍝ Exercise the "DeleteTopicOrNode" on a topic. There is no ∆TopicProperties that could be affected.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ ∆CreateStructure1
+ ∆CreatePagesSet1
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑⎕SI
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.visible←1
+ ps.reportToSession←0
+ ref←1 ##.Laguntza.New ps
+ ref.n.form.Event,←⊂9955 1
+ ∆Process ref
+
+ ref.n.tree.SelItems[1]←1
+ →T.GoToTidyUp 20≠≢ref.d.tree
+ →T.GoToTidyUp 2≠#.TestHelp.Level1_a.⎕NC'Topic_0'
+ 1 ##.Laguntza.DeleteTopicOrNode ref
+ →T.GoToTidyUp 0≠#.TestHelp.Level1_a.⎕NC'Topic_0'
+ →T.GoToTidyUp 19≠≢ref.d.tree
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+ ⎕EX'#.TEMP'

@@ -1,0 +1,51 @@
+ R←Test_014(stopFlag batchFlag);⎕TRAP;ref;ps
+⍝ Test all possible settings of "Page": row number, minimal and full path should all work.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page1←⊂'# First topic'
+ #.TestHelp.Page2←⊂'# Second topic'
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'##.APLTreeUtils.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.notifyAcre←0
+ ps.regPath←0
+ ps.page←1 ⍝ Second page
+
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ →T.GoToTidyUp 1≠##.APLTreeUtils.Where ref.n.tree.SelItems
+ ##.Laguntza.Reset
+
+ ps.page←'#.TestHelp.Page2'
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ →T.GoToTidyUp 1≠##.APLTreeUtils.Where ref.n.tree.SelItems
+ ##.Laguntza.Reset
+
+ ps.page←'*.DoesNotExist'
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ →T.GoToTidyUp 0≠##.APLTreeUtils.Where ref.n.tree.SelItems
+ ##.Laguntza.Reset
+
+ ps.page←'Page2'
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ →T.GoToTidyUp 1≠##.APLTreeUtils.Where ref.n.tree.SelItems
+ ##.Laguntza.Reset
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+ ⎕EX'#.TestHelp'

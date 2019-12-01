@@ -1,0 +1,33 @@
+ R←Test_acre_004(stopFlag batchFlag);⎕TRAP;projectName;res;L;ref;aplsourceFolder;fnsName;filename;bodyOld;bodyNew;list
+⍝ Is the implicit TopicProperty page change noticed by acre when a page is deleted?
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ projectName←0⊃⎕SI
+ #.⎕SHADOW projectName
+ res←⎕SE.UCMD'acre.CreateProject "',∆TestFolder,'\',projectName,'" #.',projectName
+ →T.GoToTidyUp res≢'#.',projectName
+ L←##.Laguntza
+
+ ref←L.CreateStub'#.',projectName,'.',projectName
+ aplsourceFolder←∆TestFolder,'\',projectName,'\APLSource\'
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+
+ 1 L.HandleTopicProperties ref.n.∆Ref                               ⍝ Inject a ∆TopicProperty page
+ →T.GoToTidyUp 8≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ fnsName←'#.',projectName,'.',projectName,'.∆TopicProperties'
+ filename←↑⎕SE.acre.Sourcefile fnsName
+ bodyOld←##.APLTreeUtils.ReadUtf8File filename                      ⍝ Current status of ∆TopicProperty
+ 1 L.DeleteTopicOrNode ref.n.∆Ref                                   ⍝ Delete currently selected page
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ bodyNew←##.APLTreeUtils.ReadUtf8File filename                      ⍝ New (updated) status of ∆TopicProperty
+ →T.GoToTidyUp bodyOld≡bodyNew
+ →T.GoToTidyUp∨/'''Copyright'''⍷bodyNew
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+ ##.FilesAndDirs.RmDir ∆TestFolder,'\',projectName
+⍝Done

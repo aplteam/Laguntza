@@ -1,0 +1,19 @@
+ R←Test_CreateStub_04(stopFlag batchFlag);⎕TRAP;ref
+⍝ Test the `CreateStub` method with a valid name and an invalid left argument.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'Test_04'
+
+ :Trap 0
+     ref←(1 2 3)##.Laguntza.CreateStub'#.Test_04'
+     →T.GoToTidyUp 1
+ :Else
+     →T.GoToTidyUp'Invalid container namespace'≢⎕DMX.EM
+ :EndTrap
+
+ R←T._OK
+
+∆TidyUp:
+ :Trap 0 ⋄ ⎕NQ ref'Close' ⋄ :EndTrap

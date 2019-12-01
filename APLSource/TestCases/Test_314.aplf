@@ -1,0 +1,28 @@
+ R←Test_314(stopFlag batchFlag);⎕TRAP;ref;report
+⍝ Test `ReportTopicProperties`; supposed to report missing nodes/topics.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page1←'# Page 1' '' 'Mentioned'
+ #.TestHelp.Page2←'# Page 2' '' 'Not mentioned'
+ 'Sub1'#.TestHelp.⎕NS''  ⍝ Mentioned
+ 'Sub2'#.TestHelp.⎕NS''  ⍝ Not mentioned
+
+ #.TestHelp.∆TopicProperties←{r←0 4⍴⍬ ⋄ r⍪←'Sub1'⍬ 1 0 ⋄ r⍪←'Does_not_Exist'⍬ 1 0 ⋄ r⍪←'Page1'⍬ 1 0 ⋄ r}
+
+ ref←StartHelp 0        ⍝ Default
+
+ ∆Process ref
+ report←##.Laguntza.Lint_.ReportTopicProperties ref
+
+ →T.GoToTidyUp~∨/'not found: Does_not_Exist'⍷∊report
+ →T.GoToTidyUp~∨/'Existing help page that is not mentionend in ∆TopicProperties: Page2'⍷∊report
+ →T.GoToTidyUp~∨/'Existing node that is not mentionend in ∆TopicProperties: Sub2'⍷∊report
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+ ⎕EX'#.TestHelp'
