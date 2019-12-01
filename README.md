@@ -30,13 +30,13 @@ You can edit any help page by pressing Ctrl+Enter or selecting "Edit Help page" 
 
 This is what a typical help variable looks like:
 
-![](Laguntzap_03.png)
+![](Laguntza_03.png)
 
 ## How to start 
 
 Since version version 2.2.0 there is a method `CreateStub` available that makes it easy to start a new help system. 
 
-Just call it and provide a proper name as the right argument.
+Just call it and provide a proper name as the right argument. That name is used to create a new namespace hosting the help system, so it must be a valid APL name. It may be fully qualified or not, see the function's documentation for details.
 
 If the defaults do not suit you then create a parameter spaces with  
 
@@ -44,7 +44,7 @@ If the defaults do not suit you then create a parameter spaces with
 parms←Laguntza.CreateParms ''
 ```
 
-make the amendments and pass `parms` as left argument to `CreateStub`.
+make the necessary amendments and pass `parms` as left argument to `CreateStub`.
 
 `CreateStub` will create a couple of pages and a node and finally put the new help system on display.
 
