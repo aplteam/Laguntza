@@ -5,10 +5,7 @@
  R←T._Failed
 
  parms←##.Laguntza.CreateParms''
- tempfilename←##.FilesAndDirs.GetTempFilename''
- ##.FilesAndDirs.DeleteFile tempfilename
- parms.folderName←¯4↓tempfilename
- ##.FilesAndDirs.MkDir parms.folderName
+ tempfilename←##.FilesAndDirs.GetTempSubDir''
  parms.source←Styling
  ref←1 ##.Laguntza.New parms
  ref.⎕WS'Event' 9955 1

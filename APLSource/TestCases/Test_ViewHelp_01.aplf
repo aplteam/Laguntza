@@ -11,11 +11,7 @@
  :EndIf
 
  path←'expand'##.FilesAndDirs.NormalizePath'Dist\'
- tempPath←##.FilesAndDirs.GetTempFilename''
- ##.FilesAndDirs.DeleteFile tempPath
- tempPath←¯4↓tempPath
- success←'Create!'##.FilesAndDirs.CheckPath tempPath
- 'Something went terribly wrong'Assert success
+ tempPath←##.FilesAndDirs.GetTempSubDir''
 
  zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
 

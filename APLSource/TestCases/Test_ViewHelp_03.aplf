@@ -11,11 +11,7 @@
  R←T._Failed
 
  path←##.FilesAndDirs.NormalizePath ##.FilesAndDirs.PWD,'\Dist\'
- tempPath←##.FilesAndDirs.GetTempFilename''
- ##.FilesAndDirs.DeleteFile tempPath
- tempPath←¯4↓tempPath
- success←'Create!'##.FilesAndDirs.CheckPath tempPath
- 'Something went terribly wrong'Assert success
+ tempPath←##.FilesAndDirs.GetTempSubDir''
 
  myZipper←⎕NEW ##.SevenZip(,⊂path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip')
  rc←myZipper.Unzip tempPath

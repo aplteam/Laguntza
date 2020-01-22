@@ -2,9 +2,12 @@
 ⍝ This function runs under ViewHelp.exe.
 ⍝ It will be moved to #; therefore all calls must be fully qualified.
  ⎕ML←3 ⋄ ⎕IO←0
-⍝ ⎕TRAP←(0 'E' '#.Laguntza.HandleError')
- ⎕TRAP←0 'S'
- AllowRide 0/4613
+ :If 0
+     ⎕TRAP←0 'S'
+     AllowRide 4613
+ :Else
+     ⎕TRAP←(0 'E' '#.Laguntza.HandleError')
+ :EndIf
  :If 0=isDev←A.IsDevelopment
      folderName←GetHelpFolder ⍬
      expand←'None'
