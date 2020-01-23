@@ -1,3 +1,6 @@
+[parm]:saveHTML = 0
+
+
 # Laguntza
 
 _Laguntza_ means "Help" in Basque. 
@@ -50,4 +53,4 @@ make the necessary amendments and pass `parms` as left argument to `CreateStub`.
 
 ## Requirements 
 
-`Laguntza` needs at least Dyalog version 15.0.
+`Laguntza` needs at least Dyalog version 16.0
