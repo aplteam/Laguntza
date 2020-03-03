@@ -1,6 +1,8 @@
  OnKeyPress←{
      ref←⍎0⊃⍵                       ⍝ Reference to the list
      ∆Ref←⍺
+     0=≢ref.SelItems:0              ⍝ Yes, this HAS hapanned
+     0=+/ref.SelItems:0             ⍝ Yes, this HAS hapanned
      flag←2↑3↓⍵≡68 2                ⍝ Was Ctrl+D pressed?
      in←{⍵.lines⌷⍨⍵.SelItems⍳1}ref  ⍝ Item number
      bm←∆Ref ##.IsBookmarkable in   ⍝ Is current "bookmarkable"?
