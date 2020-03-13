@@ -29,4 +29,4 @@
 ∆TidyUp:
  ##.Laguntza.Reset
  :Trap 0 ⋄ ##.FilesAndDirs.DeleteFile filename ⋄ :EndTrap
- ⎕EX'#.TestHelp'
+⍝Done

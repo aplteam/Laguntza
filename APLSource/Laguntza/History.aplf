@@ -1,5 +1,8 @@
  History
  :Access Public shared
+⍝ * 4.1.2
+⍝   * #3 and #4 fixed.
+⍝   * ...
 ⍝ * 4.1.1
 ⍝   * Pressing a key when the focus is on the list of the "Search" tab crashed Laguntza.
 ⍝ * 4.1.0

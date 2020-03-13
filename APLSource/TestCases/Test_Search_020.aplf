@@ -1,27 +1,25 @@
- R←Test_Search_001(stopFlag batchFlag);⎕TRAP;ref
-⍝ Test whether a short link is ignored when the word list for search operations is compiled
+ R←Test_Search_020(stopFlag batchFlag);⎕TRAP;ref
+⍝ Test whether the words within `⍎⍎` and `⍎⍎` are ignored for searches
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←T._Failed
 
  #.⎕SHADOW'TestHelp'
  'TestHelp'#.⎕NS''
- #.TestHelp.(Page Page2)←⊂''
- #.TestHelp.Page,←⊂'# Foo'
- #.TestHelp.Page2,←⊂'Some paragraph.'
- #.TestHelp.Page2,←⊂''
- #.TestHelp.Page2,←⊂'For details see →[*.Page]'
+ #.TestHelp.Page1←''
+ #.TestHelp.Page1,←⊂'# Foo'
+ #.TestHelp.Page1,←⊂'⍎⍎#.TestHelp.This ''should all be ignored''⍎⍎ but this.'
+ #.TestHelp.This←{''}
  ref←StartHelp 0
 
  1 ⎕NQ ref.n.search'Select'
  ref.n.fullTextSearchFlag.State←1
  ref.n.searchBtn.Active←1
- ref.n.searchString.Text←'Page'
+ ref.n.searchString.Text←'ignored'
  1 ⎕NQ ref.n.searchBtn'Select'
  →T.GoToTidyUp 0≠≢ref.n.reportList.Items
 
  R←T._OK
-
 ∆TidyUp:
  ##.Laguntza.Reset
 ⍝Done

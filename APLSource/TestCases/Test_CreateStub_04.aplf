@@ -17,3 +17,4 @@
 
 ∆TidyUp:
  :Trap 0 ⋄ ⎕NQ ref'Close' ⋄ :EndTrap
+⍝Done

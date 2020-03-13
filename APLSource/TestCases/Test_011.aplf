@@ -39,4 +39,4 @@
  R←T._OK
 ∆TidyUp:
  :Trap 0 ⋄ ##.FilesAndDirs.DeleteFile ref.∆tempFilename ⋄ :EndTrap
- ⎕EX'#.TestHelp'
+⍝Done

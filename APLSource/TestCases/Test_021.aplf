@@ -31,4 +31,4 @@
 ∆TidyUp:
  ##.Laguntza.Reset
  :Trap 0 ⋄ ##.FilesAndDirs.RmDir ps.folderName ⋄ :EndTrap
- ⎕EX'#.TestHelp'
+⍝Done
