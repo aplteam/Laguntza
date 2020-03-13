@@ -27,6 +27,7 @@
      p.source←''                    ⍝ Ref to the NS that contains the Help system. Needed for compilation & development only.
      p.splitterPosn←⍬ ⍬             ⍝ May be overwritten by user and/or Windows Registry.
      p.statusbarAlarmColor←255 160 160 ⍝ Used to make the message in the status bar more prominent.
+     p.testMode←0                   ⍝ Suppress dialogs telling the user about problems etc.
      p.trapErrors←¯1                ⍝ Becomes userMode if not set.
      p.userMode←p.isRuntime         ⍝ Default depends on APL's exe type.
      p.visible←1                    ⍝ By default the GUI is visible.

@@ -1,5 +1,5 @@
  R←Test_Link_009(stopFlag batchFlag);⎕TRAP;ref;html;filename;brokenLinks;ambiguousLinks;has
-⍝ Test for a  link that is relative but qualfies fully.
+⍝ Test for a link that is relative but qualfies fully.
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←T._Failed

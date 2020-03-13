@@ -9,5 +9,6 @@
  ps.notifyAcre←0
  ps.regPath←∆RegPath,'.'##.APLTreeUtils.Last 1⊃⎕XSI
  ps.reportToSession←0
+ ps.testMode←1
  form←1 ##.Laguntza.New ps
  form.⎕WS'Event' 9955 1
