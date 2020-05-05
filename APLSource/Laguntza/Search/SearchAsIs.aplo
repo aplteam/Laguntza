@@ -1,4 +1,4 @@
- {r}←∆Ref(lc SearchAsIs)ss;list;allPages;bool;lines
+ {r}←∆Ref(lc SearchAsIs)ss;list;allPages;bool;lines;ss2
 ⍝ Performs a "search as is". That means that the contents of "Search for" is not treated as a word or list
 ⍝ of words but is treated "as is". It also means that we cannot use the list of pre-compiled words.
 ⍝ Therefore every single help page must be examined; that makes this type of search slow.
@@ -10,7 +10,8 @@
  :If 0≠≢list
      allPages←lc allPages
      allPages←ConvertHtmlEntities allPages
-     lines←∆Ref.d.A.Where{∨/ss∘⍷⍵}¨allPages
+     ss2←lc ss
+     lines←∆Ref.d.A.Where{∨/ss2∘⍷⍵}¨allPages
      list←list[lines]
      :If 0≠≢lines
          list←(1+≢⍕∆Ref.p.source)↓¨list

@@ -1,12 +1,1 @@
-Cannot run the test cases because many of them aplcore.
 
-This is bug <01699>. Dyalog has failed to explain (let alone fix) that.
-
-Given up on it after many attempt 2020-03-13
-
-----
-
-With the introduction os an additional group "Search" those tests that test searching but do
-not belong to any group must be managed.
-
-Also, consider moving all tests to groups.

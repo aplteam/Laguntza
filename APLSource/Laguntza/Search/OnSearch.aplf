@@ -3,11 +3,12 @@
      n←∆Ref.n
      _←##.ShowEggTimer ∆Ref
      _←∆Ref ##.SetInfoText'Performing search...'
-     cpu←2⊃⎕AI                              ⍝ Remember start point
      _←ResetList ∆Ref
      ref←n.search_sf
+     _←EnforceDelay 0.2
      sa←1                                   ⍝ 1: Ignore container in search
-     sa,←⊂##.A.dmb⍣(~n.searchAsIs.State)⊣n.searchString.Text      ⍝ 2: Search string
+     buff←⍕n.searchString.Text
+     sa,←⊂⍕##.A.dmb⍣(~n.searchAsIs.State)⊣buff   ⍝ 2: Search string
      sa,←n.fullTextSearchFlag.State         ⍝ 3: full text search
      sa,←n.ignoreCaseFlag.State             ⍝ 4: lower case flag
      sa,←n.matchWholeWord.State             ⍝ 5: Match whole words only
@@ -18,7 +19,6 @@
      ∆Ref.s.fullTextSearchFlag←n.fullTextSearchFlag.State
      ∆Ref.s.searchAsIs←n.searchAsIs.State
      (lines names)←∆Ref Search sa           ⍝ Perform the search
-     _←EnforceDelay cpu(≢lines)             ⍝ Delay at least 1 sec if something was found
      _←##.RemoveEggTimer ∆Ref
      (0=≢lines):0⊣HandleNotFound ∆Ref       ⍝ Nothing found?
      _←∆Ref AddTextToItems(⊂n.searchString.Text)∊n.searchString.Items

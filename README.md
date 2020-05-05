@@ -1,6 +1,3 @@
-[parm]:saveHTML = 0
-
-
 # Laguntza
 
 _Laguntza_ means "Help" in Basque. 
