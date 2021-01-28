@@ -16,6 +16,6 @@
      entries←entries[ind]
      rows←rows[ind]
      fullMat←fullMat[ind;]
-     fullMat←{m←⍵ ⋄ 0=≢ind←A.Where{(⍵⍳⍵)≠⍳≢⍵}m[;0]:m ⋄ m[ind;0]←' ' ⋄ m}fullMat
+     fullMat←{m←⍵ ⋄ 0=≢ind←⍸{(⍵⍳⍵)≠⍳≢⍵}m[;0]:m ⋄ m[ind;0]←' ' ⋄ m}fullMat
      ⍬⊣(entries rows fullMat)⎕FREPLACE ∆Ref.f.(tieNo ∆index)
  }

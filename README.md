@@ -4,6 +4,16 @@ _Laguntza_ means "Help" in Basque.
 
 Laguntza takes Markdown as input and creates a help system from it.
 
+It consists of a single namespace `Laguntza`, but since version 5.0.0 it also requires a number of Tatin packages:
+
+```
+aplteam-APLTreeUtils2-1.1.0
+aplteam-DotNetZip-1.0.1    
+aplteam-FilesAndDirs-5.0.0 
+aplteam-MarkAPL-10.0.0     
+aplteam-OS-3.0.0           
+```
+
 ## Overview 
 
 This application allows you to create a CHM-like help file (including an "Index" and a "Search" tab) by creating variables that hold [Markdown](https://daringfireball.net/projects/markdown/) text defining a help page. This makes you, a Dyalog APL programmer, completely independent from any 3rd-party tools for creating and maintaining help files. 
@@ -50,4 +60,5 @@ make the necessary amendments and pass `parms` as left argument to `CreateStub`.
 
 ## Requirements 
 
-`Laguntza` needs at least Dyalog version 16.0
+Since version 5.0.0 `Laguntza` needs at least Dyalog version 18.0
+

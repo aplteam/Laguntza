@@ -1,0 +1,31 @@
+ R←Test_Misc_015(stopFlag batchFlag);⎕TRAP;ref;ps;fn;css
+⍝ Test setting of the "width" parameter for CSS: was once a bug.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page1←,⊂'# First topic'
+ #.TestHelp.Page2←,⊂'# Second topic'
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.notifyAcre←0
+ ps.regPath←0
+ ps.maxWidth←'1200px'
+
+ ref←1 ##.Laguntza.New ps
+ fn←##.Laguntza.HTML.GetCssFileName ref'screen'
+ fn←(≢'file:///')↓fn
+ css←↑F.NGET fn
+ →T.PassesIf 0≠≢'^\s{0,}max-width: 1200px;\s{0,}\n'⎕S 0⍠('Mode' 'M')⊣css
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

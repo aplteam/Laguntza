@@ -8,8 +8,8 @@
      html2←html←lf,↑,/nl,¨html              ⍝ Add leading lf and make simple
      mask←{{⍵∨≠\⍵}⍵∊'<>'}html               ⍝ Mask for the HTML as such
      (mask/html2)←' '                       ⍝ Wipe out HTML
-     html2←A.Lowercase⍣ic⊣html2             ⍝ Conditional lowercase
-     ss←A.Lowercase⍣ic⊣ss                   ⍝ Conditional lowercase
+     html2←⎕C⍣ic⊣html2                      ⍝ Conditional lowercase
+     ss←⎕C⍣ic⊣ss                            ⍝ Conditional lowercase
      html2←SeparateWords html2              ⍝ Replace anything that separates words by blanks
      ss2←fw{⍺:' ',⍵,' ' ⋄ ⍵}ss              ⍝ If "Full word" add blanks
      bool←ss2⍷html2                         ⍝ Booleans indicating the hits

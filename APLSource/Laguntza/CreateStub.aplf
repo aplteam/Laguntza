@@ -14,7 +14,7 @@
  :EndIf
  parms←CreateParms parms
  :If '.'∊name
-     (parent name)←{⍵{(⍺↓⍨-1+≢⍵)(⍺↑⍨-≢⍵)}'.'##.APLTreeUtils.Last ⍵}name
+     (parent name)←{⍵{(⍺↓⍨-1+≢⍵)(⍺↑⍨-≢⍵)}'.'A.Last ⍵}name
  :ElseIf 0=≢parms.source
      parent←↑⎕NSI
  :Else

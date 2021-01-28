@@ -1,0 +1,17 @@
+ R←Test_Misc_005(stopFlag batchFlag);⎕TRAP;ref;report;ok
+⍝ This tests a structure were on one level sub-folders and help pages co-exist.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ ∆CreateStructure2
+ ∆CreatePagesSet3
+ ref←StartHelp 0        ⍝ Default
+ ∆Process ref
+ ok←'Level1 a' 'Topic1' 'Topic2' 'Topic3' 'Level2 First' 'Topic4' 'Level2 Second' 'Topic5' 'Level2 Third' 'Topic6' 'Level1 b' 'Topic3'
+ →T.GoToTidyUp ref.n.tree.Items≢ok
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

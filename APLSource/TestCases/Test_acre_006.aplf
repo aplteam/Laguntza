@@ -13,21 +13,21 @@
  ref←L.CreateStub home
  home←⍎home
  aplsourceFolder←∆TestFolder,'\',projectName,'\APLSource\'
- →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
 
  oldContent←home⍎'Copyright'                                        ⍝ First item is "Copyright"
  1 L.HandleTopicProperties ref.n.∆Ref                               ⍝ Inject a ∆TopicProperty page
- →T.GoToTidyUp 8≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 8≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
  →T.GoToTidyUp 2≠home.⎕NC'Copyright'
  fnsName←'#.',projectName,'.',projectName,'.∆TopicProperties'
  1 L.RenameHelpTopic ref.n.∆Ref 0
  →T.GoToTidyUp'A_Test'≢1⊃ref.d.tree[0;]                               ⍝ "A_Test" is the name automatically chosen when the test flag is on
  →T.GoToTidyUp 0≠home.⎕NC'Copyright'
  →T.GoToTidyUp 2≠home.⎕NC'A_Test'
- list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
- →T.GoToTidyUp~(⊂##.FilesAndDirs.NormalizePath↑⎕SE.acre.Sourcefile(⍕home),'.A_Test')∊list
- →T.GoToTidyUp(⊂##.FilesAndDirs.NormalizePath↑⎕SE.acre.Sourcefile(⍕home),'.CopyRight')∊list
- →T.GoToTidyUp~(⊂##.FilesAndDirs.NormalizePath↑⎕SE.acre.Sourcefile(⍕home),'.∆TopicProperties')∊list
+ list←↑('recursive' 1)F.Dir aplsourceFolder
+ →T.GoToTidyUp~(⊂F.NormalizePath↑⎕SE.acre.Sourcefile(⍕home),'.A_Test')∊list
+ →T.GoToTidyUp(⊂F.NormalizePath↑⎕SE.acre.Sourcefile(⍕home),'.CopyRight')∊list
+ →T.GoToTidyUp~(⊂F.NormalizePath↑⎕SE.acre.Sourcefile(⍕home),'.∆TopicProperties')∊list
  newContent←home⍎'A_Test'
  →T.GoToTidyUp oldContent≢newContent
 
@@ -35,5 +35,5 @@
 
 ∆TidyUp:
  ##.Laguntza.Reset
- ##.FilesAndDirs.RmDir ∆TestFolder,'\',projectName
+ F.RmDir ∆TestFolder,'\',projectName
 ⍝Done

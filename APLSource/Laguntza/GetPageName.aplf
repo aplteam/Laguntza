@@ -3,5 +3,5 @@
  cla←2 ⎕NQ'#' 'GetCommandLineArgs'
  cla←cla~¨'-'
  searchFor←'page='
- page←↑1↑{⍵/⍨0<≢¨⍵}searchFor∘{0=⍺≡(≢⍺)↑A.Lowercase ⍵:'' ⋄ (≢⍺)↓⍵}¨cla
+ page←↑1↑{⍵/⍨0<≢¨⍵}searchFor∘{0=⍺≡(≢⍺)↑⎕C ⍵:'' ⋄ (≢⍺)↓⍵}¨cla
 ⍝Done

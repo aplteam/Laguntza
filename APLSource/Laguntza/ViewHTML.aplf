@@ -17,7 +17,7 @@
      ⍝      ∆Ref.n.browser.Document.write⊂1↓↑,/(⎕UCS 13),¨html ⍝
      ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
 
-     A.WriteUtf8File ∆Ref.∆tempFilename html
+     (⊂html)FilesAndDirs.NPUT ∆Ref.∆tempFilename 1
      ∆Ref.n.browser.Navigate⊂'file://',∆Ref.∆tempFilename
 
  :EndIf

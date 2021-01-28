@@ -9,5 +9,5 @@
      home←(-1+≢name)↓{⍵[0;]↑⍨+/∧\∧⌿⍵=[1]⍵[0;]}⊃(∨/¨('.',name,'.')∘⍷¨#.SALT_Var_Data.VD[;0])⌿#.SALT_Var_Data.VD[;1]
      path←home,path
  :EndIf
- path←'expand'##.FilesAndDirs.NormalizePath path
+ path←'expand'FilesAndDirs.NormalizePath path
 ⍝Done

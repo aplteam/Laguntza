@@ -1,0 +1,1 @@
+{  alias: "",  api: "",  assets: [    "Files/",  ],  date: "2020-12-31",  description: "Converts Markdown to HTML5",  group: "aplteam",  name: "MarkAPL",  project_url: "https://github.com/aplteam/MarkAPL",  source: "",  tags: "markdown;converter;windows;linux;mac-os;apltree",  uri: "https://tatin.dev/aplteam-MarkAPL-10.0.0",  version: "10.0.0",}

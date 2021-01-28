@@ -4,5 +4,5 @@
      hits←{('^\s{0,3}# .*[^\n]')⎕S 0 1⍠('Mode' 'L')⊣⍵}¨⍕¨⍵
      bool←≢¨hits
      0=+/bool:''
-     2↓##.A.dlb(bool⍳1)⊃⍵
+     2↓##.A.DLB(bool⍳1)⊃⍵
  }

@@ -1,0 +1,35 @@
+ R←Test_Misc_016(stopFlag batchFlag);⎕TRAP;ref;ps;css
+⍝ Test functions embedded into help pages
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ 'Pages'#.TestHelp.⎕NS''
+ #.TestHelp.TestFns←{
+     'Argument: >',⍵,'<'
+ }
+ #.TestHelp.Pages.Page1←,¨'# First topic' '' '## ⍎⍎⍎##.TestFns⍎⍎⍎'          ⍝ Relative
+ #.TestHelp.Pages.Page2←,¨'# Second topic' '' '⍎⍎⍎TestHelp⍎⍎⍎'              ⍝ Wrong (VALUE ERROR): It's a namespace
+ #.TestHelp.Pages.Page3←,¨'# Third topic' '' '⍎⍎⍎DoesNotExist⍎⍎⍎'           ⍝ Wrong (VALUE ERROR)
+ #.TestHelp.Pages.Page4←,¨'# Fourth topic' '' '## ⍎⍎⍎#.TestHelp.TestFns⍎⍎⍎' ⍝ Absolute path
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.notifyAcre←0
+ ps.regPath←0
+
+ ref←1 ##.Laguntza.New ps
+ →T.PassesIf'<h2>Argument: &gt;#.TestHelp.Pages.Page1&lt;</h2>'≡4⊃⎕FREAD ref.f.tieNo 12
+ →T.PassesIf∨/'INVALID FUNCTION'⍷∊⎕FREAD ref.f.tieNo 13
+ →T.PassesIf∨/'INVALID FUNCTION'⍷∊⎕FREAD ref.f.tieNo 14
+ →T.PassesIf∨/'<h2>Argument: &gt;#.TestHelp.Pages.Page4&lt;</h2>'⍷∊⎕FREAD ref.f.tieNo 15
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

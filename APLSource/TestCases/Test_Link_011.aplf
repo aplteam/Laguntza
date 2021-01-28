@@ -17,7 +17,7 @@
  ambiguousLinks←¯1 ##.Laguntza.Lint_.CheckAmbiguousLinks ref
  →T.GoToTidyUp 0≠≢ambiguousLinks                                ⍝ We expect no ambiguous link
  filename←##.Laguntza.BuildDocFromAllPages ref
- html←'flat'##.APLTreeUtils.ReadUtf8File filename
+ html←↑F.NGET filename
  →T.GoToTidyUp 1≠+/'<a href="http://aplwiki.com"'⍷html
 
  R←T._OK

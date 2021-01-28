@@ -9,10 +9,10 @@
      Words←'|'HTML.MaskLinks¨Words
      Words←SeparateWords∊' ',Words
      Words⌿⍨←~∧/¨Words∊¨⊂⎕D,'.,'
-     Words←∪' 'A.Split A.dmb Words
+     Words←∪' 'A.Split A.DMB Words
      Words/⍨←1<≢¨Words             ⍝ We don't want one-letter words
      0=≢Words:'' ''
-     words←∪A.Lowercase Words
+     words←∪⎕C Words
      Words←CR,CR,⍨∊↑{⍺,CR,⍵}/Words
      words←CR,CR,⍨∊↑{⍺,CR,⍵}/words
      Words words

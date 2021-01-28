@@ -9,7 +9,7 @@
      ⎕←buf
      0=∆Ref.p.helpCaption ##.YesOrNo'Would you like to emphasize all pages with broken links?':⍬
      buf←1↓,buf
-     rows←⍎¨buf{⍵↑⍨⍵⍳' '}¨A.dlb buf                 ⍝ Isolate line numbers (tree)
+     rows←⍎¨buf{⍵↑⍨⍵⍳' '}¨A.DLB buf                 ⍝ Isolate line numbers (tree)
      _←∆Ref ##.BoldenTheseTopics rows
      ⍬
  }

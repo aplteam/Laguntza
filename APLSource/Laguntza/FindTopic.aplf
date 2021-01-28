@@ -19,10 +19,10 @@
  tree←∆Ref.d.tree
  :If '*'=↑pattern~'↑'
      buf←GetParentAndTopicNameAsText tree
-     in←pattern{(0=≢⍵):⍵ ⋄ (↑⍣(↑'↑'∊⍺))⍵}A.Where(⊃(-¯1+≢pattern~'↑')↑¨buf)∧.=1↓pattern~'↑'
+     in←pattern{(0=≢⍵):⍵ ⋄ (↑⍣(↑'↑'∊⍺))⍵}⍸(⊃(-¯1+≢pattern~'↑')↑¨buf)∧.=1↓pattern~'↑'
  :ElseIf '#.'≡2↑pattern
      buf←GetParentAndTopicNameAsText tree
-     in←A.Where buf≡¨⊂pattern
+     in←⍸buf≡¨⊂pattern
  :ElseIf '#'∊pattern
      'Missing left argument'⎕SIGNAL 11/⍨0=⎕NC'row'
      'Invalid left argument'⎕SIGNAL 11/⍨~row∊tree[;I.Row]
@@ -34,7 +34,7 @@
          in←⍬
      :Else
          :If 2=parent.⎕NC path2
-             in←tree[A.Where(GetParentAndTopicNameAsText tree)≡¨⊂(⍕parent),'.',path2;I.Row]
+             in←tree[⍸(GetParentAndTopicNameAsText tree)≡¨⊂(⍕parent),'.',path2;I.Row]
          :Else
              :If 0=+/bool←(tree[;I.Parent])≡¨⊂parent
              :OrIf 0=+/bool2←path2∘≡¨bool⌿tree[;I.TopicName]

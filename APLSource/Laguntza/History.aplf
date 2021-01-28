@@ -1,10 +1,7 @@
  History
  :Access Public shared
-⍝ * 4.1.2
-⍝   * #3 and #4 fixed.
-⍝ * 4.1.1
-⍝   * Pressing a key when the focus is on the list of the "Search" tab crashed Laguntza.
-⍝ * 4.1.0
-⍝   * MarkAPL 8.1.1 integrated.
+⍝ * 5.0.0
+⍝   * BREAKING CHANGE: Laguntza now requires at least version 18.0 of Dyalog APL.
+⍝   * Uses now Tatin packages
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/Laguntza/releases>

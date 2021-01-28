@@ -11,16 +11,16 @@
 
  ref←L.CreateStub'#.',projectName,'.',projectName
  aplsourceFolder←∆TestFolder,'\',projectName,'\APLSource\'
- →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
  ref.n.tree.SelItems←{w←(≢⍵)⍴0 ⋄ w[⍵⍳1]←1 ⋄ w}ref.d.tree[;6]                ⍝ Select first node
  nodeName←2⊃,ref.n.tree.SelItems⌿ref.d.tree
  1 L.DeleteTopicOrNode ref.n.∆Ref                                           ⍝ Delete currently selected item (the node)
- →T.GoToTidyUp 5≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
- →T.GoToTidyUp 3≠≢list←'recursive'##.FilesAndDirs.ListFiles aplsourceFolder    ⍝ Two help pages + QuadVars.apln
+ →T.GoToTidyUp 5≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
+ →T.GoToTidyUp 3≠≢list←'recursive'F.ListFiles aplsourceFolder    ⍝ Two help pages + QuadVars.apln
 
  R←T._OK
 
 ∆TidyUp:
  ##.Laguntza.Reset
- ##.FilesAndDirs.RmDir ∆TestFolder,'\',projectName
+ F.RmDir ∆TestFolder,'\',projectName
 ⍝Done

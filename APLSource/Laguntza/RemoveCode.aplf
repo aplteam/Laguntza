@@ -1,5 +1,5 @@
  RemoveCode←{
-     md←A.dlb ⍵
+     md←A.DLB ⍵
      0=+/b←(↑¨md)∊'~`':md
      md2←(b/md)~¨' '
      b2←↑¨1=⍴¨∪¨md2

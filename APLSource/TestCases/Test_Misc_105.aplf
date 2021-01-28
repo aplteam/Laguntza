@@ -1,0 +1,161 @@
+ R←Test_Misc_105(stopFlag batchFlag);⎕TRAP;ref;ok;gui;p;buf
+⍝ Exercise the FindTopic method.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ p←##.Laguntza.CreateParms ⍬
+ p.source←##.Laguntza.HelpHelp
+ p.folderName←GetPathForTempHelpProject'My test case 105 (a)'
+ p.visible←0
+ ref←##.Laguntza.New p
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+
+ buf←##.Laguntza.FindTopic ref'*.splitterPosn'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'splitterPosn'≢2⊃buf[0;]
+
+ buf←##.Laguntza.FindTopic ref'*.Unknown'
+ →T.GoToTidyUp 0≠≢buf
+
+ buf←ref ##.Laguntza.FindTopic ref'*name'
+ →T.GoToTidyUp 2≠≢buf
+ →T.GoToTidyUp∨/'name'∘≢¨(-≢'name')↑¨buf[;2]
+
+ buf←ref ##.Laguntza.FindTopic ref'↑*name'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'name'≢(-≢'name')↑0⊃buf[;2]
+ ##.Laguntza.CloseHelp ref
+
+ #.⎕SHADOW'TEMP'
+ 'TEMP'#.⎕NS''
+ ∆CreateDataForTest105 #.TEMP
+ p←##.Laguntza.CreateParms ⍬
+ p.source←#.TEMP
+ p.folderName←GetPathForTempHelpProject'My test case 105 (b)'
+ p.visible←0
+ ref←1 ##.Laguntza.New p
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+
+ buf←##.Laguntza.FindTopic ref'*.Hello6'
+ →T.GoToTidyUp 85≠≢buf
+ →T.GoToTidyUp∨/'Hello6'∘≢¨(-≢'Hello6')↑¨buf[;2]
+
+ buf←##.Laguntza.FindTopic ref'↑*Hello6'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp∨/'Hello6'≢(-≢'Hello6')↑2⊃buf[0;]
+
+ buf←##.Laguntza.FindTopic ref'*2c.Hello4'
+ →T.GoToTidyUp 4≠≢buf
+ →T.GoToTidyUp∨/'Hello4'∘≢¨(-≢'Hello4')↑¨buf[;2]
+ →T.GoToTidyUp∨/'2c'∘≢¨(-≢'2c')↑¨buf[;1]
+
+ buf←##.Laguntza.FindTopic ref'*.l2c.Hello4'
+ →T.GoToTidyUp 4≠≢buf
+ →T.GoToTidyUp∨/'Hello4'∘≢¨(-≢'Hello4')↑¨buf[;2]
+ →T.GoToTidyUp∨/'.l2c'∘≢¨(-≢'.l2c')↑¨buf[;1]
+
+ buf←##.Laguntza.FindTopic ref'↑*.l2c.Hello4'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello4'≢(-≢'Hello4')↑2⊃buf[0;]
+ →T.GoToTidyUp'.l2c'≢(-≢'.l2c')↑1⊃buf[0;]
+
+ buf←##.Laguntza.FindTopic ref'#.TEMP.lv1b.l2d.Hello8'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello8'≢(-≢'Hello8')↑2⊃buf[0;]
+
+ buf←##.Laguntza.FindTopic ref'#.TEMP.lv1b.l2d.Hello8'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello8'≢(-≢'Hello8')↑2⊃buf[0;]
+
+ buf←182 ##.Laguntza.FindTopic ref'Hello6'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello6'≢(-≢'Hello6')↑0⊃buf[;2]
+
+ buf←187 ##.Laguntza.FindTopic ref'Hello9'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello9'≢(-≢'Hello9')↑0⊃buf[;2]
+
+ buf←187 ##.Laguntza.FindTopic ref'Hello1'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello1'≢(-≢'Hello1')↑0⊃buf[;2]
+
+ buf←180 ##.Laguntza.FindTopic ref'Hello4'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'Hello4'≢(-≢'Hello4')↑0⊃buf[;2]
+
+ buf←180 ##.Laguntza.FindTopic ref'Unknown'
+ →T.GoToTidyUp 0≠≢buf
+
+ buf←127 ##.Laguntza.FindTopic ref'##.##.lv1a.l2d.l3a.Hello3'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'.lv1a.l2d.l3a.Hello3'{⍺≢(-≢⍺)↑⍵}↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←613 ##.Laguntza.FindTopic ref'##.l3a'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3a'≢↑{⍺,'.',⍵}/1↓buf[0;]  ⍝ ∆DefaultPage!
+
+ buf←##.Laguntza.FindTopic ref'#.TEMP.lv1c.l2d.l3a'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3a'≢↑{⍺,'.',⍵}/1↓buf[0;]  ⍝ ∆DefaultPage!
+
+ buf←##.Laguntza.FindTopic ref'#.TEMP.lv1c.l2d.l3a.∆DefaultPage'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3a'≢↑{⍺,'.',⍵}/1↓buf[0;]  ⍝ ∆DefaultPage!
+
+ buf←593 ##.Laguntza.FindTopic ref'l3a'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3a'≢↑{⍺,'.',⍵}/1↓buf[0;]  ⍝ ∆DefaultPage!
+
+ buf←593 ##.Laguntza.FindTopic ref'Hello2'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.Hello2'≢↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←613 ##.Laguntza.FindTopic ref'##.Unknown'
+ →T.GoToTidyUp 0≠≢buf
+
+ buf←599 ##.Laguntza.FindTopic ref'l3b'               ⍝ 599 is (has) a default page
+ →T.GoToTidyUp 0≠≢buf
+
+ buf←599 ##.Laguntza.FindTopic ref'Hello6'            ⍝ 599 is (has) a default page
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3a.Hello6'≢↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←599 ##.Laguntza.FindTopic ref'##.l3b'            ⍝ 599 is (has) a default page
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3b'≢↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←599 ##.Laguntza.FindTopic ref'##.l3c.Hello7'     ⍝ 599 is (has) a default page
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1c.l2d.l3c.Hello7'≢↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←11 ##.Laguntza.FindTopic ref'l2c.Hello5'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1a.l2c.Hello5'{⍺≢(-≢⍺)↑⍵}↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←11 ##.Laguntza.FindTopic ref'l2c.l3a.Hello3'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1a.l2c.l3a.Hello3'{⍺≢(-≢⍺)↑⍵}↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←11 ##.Laguntza.FindTopic ref'l2c.Hello3'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1a.l2c.Hello3'{⍺≢(-≢⍺)↑⍵}↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←11 ##.Laguntza.FindTopic ref'l2a.Hello2'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1a.l2a.Hello2'{⍺≢(-≢⍺)↑⍵}↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←127 ##.Laguntza.FindTopic ref'##.l2b.Hello5'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1a.l2b.Hello5'≢↑{⍺,'.',⍵}/1↓buf[0;]
+
+ buf←127 ##.Laguntza.FindTopic ref'##.l2d.l3a.Hello4'
+ →T.GoToTidyUp 1≠≢buf
+ →T.GoToTidyUp'#.TEMP.lv1a.l2d.l3a.Hello4'≢↑{⍺,'.',⍵}/1↓buf[0;]
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

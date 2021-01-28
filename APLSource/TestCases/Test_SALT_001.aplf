@@ -12,13 +12,13 @@
 
  ⎕EX'#.TestHelp'
  parms←##.Laguntza.CreateParms ⍬
- name←##.FilesAndDirs.GetTempFilename''
- ##.FilesAndDirs.DeleteFile name
+ name←F.GetTempFilename''
+ F.DeleteFile name
  parms.saltFolder←¯4↓name
  ref←parms ##.Laguntza.CreateStub'#.TestHelp'
  ⎕DL 0.2
  ref.Close
- list←↑('recursive' 1)##.FilesAndDirs.Dir parms.saltFolder,'\*'
+ list←↑('recursive' 1)F.Dir parms.saltFolder,'\*'
  →T.GoToTidyUp 5≠≢list
  R←T._OK
 

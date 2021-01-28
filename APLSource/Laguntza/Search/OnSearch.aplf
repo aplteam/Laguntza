@@ -8,7 +8,7 @@
      _←EnforceDelay 0.2
      sa←1                                   ⍝ 1: Ignore container in search
      buff←⍕n.searchString.Text
-     sa,←⊂⍕##.A.dmb⍣(~n.searchAsIs.State)⊣buff   ⍝ 2: Search string
+     sa,←⊂⍕##.A.DMB⍣(~n.searchAsIs.State)⊣buff   ⍝ 2: Search string
      sa,←n.fullTextSearchFlag.State         ⍝ 3: full text search
      sa,←n.ignoreCaseFlag.State             ⍝ 4: lower case flag
      sa,←n.matchWholeWord.State             ⍝ 5: Match whole words only

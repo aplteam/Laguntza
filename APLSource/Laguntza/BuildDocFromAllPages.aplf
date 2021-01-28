@@ -15,7 +15,7 @@
      cssFlag←1
      doc←(HTML.MakeCssForDoc HTML.HtmlTopCode fs'Help Pages'cssFlag),doc
      tf←GetTempFilename'html'
-     _←A.WriteUtf8File tf doc
+     _←(⊂doc)FilesAndDirs.NPUT tf 1
      _←∆Ref SetInfoText''
      _←∆Ref.n.PB.Close
      _←RemoveEggTimer ∆Ref

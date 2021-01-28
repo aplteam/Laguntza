@@ -26,7 +26,7 @@
              msg←'There is an odd number of code block fences; please fix.'
          :Else
          ⍝ The following line checks for any level-1 headers.
-             noOf←+/(⊂,'#')≡¨{⍵↑⍨⍵⍳' '}¨A.dlb RemoveCodeBlock body
+             noOf←+/(⊂,'#')≡¨{⍵↑⍨⍵⍳' '}¨A.DLB RemoveCodeBlock body
              :Select noOf
              :Case 0
                  msg←'Please make sure that you have a header of level one.'

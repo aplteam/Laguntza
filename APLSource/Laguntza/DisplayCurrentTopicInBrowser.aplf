@@ -8,7 +8,7 @@
      html←HTML.WrapInHtml(∆Ref fs body in)      ⍝ Create the self-contained HTML page
      f←GetTempFilename''
      f←(¯4↓f),'.html'
-     _←A.WriteUtf8File f html
+     _←(⊂html)FilesAndDirs.NPUT f
      _←A.GoToWebPage'file:///',f
      ⍬
 ⍝ Takes the currently selected topic, writes it into a tmep file and then

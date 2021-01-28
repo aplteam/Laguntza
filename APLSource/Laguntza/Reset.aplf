@@ -5,7 +5,7 @@
      :If 0≠≢list←HelpForms.(⎕NL-9)
      :AndIf 0≠≢list←(HelpForms.{'Form'≡⍵ ⎕WG'Type'}¨list)/list
          list←HelpForms.⍎¨list
-         ##.FilesAndDirs.DeleteFile list.∆tempFilename
+         FilesAndDirs.DeleteFile list.∆tempFilename
          {6::⍬ ⋄ ⎕FUNTIE ⍵.n.∆Ref.f.tieNo}¨list
          {}{0::⍬ ⋄ ⍬⊣⍵.Close}¨list
      :EndIf

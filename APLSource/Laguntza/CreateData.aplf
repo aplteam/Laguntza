@@ -5,7 +5,7 @@
      ∆Ref.d.bookmark←⍬                ⍝ Vector of up to 9 items bookmarked by the user
      ∆Ref.d.history←,¯1               ⍝ Used to remember all pages visited, and which one is current
      ∆Ref.d.lastGoToTopic←''
-     ∆Ref.d.A←EstablishRef'APLTreeUtils'
+     ∆Ref.d.A←APLTreeUtils2
      ∆Ref.s←∆Ref.⎕NS''                ⍝ Search parameters. Is coverwritten by GUI settings later on
      ∆Ref.s.searchString←''
      ∆Ref.s.ignoreCase←⍬

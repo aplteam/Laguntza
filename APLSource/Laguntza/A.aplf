@@ -9,5 +9,5 @@
  :If 9=⎕NC'∆Ref'
      r←∆Ref.A
  :Else
-     r←EstablishRef'APLTreeUtils'
+     r←APLTreeUtils2
  :EndIf

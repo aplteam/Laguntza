@@ -2,12 +2,12 @@
  trapErrorsFlag←userModeFlag{0<⎕NC ⍵:⍎⍵ ⋄ ⍺}'trapErrorsFlag'
  ps←##.Laguntza.CreateParms ⍬
  ps.helpCaption←'TestCases'
- ps.folderName←GetPathForTempHelpProject↑¯1↑'.'##.APLTreeUtils.Split 1⊃⎕XSI
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 1⊃⎕XSI
  ps.source←#.TestHelp
  ps.trapErrors←trapErrorsFlag
  ps.userMode←userModeFlag
  ps.notifyAcre←0
- ps.regPath←∆RegPath,'.'##.APLTreeUtils.Last 1⊃⎕XSI
+ ps.regPath←∆RegPath,'.'A.Last 1⊃⎕XSI
  ps.reportToSession←0
  ps.testMode←1
  form←1 ##.Laguntza.New ps

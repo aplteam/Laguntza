@@ -3,10 +3,10 @@
 ⍝ "Fordward", "Next", "Bookmark".
 ⍝ Also: creates a check box "Show navigation".
      ∆Ref←⍵
-     ∆Ref.n.Back1←⍎'Back1'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Back_Active.bmp'))('Size'(32 32))
-     ∆Ref.n.Back3←⍎'Back3'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Back_Inactive.bmp'))('Size'(32 32))
-⍝     ∆Ref.n..Back1←⍎'Back1'∆Ref.n.form.⎕WC'Bitmap'('CBits'Bitmaps.Back1)('Size'(≢Bitmaps.Back1))
-⍝     ∆Ref.n..Back3←⍎'Back3'∆Ref.n.form.⎕WC'Bitmap'('CBits'Bitmaps.Back3)('Size'(≢Bitmaps.Back3))
+⍝     ∆Ref.n.Back1←⍎'Back1'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Back_Active.bmp'))('Size'(32 32))
+     ∆Ref.n.Back1←⍎'Back1'∆Ref.n.form.⎕WC'Bitmap'('File'('C:\T\Projects\APL-cation\Laguntza\Back_Active.bmp'))('Size'(32 32))
+⍝     ∆Ref.n.Back3←⍎'Back3'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Back_Inactive.bmp'))('Size'(32 32))
+     ∆Ref.n.Back3←⍎'Back3'∆Ref.n.form.⎕WC'Bitmap'('File'('C:\T\Projects\APL-cation\Laguntza\Back_Inactive.bmp'))('Size'(32 32))
 
      ∆←⊂'Button'
      ∆,←⊂'Caption' 'Back'
@@ -19,10 +19,10 @@
      ⍵.n.backBtn←⍎'tb.back'⍵.⎕WC ∆
      ⍵.tb.back.Posn[1]+←15
 
-     ∆Ref.n.Next1←⍎'Next1'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Next_Active.bmp'))('Size'(32 32))
-     ∆Ref.n.Next3←⍎'Next3'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Next_Inactive.bmp'))('Size'(32 32))
-⍝     ∆Ref.n.Next1←⍎'Next1'∆Ref.n.form.⎕WC'Bitmap'('CBits'Bitmaps.Next1)('Size'(≢Bitmaps.Next1))
-⍝     ∆Ref.n.Next3←⍎'Next3'∆Ref.n.form.⎕WC'Bitmap'('CBits'Bitmaps.Next3)('Size'(≢Bitmaps.Next3))
+⍝     ∆Ref.n.Next1←⍎'Next1'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Next_Active.bmp'))('Size'(32 32))
+     ∆Ref.n.Next1←⍎'Next1'∆Ref.n.form.⎕WC'Bitmap'('File'('C:\T\Projects\APL-cation\Laguntza\Next_Active.bmp'))('Size'(32 32))
+⍝     ∆Ref.n.Next3←⍎'Next3'∆Ref.n.form.⎕WC'Bitmap'('File'(∆Ref.p.folderName,'\Next_Inactive.bmp'))('Size'(32 32))
+     ∆Ref.n.Next3←⍎'Next3'∆Ref.n.form.⎕WC'Bitmap'('File'('C:\T\Projects\APL-cation\Laguntza\Next_Inactive.bmp'))('Size'(32 32))
 
      ∆←⊂'Button'
      ∆,←⊂'Caption' '&Forward'

@@ -5,7 +5,7 @@
      A←∆Ref.d.A
      ri←∆Ref.n.indexList                        ⍝ Ref to indexKeyword
      _←ri.⎕EX'IndexUpdateTimer'
-     (0=≢tx←A.Lowercase ∆Ref.n.indexKeyword.Text):0
+     (0=≢tx←⎕C ∆Ref.n.indexKeyword.Text):0
      items←0⊃⎕FREAD ∆Ref.f.(tieNo ∆index)
      ri.SelItems←(no←≢ri.Items)⍴0
      bool←(⊃(≢tx)↑¨items)∧.=tx

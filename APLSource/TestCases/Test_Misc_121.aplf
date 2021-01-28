@@ -1,0 +1,36 @@
+ R←Test_Misc_121(stopFlag batchFlag);⎕TRAP;report;ps;ref;result;noOfDeleted;noOfRows
+⍝ Exercise "DeleteTopicOrNode" on a node. ∆TopicProperties is not effected.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ ∆CreateStructure1
+ ∆CreatePagesSet1
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑⎕SI
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.visible←1
+ ps.reportToSession←0
+ ref←1 ##.Laguntza.New ps
+ ref.n.form.Event,←⊂9955 1
+ ∆Process ref
+
+⍝ Setting SelItem[2]←1 has no effect, therefore we need to perform some gymnastics
+ ref ##.Laguntza.SelectItemInTreeView 2
+ ∆Process ref
+
+ →T.FailsIf 9≠#.TestHelp.Level1_a.⎕NC'level2_First'
+ noOfDeleted←1+1⍳⍨2-/2↓ref.d.tree[;0]
+ noOfRows←≢ref.d.tree
+ 1 ##.Laguntza.DeleteTopicOrNode ref
+ {}##.Laguntza.Compile ref
+ →T.FailsIf(≢ref.d.tree)≠noOfRows-noOfDeleted
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

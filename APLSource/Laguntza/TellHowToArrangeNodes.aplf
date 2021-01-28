@@ -4,7 +4,7 @@
      testflag←⍺
      testflag:r←1
      msg←''
-     msg,←⊂'Note that by defaults new nodes/help pages are inserted'
+     msg,←⊂'Note that by default new nodes/help pages are inserted'
      msg,←⊂'in alphabetical order.'
      msg,←⊂''
      msg,←⊂'You can change the sequence to your liking by selecting:'

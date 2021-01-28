@@ -6,7 +6,7 @@
 ⍝ The explicit result should be used by test cases only.
 ⍝ Note that this function shadows the global `∆Ref` deliberately. This is a
 ⍝ necesary measure to ensure a full recompile
- A←EstablishRef'APLTreeUtils'     ⍝ This function is an offical method, so it must be prepared...
+ A←APLTreeUtils2
  :If 'Namespace'≡y ⎕WG'Type'      ⍝ Is it a parameter space?
      ∆Ref←CreateHelpForm ps←CheckParms y
      ∆Ref.p←ps

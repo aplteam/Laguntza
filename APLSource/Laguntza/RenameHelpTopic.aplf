@@ -30,7 +30,7 @@
          cmd←'Salt.Save ',(⍕parent),'.',newName
          cmd,←' ',path,'\',newName,'.dyalog -noprompt'
          {}⎕SE.UCMD cmd
-         ##.FilesAndDirs.DeleteFile path,'\',pageName,'.dyalog'
+         FilesAndDirs.DeleteFile path,'\',pageName,'.dyalog'
      :Else
          :If ∆Ref.p.notifyAcre
              :If 0<⎕SE.⎕NC'acre'

@@ -7,5 +7,5 @@
      int←in↓⍵                       ⍝ Depth
      (0=≢int):⍬
      bool←{0,∧\int[0]<1↓⍵}int
-     in+1+A.Where(1+↑int)=bool/int
+     in+1+⍸(1+↑int)=bool/int
  }

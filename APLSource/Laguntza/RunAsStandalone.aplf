@@ -2,6 +2,7 @@
 ⍝ This function runs under ViewHelp.exe.
 ⍝ It will be moved to #; therefore all calls must be fully qualified.
  ⎕ML←3 ⋄ ⎕IO←0
+ AllowContinueWS ⍬
  :If 0
      ⎕TRAP←0 'S'
      AllowRide 4613
@@ -18,7 +19,7 @@
          ⍝ --- Debug information
          :If debug←0
              msg,←⊂'folder name: ',folderName
-             msg,←⊂'Command line: ',A.Lowercase 2 ⎕NQ'#' 'GetCommandLine'
+             msg,←⊂'Command line: ',⎕C 2 ⎕NQ'#' 'GetCommandLine'
              msg,←⊂'Current directory: ',#.FilesAndDirs.PWD
          :EndIf
          'Laguntza'Show msg

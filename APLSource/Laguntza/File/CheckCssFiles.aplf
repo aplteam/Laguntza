@@ -6,14 +6,14 @@
  {}MakeDir⍣(~flag)⊣ps.folderName,'\CSS'
  :If 0=≢from
  :OrIf 0=DoesFileExist from
-     ##.A.WriteUtf8File(ps.folderName,'\CSS\screen.css')(##.DefaultScreenCSS ps)
+     (⊂##.DefaultScreenCSS ps)##.FilesAndDirs.NPUT(ps.folderName,'\CSS\screen.css')1
  :Else
      {}from CopyFilesTo ps.folderName,'\CSS\screen.css'
  :EndIf
  from←ps.cssPrintFilename
  :If 0=≢from
  :OrIf 0=DoesFileExist from
-     ##.A.WriteUtf8File(ps.folderName,'\CSS\print.css')(##.DefaultPrintCSS ps)
+     (⊂##.DefaultPrintCSS ps)##.FilesAndDirs.NPUT(ps.folderName,'\CSS\print.css')1
  :Else
      {}from CopyFilesTo ps.folderName,'\CSS\print.css'
  :EndIf

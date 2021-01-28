@@ -1,0 +1,42 @@
+ R←Test_Misc_011(stopFlag batchFlag);⎕TRAP;ref;report;ps
+⍝ Test the "##.Laguntza.SetNoClose" as well as  the "##.Laguntza.GetNoClose" method.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page←''
+ #.TestHelp.Page,←⊂'# A topic'
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.trapErrors←0
+ ps.visible←1
+ ps.noClose←1
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ →T.GoToTidyUp 1≠##.Laguntza.GetNoClose ref
+ →T.GoToTidyUp 1≠ref ##.Laguntza.SetNoClose 1
+ →T.GoToTidyUp 1≠##.Laguntza.GetNoClose ref
+ 1 ⎕NQ ref.n.quitApp'Select'
+ ∆Process ref
+ →T.GoToTidyUp 1≠##.Laguntza.GetNoClose ref
+ →T.GoToTidyUp 0≠##.Laguntza.GetVisible ref
+ →T.GoToTidyUp 1≠ref ##.Laguntza.SetNoClose 1
+ {}ref ##.Laguntza.SetVisible 1
+ →T.GoToTidyUp 1≠ref ##.Laguntza.SetNoClose 0
+ →T.GoToTidyUp 0≠##.Laguntza.GetNoClose ref
+ ref.on9999←1
+ 1 ⎕NQ ref.n.quitApp'Select'
+ ∆Process ref
+ {}{0::⍬ ⋄ ∆Wait ⍵}ref
+ →T.GoToTidyUp 0≠{6::0 ⋄ 1⊣⍵.Type}ref
+
+ R←T._OK
+∆TidyUp:
+ :Trap 0 ⋄ F.DeleteFile ref.∆tempFilename ⋄ :EndTrap
+⍝Done

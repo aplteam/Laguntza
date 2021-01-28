@@ -1,3 +1,5 @@
  Prepare
- T←⎕NEW ##.Tester2 ⎕THIS
+ A←##.Laguntza.APLTreeUtils2
+ F←FilesAndDirs
+ T←⎕NEW Tester2 ⎕THIS
 ⍝Done

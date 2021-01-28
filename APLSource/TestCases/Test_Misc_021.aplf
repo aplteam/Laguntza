@@ -1,0 +1,34 @@
+ R←Test_Misc_021(stopFlag batchFlag);⎕TRAP;ref;ps;css
+⍝ Test whether Laguntza goes astray in case any namespace reference (like AcreConfig) is part of the Help nodes.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'THIS'
+ 'THIS'#.⎕NS''
+ #.THIS.Hello2←{42}
+
+ #.⎕SHADOW'TEMP'
+ 'TEMP'#.⎕NS''
+ #.TEMP.Abstract←'# Test page' 'A help paragraph.'
+ #.TEMP.THAT←#.THIS
+ 'Node1'#.TEMP.⎕NS''
+ 'Node2'#.TEMP.⎕NS''
+ #.TEMP.Node2.⎕DF'JohnDoe'
+ #.TEMP.AcreConfig←⎕NS''
+ #.TEMP.AcreConfig.⎕DF'AcreConfig'
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
+ ps.source←#.TEMP
+ ps.notifyAcre←0
+ ps.regPath←0
+
+ ref←1 ##.Laguntza.New ps
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+ :Trap 0 ⋄ F.RmDir ps.folderName ⋄ :EndTrap
+⍝Done

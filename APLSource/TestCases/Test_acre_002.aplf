@@ -12,14 +12,14 @@
 
  ref←L.CreateStub'#.',projectName,'.',projectName
  aplsourceFolder←∆TestFolder,'\',projectName,'\APLSource\'
- →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
 
  1 L.HandleTopicProperties ref.n.∆Ref
- →T.GoToTidyUp 8≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 8≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
 
  R←T._OK
 
 ∆TidyUp:
  ##.Laguntza.Reset
- ##.FilesAndDirs.RmDir ∆TestFolder,'\',projectName
+ F.RmDir ∆TestFolder,'\',projectName
 ⍝Done

@@ -9,7 +9,7 @@
      ⎕←buf
      0=∆Ref ##.YesOrNo'Would you like to emphasize all pages with ambiguous links?':⍬
      buf←1↓,buf
-     rows←⍎¨buf{⍵↑⍨⍵⍳' '}¨A.dlb buf                     ⍝ Isolate row numbers
+     rows←⍎¨buf{⍵↑⍨⍵⍳' '}¨A.DLB buf                     ⍝ Isolate row numbers
      _←∆Ref ##.BoldenTheseTopics rows
      ⍬
  }

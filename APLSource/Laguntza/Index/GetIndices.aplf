@@ -10,8 +10,8 @@
      mat←CollectPageDataForKeywords keywords tree
      mat[;2]←(1+≢⍕∆Ref.p.source)↓¨⍕¨mat[;2]  ⍝ Convert refs into reasonable captions
      disp←mat[;0 1 2]                        ⍝ The display format
-     disp[##.A.Where~{(⍵⍳⍵)=⍳≢⍵}disp[;0];0]←⊂''
+     disp[⍸~{(⍵⍳⍵)=⍳≢⍵}disp[;0];0]←⊂''
      rows←mat[;3]
-     li←##.A.Lowercase mat[;0]               ⍝ li = lower case indices; for search purposes
+     li←⎕C mat[;0]                           ⍝ li = lower case indices; for search purposes
      r←li rows disp                          ⍝ Compile li, row numbers in tree and display data
  :EndIf

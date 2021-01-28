@@ -7,7 +7,7 @@
 ⍝ Returns a list of refs of namespaces which got a `∆TopicProperties` function injected.
  recursive←{0<⎕NC ⍵:⍎⍵ ⋄ ''}'recursive'
  'Invalid left argument'⎕SIGNAL 11/⍨' '≠1↑0⍴recursive
- recursive←A.Lowercase recursive
+ recursive←⎕C recursive
  'Invalid left argument'⎕SIGNAL 11/⍨~(⊂recursive)∊'' 'recursive'
  recursiveFlag←'recursive'≡recursive
  'Invalid parameter "ref"'⎕SIGNAL 11/⍨9≠⎕NC⍕ref

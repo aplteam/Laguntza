@@ -29,7 +29,7 @@
 
  ∆Process ref
 
- tieNo←(∨/'laguntza_testcases\test_link_013\laguntza.dcf'⍷##.APLTreeUtils.Lowercase ⎕FNAMES)/⎕FNUMS
+ tieNo←(∨/'laguntza_testcases\test_link_013\laguntza.dcf'⍷⎕C ⎕FNAMES)/⎕FNUMS
 
  html←⎕FREAD tieNo,10+1
  →T.PassesIf(⊂'<p>This: <code>~~~</code> is inline code.</p>')∊html

@@ -1,0 +1,27 @@
+ R←Test_Misc_111(stopFlag batchFlag);⎕TRAP;report;ps;ref;myTimer
+⍝ Brings the help to life but without A being visible to #.Laguntza
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TEMP'
+ 'TEMP'#.⎕NS''
+ #.TEMP.⎕FIX ⎕SRC A
+ ∆CreateStructure2
+ ∆CreatePagesSet3
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑⎕SI
+ ps.source←#.TestHelp
+ ps.trapErrors←0
+ ps.visible←0
+ ps.noClose←1
+ #.⎕SHADOW'APLTreeUtils2'   ⍝ !! If APLTreeUtils cannot be found this will cause a crash
+ ref←1 ##.Laguntza.New ps
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

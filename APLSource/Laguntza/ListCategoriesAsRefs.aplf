@@ -3,7 +3,7 @@
 ⍝ By default only ⍵ is scanned.
 ⍝ By specifying "recursive" as left argument you can change this.
      ⍺←''
-     recursiveFlag←{(0=1↑0⍴⍵):⍵ ⋄ 'RECURSIVE'≡A.Uppercase ⍵}⍺
+     recursiveFlag←{(0=1↑0⍴⍵):⍵ ⋄ 'RECURSIVE'≡1 ⎕C ⍵}⍺
      (0=≢r←{⍵/⍨~∨/¨(↑¨⍵)∊¨⊂'_∆'}⍵.⎕NL-9):⍬
      r←⍵.⍎¨r
      parms←ExecHelpParms(0⊃r).##

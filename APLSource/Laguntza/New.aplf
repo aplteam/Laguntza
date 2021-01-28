@@ -8,7 +8,7 @@
 ⍝ ps.source←#.MyHelp
 ⍝ Markdown2.New ps
 ⍝ ~~~
- A←EstablishRef'APLTreeUtils'
+ A←APLTreeUtils2
  'Right argument must be a parameter space'⎕SIGNAL 11/⍨9.1≢⎕NC⊂'ps'
  ps←CreateParms ps
  ps←CheckParms ps
@@ -17,7 +17,7 @@
  'Invalid parameter: "foldername"'⎕SIGNAL 11/⍨(,ps.folderName)≡,¯1
  {}TidyUp ⍬
  ∆Ref←CreateHelpForm ps
- ∆Ref.A←A   ⍝ Establish a reference to APLTreeUtils for performance
+ ∆Ref.A←A   ⍝ Establish a reference to APLTreeUtils2 for performance
  ∆Ref.∆NamespaceTree←ListNamespaceTree⍎{⍵↑⍨⍵⍳'.'}(⎕IO)⊃{⍵/⍨0<⍬∘⍴¨⍴¨⍵}⎕XSI
  ∆Ref.∆parms←ps
  ∆Ref.∆tempFilename←GetTempFilename'html'

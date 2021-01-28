@@ -1,0 +1,30 @@
+ R←Test_Misc_017(stopFlag batchFlag);⎕TRAP;ref;ps;css;html
+⍝ Test whether fenced code that carries an embedded function call is ignored.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ 'Pages'#.TestHelp.⎕NS''
+ #.TestHelp._TestFns←{
+     'Argument: >',⍵,'<'
+ }
+ #.TestHelp.Pages.Page←,¨'# First topic' '' '~~~' '## ⍎⍎⍎##._TestFns⍎⍎⍎' '~~~' ''
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
+ ps.source←#.TestHelp
+ ps.notifyAcre←0
+ ps.regPath←0
+
+ ref←1 ##.Laguntza.New ps
+ html←⎕FREAD ref.f.tieNo 12
+ →T.PassesIf 1=+/'<pre><code>## ⍎⍎⍎##._TestFns⍎⍎⍎</code></pre>'⍷∊html
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

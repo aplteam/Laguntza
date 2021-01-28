@@ -13,7 +13,7 @@
      :If ∧/(1↓topic)∊⎕D
          in←↑(//)⎕VFI 1↓topic
      :Else
-         no←(##.A.Lowercase ∆Ref.d.tree[;##.I.TopicName])⍳⊂1↓topic
+         no←(⎕C ∆Ref.d.tree[;##.I.TopicName])⍳⊂1↓topic
          in←∆Ref.d.tree[no;##.I.Row]
      :EndIf
      {}##.Display ∆Ref in              ⍝ Display a certain topic

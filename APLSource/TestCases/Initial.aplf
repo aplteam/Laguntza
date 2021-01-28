@@ -1,6 +1,6 @@
  Initial
- ∆DEBUG←' '##.APLTreeUtils.Last ⎕SE.UCMD'udebug on'
- ∆TestFolder←##.FilesAndDirs.GetTempPath,'Laguntza'
- ##.FilesAndDirs.RmDir ∆TestFolder
- ##.FilesAndDirs.CheckPath ∆TestFolder
+ ∆DEBUG←' 'A.Last ⎕SE.UCMD'udebug on'
+ ∆TestFolder←F.GetTempPath,'Laguntza'
+ F.RmDir ∆TestFolder
+ F.CheckPath ∆TestFolder
 ⍝Done

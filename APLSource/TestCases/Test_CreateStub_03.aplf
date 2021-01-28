@@ -10,12 +10,12 @@
  parms.source←#
  ref←parms ##.Laguntza.CreateStub'__Test_03'
  →T.GoToTidyUp 9≠#.⎕NC'__Test_03'
- →T.GoToTidyUp 9≠≢↑('recursive' 1)##.FilesAndDirs.Dir ref.∆parms.folderName,'/'
+ →T.GoToTidyUp 9≠≢↑('recursive' 1)F.Dir ref.∆parms.folderName,'/'
 
  R←T._OK
 
 ∆TidyUp:
  ⎕NQ ref'Close'
  ⎕DL 0.2
- ##.FilesAndDirs.RmDir ref.∆parms.folderName
+ F.RmDir ref.∆parms.folderName
 ⍝Done

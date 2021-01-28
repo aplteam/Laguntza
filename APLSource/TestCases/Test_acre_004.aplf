@@ -12,16 +12,16 @@
 
  ref←L.CreateStub'#.',projectName,'.',projectName
  aplsourceFolder←∆TestFolder,'\',projectName,'\APLSource\'
- →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
 
- 1 L.HandleTopicProperties ref.n.∆Ref                               ⍝ Inject a ∆TopicProperty page
- →T.GoToTidyUp 8≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
+ 1 L.HandleTopicProperties ref.n.∆Ref                           ⍝ Inject a ∆TopicProperty page
+ →T.GoToTidyUp 8≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
  fnsName←'#.',projectName,'.',projectName,'.∆TopicProperties'
  filename←↑⎕SE.acre.Sourcefile fnsName
- bodyOld←##.APLTreeUtils.ReadUtf8File filename                      ⍝ Current status of ∆TopicProperty
- 1 L.DeleteTopicOrNode ref.n.∆Ref                                   ⍝ Delete currently selected page
- →T.GoToTidyUp 7≠≢list←↑('recursive' 1)##.FilesAndDirs.Dir aplsourceFolder
- bodyNew←##.APLTreeUtils.ReadUtf8File filename                      ⍝ New (updated) status of ∆TopicProperty
+ bodyOld←↑F.NGET filename                                       ⍝ Current status of ∆TopicProperty
+ 1 L.DeleteTopicOrNode ref.n.∆Ref                               ⍝ Delete currently selected page
+ →T.GoToTidyUp 7≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
+ bodyNew←↑F.NGET filename                                       ⍝ New (updated) status of ∆TopicProperty
  →T.GoToTidyUp bodyOld≡bodyNew
  →T.GoToTidyUp∨/'''Copyright'''⍷bodyNew
 
@@ -29,5 +29,5 @@
 
 ∆TidyUp:
  ##.Laguntza.Reset
- ##.FilesAndDirs.RmDir ∆TestFolder,'\',projectName
+ F.RmDir ∆TestFolder,'\',projectName
 ⍝Done

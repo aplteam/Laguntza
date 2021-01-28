@@ -18,12 +18,12 @@
      :If CheckOnEditFixForSaltHandler ⍬
          path←GetSaltPath ∆Ref.d.tree[in;I.Parent]
          :If isNode
-             rc←↑##.FilesAndDirs.RmDir path,'\',name
+             rc←↑FilesAndDirs.RmDir path,'\',name
              :If 0≠rc
                  'Help: delete node'Show'Removing directory:'path''('failed: rc=',⍕rc)
              :EndIf
          :Else
-             rc←↑##.FilesAndDirs.DeleteFile path,'\',name,'.dyalog'
+             rc←↑FilesAndDirs.DeleteFile path,'\',name,'.dyalog'
              :If 1≠rc
                  'Help: delete page'Show'Removing file:'path''('failed: rc=',⍕rc)
              :EndIf

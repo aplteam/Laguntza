@@ -8,7 +8,7 @@
      0=≢link:''
      (link2 alt)←{'|'∊⍵:'|'A.Split ⍵ ⋄ ⍵''}link
      link2←{⍵↑⍨⌊/⍵⍳'|] '}link2
-     f←∨/'https://' 'http://'{⍺∊⍨A.Lowercase(≢¨⍺)↑¨⊂⍵}link2
+     f←∨/'https://' 'http://'{⍺∊⍨⎕C(≢¨⍺)↑¨⊂⍵}link2
      f:¯1
      ≢in ##.FindTopic ∆Ref link2
  }

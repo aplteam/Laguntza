@@ -11,7 +11,7 @@
      allPages←lc allPages
      allPages←ConvertHtmlEntities allPages
      ss2←lc ss
-     lines←∆Ref.d.A.Where{∨/ss2∘⍷⍵}¨allPages
+     lines←⍸{∨/ss2∘⍷⍵}¨allPages
      list←list[lines]
      :If 0≠≢lines
          list←(1+≢⍕∆Ref.p.source)↓¨list

@@ -1,0 +1,18 @@
+ R←Test_Misc_129(stopFlag batchFlag);⎕TRAP;parms;ref;tempfilename
+⍝ Display all help pages in sub-namespace "Styling". This is about CSS.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ parms←##.Laguntza.CreateParms''
+ tempfilename←F.GetTempSubDir''
+ parms.source←Styling
+ ref←1 ##.Laguntza.New parms
+ ref.⎕WS'Event' 9955 1
+ ∆Process ref
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+ F.RmDir parms.folderName
+⍝Done

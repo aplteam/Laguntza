@@ -7,7 +7,7 @@
  :AndIf 0<+/b←~{⍵∨≠\⍵}{∨/∨/¨'~~~' '```'⍷¨⊂⍵}¨maskCode/¨md
  :AndIf 0<+/b←b∧∨/¨'→['∘⍷¨md
      :If 1∊b2←~']'∊¨b/md                            ⍝ Missing the closing "]"?!
-         ind←b2/A.Where b                  ⍝ In case there is no closing ] it's not a link!
+         ind←b2/⍸b                                 ⍝ In case there is no closing ] it's not a link!
          :For this :In ind
              :If this<≢1↓md
                  :If ']'∊((this+1)⊃maskCode)/(this+1)⊃md

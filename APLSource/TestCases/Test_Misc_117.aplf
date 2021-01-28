@@ -1,0 +1,38 @@
+ R←Test_Misc_117(stopFlag batchFlag);⎕TRAP;report;ps;ref;myTimer
+⍝ Exercise the "Inject Node" method. ∆TopicProperties is not effected because there is no.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ ∆CreateStructure1
+ ∆CreatePagesSet1
+
+ ps←##.Laguntza.CreateParms ⍬
+ ps.helpCaption←'TestCases'
+ ps.folderName←GetPathForTempHelpProject↑⎕SI
+ ps.source←#.TestHelp
+ ps.trapErrors←1
+ ps.visible←1
+ ps.reportToSession←0
+ ref←1 ##.Laguntza.New ps
+ ref.n.form.Event,←⊂9955 1
+ ∆Process ref
+
+⍝ Setting SelItem[4]←1 has no effect, therefore we need to perform some gymnastics
+ ref.n.tree.on9991←'On9991' 4
+ On9991←{rf←↑⍵ ⋄ rf.SelItems←(≢rf.SelItems)⍴0 ⋄ rf.SelItems[⍺]←1}
+ ref.n.tree.ShowItem 4
+ ⎕NQ ref.n.tree 9991  ⍝ DON'T specify a left argument 1 here!
+
+ 1 ∆Process ref.n.tree
+
+ →T.FailsIf 0≠#.TestHelp.Level1_a.level2_First.⎕NC'Node_01'
+ 1 ##.Laguntza.InjectNewNode ref
+ →T.FailsIf 9≠#.TestHelp.Level1_a.level2_First.⎕NC'Node_01'
+ →T.FailsIf 1≠≢#.TestHelp.Level1_a.level2_First.Node_01.⎕NL 2
+
+ R←T._OK
+
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

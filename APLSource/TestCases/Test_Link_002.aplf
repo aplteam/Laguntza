@@ -18,7 +18,7 @@
  ambiguousLinks←¯1 ##.Laguntza.Lint_.CheckAmbiguousLinks ref
  →T.GoToTidyUp 0≠≢ambiguousLinks                                ⍝ We expect no ambiguous link
  filename←##.Laguntza.BuildDocFromAllPages ref
- html←'flat'##.APLTreeUtils.ReadUtf8File filename
+ html←↑F.NGET filename
 
  noOf←2 ⍝ There is one application of italic ...
  noOf+←2×+/html∘{+/⍵⍷⍺}'Invalid link'
