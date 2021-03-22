@@ -1,5 +1,20 @@
- Prepare
- A←##.Laguntza.APLTreeUtils2
- F←FilesAndDirs
+ Prepare;testPath;testFilename;ask;answer;⎕IO;⎕ML
+⍝ Useful to prepare test cases for execution
+ ⎕IO←1 ⋄ ⎕ML←1
+ A←APLTreeUtils2 ⋄ F←FilesAndDirs
  T←⎕NEW Tester2 ⎕THIS
+ testPath←(⊃1 ⎕NPARTS''),'TestResults'
+ testFilename←testPath,'/CodeCoverage'
+ :If ⎕NEXISTS testPath
+     :If ⎕NEXISTS testFilename,'.dcf'
+         ask←{⎕←⍵,'; 1=append, 2=replace' ⋄ a←⎕ ⋄ ~(⊂a)∊1 2:∇ ⍵ ⋄ ⊃a}
+         answer←⊃ask'Coverage file already exists'
+         :If 2≡answer
+             1 ⎕NDELETE testFilename,'.dcf'
+         :EndIf
+     :EndIf
+ :EndIf
+ 3 ⎕MKDIR testPath  ⍝
+ T.codeCoverage←⎕NEW CodeCoverage(,⊂'#.',{⍵,'.',⍵}2↓⍕⎕THIS.##)
+ T.codeCoverage.filename←testFilename
 ⍝Done

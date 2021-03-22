@@ -8,6 +8,7 @@
 ⍝ ps.source←#.MyHelp
 ⍝ Markdown2.New ps
 ⍝ ~~~
+ ⎕ML←3 ⋄ ⎕IO←0
  A←APLTreeUtils2
  'Right argument must be a parameter space'⎕SIGNAL 11/⍨9.1≢⎕NC⊂'ps'
  ps←CreateParms ps

@@ -17,4 +17,5 @@ There are a few naming conventions you need to be aware off:
 ### Objects starting their names with a ∆ character
 
 This indicates a name special to Laguntza (see above). You are therefore advised not to create
-any functions, variables or namespaces with names starting with a "`∆`" character.
+any functions, variables or namespaces inside a Laguntza Help namespace with names starting 
+with a "`∆`" character.

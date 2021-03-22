@@ -16,7 +16,7 @@
  nodeName←2⊃,ref.n.tree.SelItems⌿ref.d.tree
  1 L.DeleteTopicOrNode ref.n.∆Ref                                           ⍝ Delete currently selected item (the node)
  →T.GoToTidyUp 5≠≢list←↑('recursive' 1)F.Dir aplsourceFolder
- →T.GoToTidyUp 3≠≢list←'recursive'F.ListFiles aplsourceFolder    ⍝ Two help pages + QuadVars.apln
+ →T.GoToTidyUp 3≠≢list←'recursive'F.ListFiles aplsourceFolder               ⍝ Two help pages + QuadVars.apln
 
  R←T._OK
 

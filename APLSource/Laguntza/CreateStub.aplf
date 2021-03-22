@@ -1,9 +1,9 @@
  {r}←{parms}CreateStub name;ref;ref2;parms;parent;msg;cmd
 ⍝ Creates a new help system as a starting point. It comes with two pages ("Overview" and "Copyright")
 ⍝ and a sub folder "Sub" that has another two pages, "Foo" and "Goo".\\
-⍝ `name` must be the name of the new help system. If it is a relative path (like `Foo`) the help system
-⍝ is created where the fns was called from. If it is a full path (like `#.Here.Foo`) a help system `Foo`
-⍝ will be created in the namespace `#.Here` which must already exist.\\
+⍝ `name` must be the name of the new help system. If it is a relative path (like `Foo`) the help
+⍝ system is created in `#`. If it is a full path (like `#.Here.Foo`) a help system `Foo`
+⍝ will be created in `#.Here` which must already exist.\\
 ⍝ You can specify a parameter space, typically created by calling `Laguntza.CreateParms ''`, as
 ⍝ optional left argument.
 ⍝ `r` is a pointer to the newly created help system.
@@ -16,7 +16,7 @@
  :If '.'∊name
      (parent name)←{⍵{(⍺↓⍨-1+≢⍵)(⍺↑⍨-≢⍵)}'.'A.Last ⍵}name
  :ElseIf 0=≢parms.source
-     parent←↑⎕NSI
+     parent←((⍕⎕THIS),'.')∘{↑⍵↓⍨+/∧\⍺∘≡¨(≢⍺)↑¨⍵}⎕NSI
  :Else
      parent←⍕parms.source
  :EndIf
@@ -41,7 +41,7 @@
  :EndIf
  ref2←⍎'Sub'ref.⎕NS''
  ref.Overview←'[DATA]:index=''How to start ⋄ Get going ⋄ First steps''' '' '# Overview' '' 'This is the "Overview" page'
- ref.Copyright←'[DATA]:index=''Copyright''' '' '# Copyright' '' '(c) Copyright 2017 xyz'
+ ref.Copyright←'[DATA]:index=''Copyright''' '' '# Copyright' '' '(c) Copyright 2021 xyz'
  ref2.Foo←'[DATA]:index=''This is about Foo''' '# Foo' '' 'This is the "Foo" page' '' 'Go to →[Overview]'
  ref2.Goo←'[DATA]:index=''This is about Goo''' '# Goo' '' 'This is the "Goo" page' '' 'Go to →[Overview]'
  r←1 New parms

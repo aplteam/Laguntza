@@ -1,4 +1,10 @@
- CreateIcon←{
-     parent←⍵
-     ⍎'LaguntzaIcon'parent.⎕WC'Icon'('Bits'GetBits)('CMap'GetCMap)('Mask'GetMask)('Style' 'Small')
- }
+ {r}←CreateIcon parent;filename
+⍝ Tries to find the Icon in ./Images/; if that does not work out it uses ∆HOME, assuming it is running
+⍝ as a Tatin package because then ∆HOME tells us where to find assets.
+ :If ⎕NEXISTS'./Images/ViewHelp.ico'
+     filename←'./Images/ViewHelp.ico'
+ :Else
+     filename←##.##.∆HOME,'/Images/ViewHelp.ico'
+ :EndIf
+ r←⍎'LaguntzaIcon'parent.⎕WC'Icon'('File'filename)('Style' 'Small')
+ ⍝Done

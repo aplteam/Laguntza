@@ -15,8 +15,7 @@ Although fully qualified filenames seem to work as well, they have two drawbacks
 1. When you export a help system as an HTML file (command "Export as HTML..." in the "File" menu)
    and then copy the exported HTML pages elsewhere then the link will be broken as well.
 
-If on the other hand you stick with `ImagesmyPic.png` as a relative filename then this folder will
-become an integral part of the help system, and the link won't break.
+If on the other hand you specify `Images/myPic.png` (= a relative filename) then the link won't break.
 
 For example, if you want to show a picture "FlipDB-Team.png" that lives in a folder `Images` which
 in turn is a sub-folder of `folderName` then that's all you have to do:
@@ -25,7 +24,7 @@ in turn is a sub-folder of `folderName` then that's all you have to do:
 ![The FlipDB ](Images/FlipDB-Team.png)
 ~~~                   
 
-![The FlipDB ](FlipDB-Team.png)
+![The FlipDB ](Images/FlipDB-Team.png)
 
 ## Assigning width, height, border and more
 

@@ -13,10 +13,12 @@
  path←F.NormalizePath F.PWD,'\Dist\'
  tempPath←F.GetTempSubDir''
 
- zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
+ Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
+ zipFilename←↑zipFilename
+
  zipFilename ##.Laguntza.DotNetZip.UnzipTo tempPath
  'Create!'F.CheckPath tempPath,'/help/files/Images'
- (tempPath,'/help/files/Images/')⎕NCOPY F.PWD,'\FlipDB-Team.png'
+ (tempPath,'/help/files/Images/')⎕NCOPY F.PWD,'\Images\FlipDB-Team.png'
 
  parms←Execute.DefaultParms
  parms.wait←0

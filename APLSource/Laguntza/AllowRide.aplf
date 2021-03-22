@@ -5,7 +5,7 @@
 ⍝ opportunity to issue an interrupt in order to take control.
  r←⍬
  waitFlag←{0<⎕NC ⍵:⍎⍵ ⋄ 1}'waitFlag'
- isDev←##.APLTreeUtils2.IsDevelopment
+ isDev←APLTreeUtils2.IsDevelopment
  ReturnCodes←⎕NS''
  ReturnCodes.CONGA_DLL_IS_MISSING←106
  ReturnCodes.RESETTING_CONNECTION_FAILED←107

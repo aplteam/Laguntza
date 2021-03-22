@@ -16,7 +16,7 @@
  :EndIf
  File.DealWithFiles ∆Ref
  CollectData ∆Ref               ⍝ Gather all the data needed for the tree
- SaveFlipDBTeamImage ∆Ref
- SaveBitmaps ∆Ref
  File.CloseFile ∆Ref
+ CopyImages ∆Ref
+ CopyAndMassageCSSfiles ∆Ref
 ⍝Done

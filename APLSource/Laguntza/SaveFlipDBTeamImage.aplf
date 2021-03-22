@@ -1,6 +1,0 @@
- SaveFlipDBTeamImage←{
-     ∆Ref←⍵
-     fn←∆Ref.p.folderName,'\FlipDB-Team.png'
-     WriteBytesAs8BitSignedIntegersToFile fn FlipDBTeamImage
-     1:shy←⍬
- }

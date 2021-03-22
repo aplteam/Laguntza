@@ -19,7 +19,7 @@ There are features available that make the process smooth. Follow these steps fo
    or both point to "somewhere else".
 
    Note however that Laguntza will always copy the files `cssPrintFilename` and `cssScreenFilename` 
-   are pointing to the folder `→[*.folderName]`.
+   are pointing to to the folder `→[*.folderName]`.
    
 Note that for <pre> and <code> you should not use a "font-width" higher than 400 if you wish line-drawing
 characters to look okay with DPI scaling on.

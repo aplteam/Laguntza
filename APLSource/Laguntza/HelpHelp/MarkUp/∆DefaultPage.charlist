@@ -36,4 +36,4 @@ printing documents, not viewing them. It also slows down search operations for p
   # This is an ATX header of level 1
   ~~~~
   
-* For fencing a code block you **must** use three or more tilde (`~`) characters rather than back-ticks (````).
+* For fencing a code block you **must** use three or more tilde (`~`) characters rather than back-ticks.

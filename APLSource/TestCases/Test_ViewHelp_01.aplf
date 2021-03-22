@@ -11,9 +11,11 @@
  path←'expand'F.NormalizePath'Dist\'
  tempPath←F.GetTempSubDir''
 
- zipFilename←path,'Laguntza-',({⍵/⍨2≥+\⍵='.'}1⊃##.Laguntza.Version),'.zip'
+ Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
+ zipFilename←↑zipFilename
 
  rc←zipFilename ##.Laguntza.DotNetZip.UnzipTo tempPath
+ tempPath ⎕NCOPY⍠('IfExists' 'Replace')⊣'./Dist/ViewHelp.exe'
 
  parms←Execute.DefaultParms
  parms.wait←0

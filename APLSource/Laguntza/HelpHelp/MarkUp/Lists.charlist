@@ -148,6 +148,6 @@ list item the paragraph or the code block belongs to.
    | row1/col1| row1/col2|
    | row2/col1| row2/col2|
    
-   ![The FlipDB ](FlipDB-Team.png)
+   ![The FlipDB ](Images/FlipDB-Team.png)
    
-   Support for tables and stand-alone images as part of a list item was added in version 2.3 (new version on MarkAPL).
+   Support for tables and stand-alone images as part of a list item was added in version 2.3 (new version of MarkAPL).

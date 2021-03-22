@@ -1,7 +1,7 @@
- RunAsStandalone;ps;ref;⎕ML;⎕IO;cd;msg;filename;rc;folderName;expand;tieNo;⎕TRAP;parms;debug;isDev
+ {r}←RunAsStandalone;ps;ref;⎕ML;⎕IO;cd;msg;filename;rc;folderName;expand;tieNo;⎕TRAP;parms;debug;isDev
 ⍝ This function runs under ViewHelp.exe.
-⍝ It will be moved to #; therefore all calls must be fully qualified.
  ⎕ML←3 ⋄ ⎕IO←0
+ r←⍬
  AllowContinueWS ⍬
  :If 0
      ⎕TRAP←0 'S'

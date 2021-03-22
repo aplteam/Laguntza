@@ -28,7 +28,7 @@ leads to this:
 
 This is _italic_! 
 
-Note however that an underscore character within a word does not have any effect: This_remains_unaffected.
+Note however that an underscore character within a word does not have this effect: This_remains_unaffected.
 
 ## Bold and italic
 
@@ -52,13 +52,15 @@ This ~~is strikethrough~~!
 
 ## Escaping
 
-In some instances you must escape a character. A common application is when you want to mention a variable with a 
+In some instances you must escape a character. The backslash is Laguntza's escape character.
+
+A common application is when you want to mention a variable with a 
 name that starts with an underscore character without it making the rest of the help page Italic.
 
 ~~~
-_varsName
+\\_varsName\\_ but not italic
 ~~~       
 
 Leads to this:
 
-_varsName
+\\_varsName\\_ but not italic

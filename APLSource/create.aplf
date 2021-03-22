@@ -1,9 +1,0 @@
- create;parms;name
- parms←Laguntza.CreateParms ⍬
- parms.saltFolder←'D:\Temp\'
- name←'#.KaisHelp'
- #.FilesAndDirs.RmDir parms.saltFolder,'\',name
- #.⎕EX name
-⍝ #.⎕EX'Container'
-⍝ parms Laguntza.CreateStub'#.Container.',name
- parms Laguntza.CreateStub name

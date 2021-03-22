@@ -1,12 +1,11 @@
  HelpOnHelp←{
- ⍝ Fires up APLTreHelp's own help
+ ⍝ Fires up Laguntza's own help
      ∆Ref←⍵
      ps←CreateParms ⍬
      ps.helpCaption←'Laguntza''s Help'
-     ps.folderName←(0⊃A.SplitPath GetTempFilename''),'LaguntzaHelp\'
-     ps.source←HelpHelp
+     ps.folderName←##.∆HOME
      ps.userMode←1
      ps.expand←'None'
-     {⍵.Wait}1 New ps
+     {⍵.Wait}New ps
      ⍬
  }

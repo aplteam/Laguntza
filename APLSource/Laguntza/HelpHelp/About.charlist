@@ -14,13 +14,14 @@ The name of that version was `APLTreeHelp`. The source of the actual help pages 
 returning vectors of two-element vectors with a tag and content.
 
 In 2016 it was decided to keep the source in variables which contain Markdown. Because this was
-a change of paradigm a new project Markdown2Help was created. The functionality has not changed
+a change of paradigm a new project Markdown2Help was created. The functionality had not changed
 however.
 
 Early in 2018 the project was moved from the APL wiki to GitHub: https://github.com/aplteam/markdown2help.
 
 In November 2018 Markdown2Help was renamed and became Laguntza: <https://github.com/aplteam/Laguntza>.
 
+In early 2021 Laguntza 5.0.0 was converted into a Tatin package.
+
 `APLTreeHelp` as well as Laguntza were both implemented by Kai Jaeger. 
 [Kai Jaeger on LinkedIn](https://www.linkedin.com/in/kaijaeger).
-

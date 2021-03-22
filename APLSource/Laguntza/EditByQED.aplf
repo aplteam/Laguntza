@@ -9,11 +9,7 @@
      old←refToParent⍎name
  :EndIf
  :Repeat
-     :If 14.1≤↑(//)⎕VFI{⍵/⍨2>+\'.'=⍵}1⊃'#'⎕WG'APLVersion'
-         {}(refToParent.⎕ED⍠('EditName' 'Allow'))name
-     :Else
-         {}refToParent.⎕ED name
-     :EndIf
+     {}(refToParent.⎕ED⍠('EditName' 'Allow'))name
      :If 3=refToParent.⎕NC name
          body←⎕CR name
          r←refToParent.⎕FX body

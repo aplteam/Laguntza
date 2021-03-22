@@ -11,6 +11,5 @@
      _←DeleteFile filename
      ∆Ref.f.tieNo←filename ⎕FCREATE 0
      _←{''⎕FAPPEND ∆Ref.f.tieNo}¨⍳10    ⍝ 10 reserved records
-     _←CheckCssFiles ∆Ref.p
      1:shy←⍬
  }
