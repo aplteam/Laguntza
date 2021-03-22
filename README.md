@@ -62,6 +62,5 @@ This is what a typical help variable looks like:
 ![](Images/Laguntza_03.png)
 
 
-[^tatin]: _Tatin_ is a package manager for Dyalog APL packages <<br>> 
-The project lives on <https://github.com/aplteam/Tatin> <<br>>
-The principat Tatin server is <https://tatin.dev>
+[^tatin]: _Tatin_ is a package manager for Dyalog APL packages;
+The project lives on <https://github.com/aplteam/Tatin>; The principal Tatin server is <https://tatin.dev>
