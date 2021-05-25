@@ -10,6 +10,6 @@
  ps.expand←'None'
  ps.visible←1
  r←1 New ps
- source←##.∆HOME,'\Laguntza\Images\FlipDB-Team.png'
+ source←GetHome'\Laguntza\Images\FlipDB-Team.png'
  1 ⎕MKDIR ps.folderName,'\Images\'
  {}source File.CopyFilesTo ps.folderName,'\Images\'

@@ -3,8 +3,8 @@
 ⍝ "Fordward", "Next", "Bookmark".
 ⍝ Also: creates a check box "Show navigation".
      ∆Ref←⍵
-     ∆Ref.n.Back1←⍎'Back1'∆Ref.n.form.⎕WC'Bitmap'('File'(##.##.∆HOME,'\Images\Back_Active.bmp'))('Size'(32 32))
-     ∆Ref.n.Back3←⍎'Back3'∆Ref.n.form.⎕WC'Bitmap'('File'(##.##.∆HOME,'\Images\Back_Inactive.bmp'))('Size'(32 32))
+     ∆Ref.n.Back1←⍎'Back1'∆Ref.n.form.⎕WC'Bitmap'('File'(##.GetHome'\Images\Back_Active.bmp'))('Size'(32 32))
+     ∆Ref.n.Back3←⍎'Back3'∆Ref.n.form.⎕WC'Bitmap'('File'(##.GetHome'\Images\Back_Inactive.bmp'))('Size'(32 32))
 
      ∆←⊂'Button'
      ∆,←⊂'Caption' 'Back'
@@ -17,8 +17,8 @@
      ⍵.n.backBtn←⍎'tb.back'⍵.⎕WC ∆
      ⍵.tb.back.Posn[1]+←15
 
-     ∆Ref.n.Next1←⍎'Next1'∆Ref.n.form.⎕WC'Bitmap'('File'(##.##.∆HOME,'\Images\Next_Active.bmp'))('Size'(32 32))
-     ∆Ref.n.Next3←⍎'Next3'∆Ref.n.form.⎕WC'Bitmap'('File'(##.##.∆HOME,'\Images\Next_Inactive.bmp'))('Size'(32 32))
+     ∆Ref.n.Next1←⍎'Next1'∆Ref.n.form.⎕WC'Bitmap'('File'(##.GetHome'\Images\Next_Active.bmp'))('Size'(32 32))
+     ∆Ref.n.Next3←⍎'Next3'∆Ref.n.form.⎕WC'Bitmap'('File'(##.GetHome'\Images\Next_Inactive.bmp'))('Size'(32 32))
 
      ∆←⊂'Button'
      ∆,←⊂'Caption' '&Forward'

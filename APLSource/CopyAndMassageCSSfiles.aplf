@@ -1,6 +1,6 @@
  {r}←CopyAndMassageCSSfiles ∆Ref;home;target;css;filename
  r←⍬
- home←FilesAndDirs.ExpandPath ∆HOME,'\CSS'
+ home←FilesAndDirs.ExpandPath GetHome'\CSS'
  target←FilesAndDirs.ExpandPath ∆Ref.p.folderName,'\CSS'
 
  filename←'screen.css'

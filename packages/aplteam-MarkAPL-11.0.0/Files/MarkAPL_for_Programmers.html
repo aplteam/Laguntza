@@ -22,17 +22,17 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <li><a href="#How-to">2. How to</a></li>
 <li><a href="#Methods">3. Methods</a>
 <ul>
-<li><a href="#ConvertMarkdownFile">3.1. ConvertMarkdownFile</a></li>
-<li><a href="#CreateParms">3.2. CreateParms</a></li>
-<li><a href="#CreateHelpParms">3.3. CreateHelpParms</a></li>
-<li><a href="#Execute">3.4. Execute</a></li>
-<li><a href="#Help">3.5. Help</a></li>
-<li><a href="#Init">3.6. Init</a></li>
-<li><a href="#MakeHTML_Doc">3.7. MakeHTML_Doc</a></li>
-<li><a href="#MarkDown2HTML">3.8. MarkDown2HTML</a></li>
-<li><a href="#Process">3.9. Process</a></li>
-<li><a href="#ref_method">3.10. Reference</a></li>
-<li><a href="#Version">3.11. Version</a></li>
+<li><a href="#ConvertMarkdownFile">3.1. <code>ConvertMarkdownFile</code></a></li>
+<li><a href="#CreateParms">3.2. <code>CreateParms</code></a></li>
+<li><a href="#CreateHelpParms">3.3. <code>CreateHelpParms</code></a></li>
+<li><a href="#Execute">3.4. <code>Execute</code></a></li>
+<li><a href="#Help">3.5. <code>Help</code></a></li>
+<li><a href="#Init">3.6. <code>Init</code></a></li>
+<li><a href="#MakeHTML_Doc">3.7. <code>MakeHTML_Doc</code></a></li>
+<li><a href="#MarkDown2HTML">3.8. <code>MarkDown2HTML</code></a></li>
+<li><a href="#Process">3.9. <code>Process</code></a></li>
+<li><a href="#ref_method">3.10. <code>Reference</code></a></li>
+<li><a href="#Version">3.11. <code>Version</code></a></li>
 </ul></li>
 <li><a href="#Parameters">4. Parameters</a></li>
 <li><a href="#Function-calls">5. Function calls</a></li>
@@ -72,12 +72,21 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 </a>
 </div>
 <p>One way to study how to make use of <strong><em>MarkAPL</em></strong> is to trace through the method <code>MarkAPL.Help</code>. This should clarify the principles.</p>
-<p>Another way is to look at the test cases named <code>Test_Examples_01</code> etc. in <code>#.TestCases</code> in the workspace MarkAPL.DWS. You can execute them with:</p>
-<pre><code>TestCases.RunThese 'Examples'</code></pre>
+<div class="leanpub_A">
+<h3>The MarkAPL project</h3>
+<p>Another way is to look at the test cases named <code>Test_Examples_01</code> etc. in <code>#.TestCases</code> in the workspace MarkAPL.DWS. However, in order to be able to do that you need to take a copy of the <a href="https://github.com/aplteam/MarkAPL" class="external_link">MarkAPL project on GitHub</a>.</p>
+<p>In order to run those test cases you first need to prepare the test suite:</p>
+<pre><code>)CS #.MarkAPL.TestCases
+Prepare</code></pre>
+<p>Now you can execute them with:</p>
+<pre><code>T.RunThese 'Examples'</code></pre>
+<p>You can execute specific ones:</p>
+<pre><code>T.RunThese 'Examples' (1 3)</code></pre>
 <p>You can trace through them with</p>
-<pre><code>TestCases.RunThese 'Examples' (-⍳1000)</code></pre>
-<p>The numbers select the test cases of the given group (here “Examples”) to be executed. <code>⍳1000</code> is just a fancy way to make sure that you catch all of them.</p>
-<p>Negative numbers tell the test framework to stop right before a particular test function is going to be executed. That gives you the opportunity to trace through that function without tracing through the actual test framework.</p>
+<pre><code>1 T.RunThese 'Examples'</code></pre>
+<p>The left argument makes sure that the test suite stops just before any test case is executed.</p>
+</div>
+
 <div class="h_tag">
 <a href="#Methods" id="Methods" class="autoheader_anchor">
 <h2 data-id="Methods">3. Methods</h2>
@@ -86,23 +95,23 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <nav>
 <p>Topics:</p>
 <ul>
-<li><a href="#ConvertMarkdownFile" class="bookmark_link">3.1. ConvertMarkdownFile</a></li>
-<li><a href="#CreateParms" class="bookmark_link">3.2. CreateParms</a></li>
-<li><a href="#CreateHelpParms" class="bookmark_link">3.3. CreateHelpParms</a></li>
-<li><a href="#Execute" class="bookmark_link">3.4. Execute</a></li>
-<li><a href="#Help" class="bookmark_link">3.5. Help</a></li>
-<li><a href="#Init" class="bookmark_link">3.6. Init</a></li>
-<li><a href="#MakeHTML_Doc" class="bookmark_link">3.7. MakeHTML_Doc</a></li>
-<li><a href="#MarkDown2HTML" class="bookmark_link">3.8. MarkDown2HTML</a></li>
-<li><a href="#Process" class="bookmark_link">3.9. Process</a></li>
-<li><a href="#ref_method" class="bookmark_link">3.10. Reference</a></li>
-<li><a href="#Version" class="bookmark_link">3.11. Version</a></li>
+<li><a href="#ConvertMarkdownFile" class="bookmark_link">3.1. <code>ConvertMarkdownFile</code></a></li>
+<li><a href="#CreateParms" class="bookmark_link">3.2. <code>CreateParms</code></a></li>
+<li><a href="#CreateHelpParms" class="bookmark_link">3.3. <code>CreateHelpParms</code></a></li>
+<li><a href="#Execute" class="bookmark_link">3.4. <code>Execute</code></a></li>
+<li><a href="#Help" class="bookmark_link">3.5. <code>Help</code></a></li>
+<li><a href="#Init" class="bookmark_link">3.6. <code>Init</code></a></li>
+<li><a href="#MakeHTML_Doc" class="bookmark_link">3.7. <code>MakeHTML_Doc</code></a></li>
+<li><a href="#MarkDown2HTML" class="bookmark_link">3.8. <code>MarkDown2HTML</code></a></li>
+<li><a href="#Process" class="bookmark_link">3.9. <code>Process</code></a></li>
+<li><a href="#ref_method" class="bookmark_link">3.10. <code>Reference</code></a></li>
+<li><a href="#Version" class="bookmark_link">3.11. <code>Version</code></a></li>
 </ul>
 </nav>
 <p>Note that all <a href="#Helpers" class="bookmark_link">helpers</a> are discussed separately.</p>
 <div class="h_tag">
 <a href="#ConvertMarkdownFile" id="ConvertMarkdownFile" class="autoheader_anchor">
-<h3 data-id="ConvertMarkdownFile">3.1. ConvertMarkdownFile</h3>
+<h3 data-id="ConvertMarkdownFile">3.1. <code>ConvertMarkdownFile</code></h3>
 </a>
 </div>
 <p>Takes a filename as right argument. The file is expected to hold Markdown. By default a fully-fledged HTML page is created from that Markdown file with exactly the same filename except that the file extension is <code>.html</code> rather than <code>.md</code>.</p>
@@ -112,27 +121,28 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <p>Note that <code>inputFilename</code> <strong>must not</strong> be specified, otherwise an error is signalled. This is because the input file is already defined by the right argument.</p>
 <div class="h_tag">
 <a href="#CreateParms" id="CreateParms" class="autoheader_anchor">
-<h3 data-id="CreateParms">3.2. CreateParms</h3>
+<h3 data-id="CreateParms">3.2. <code>CreateParms</code></h3>
 </a>
 </div>
-<p>Niladic function that returns a namespace populated with parameters carrying their default values. <code>CreateParms</code> tries to find for every parameter a value from the command line or environment variables. If it cannot find them it will establish a default value.</p>
+<p>Niladic function that returns a namespace populated with parameters carrying their default values.</p>
+<p><code>CreateParms</code> tries to find for every parameter a value from the command line or environment variables. If it cannot find them it will establish a default value.</p>
 <p>The namespace returned by the <code>CreateParms</code> method has a built-in method <code>∆List</code> which is niladic and will return a matrix with two columns, the parameter name in the first column and the default value in the second column.</p>
-<p>Note that a value of <code>¯1</code> means that there is not really a default available but a reasonable value will be determined at a later stage.</p>
+<p>Note that a value of <code>¯1</code> means that there is not really a default available but a reasonable value will be determined at a later stage, usually depending on the context.</p>
 <div class="h_tag">
 <a href="#CreateHelpParms" id="CreateHelpParms" class="autoheader_anchor">
-<h3 data-id="CreateHelpParms">3.3. CreateHelpParms</h3>
+<h3 data-id="CreateHelpParms">3.3. <code>CreateHelpParms</code></h3>
 </a>
 </div>
 <p>Niladic function that returns a namespace populated with parameters carrying their default values. Internally it calls <code>CreateParms</code> and then adds some parameters that are needed by the <a href="#Help" class="bookmark_link"><code>Help</code></a> and <a href="#ref_method" class="bookmark_link"><code>Reference</code></a> methods.</p>
 <div class="h_tag">
 <a href="#Execute" id="Execute" class="autoheader_anchor">
-<h3 data-id="Execute">3.4. Execute</h3>
+<h3 data-id="Execute">3.4. <code>Execute</code></h3>
 </a>
 </div>
 <p>This function is used exclusively by test cases.</p>
 <div class="h_tag">
 <a href="#Help" id="Help" class="autoheader_anchor">
-<h3 data-id="Help">3.5. Help</h3>
+<h3 data-id="Help">3.5. <code>Help</code></h3>
 </a>
 </div>
 <p>The function takes a Boolean right argument:</p>
@@ -143,9 +153,10 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <p>You might specify an optional left argument: a parameter space, typically created by calling the <code>CreateHelpParms</code> method. This allows creating a document with non-default parameters. Of course this has only an effect when the right argument is a 1.</p>
 <p>Note that the file “MarkAPL_CheatSheet.html” carries several embedded parameters — those cannot be overridden by a parameter namespace unless you assign a 1 to <code>ignoreEmbeddedParms</code>.</p>
 <p>In order to enable <code>Help</code> to find the file “Markdown_CheatSheet.html” (in case the defaults don't work) you must create a parameter space and then set <code>homeFolder</code> accordingly.</p>
+<p>If you specify a 1 as right argument but <code>Help</code> can only find the HTML file but not the markdown file it will ignore the right argument and just put the file on display with your default browser.</p>
 <div class="h_tag">
 <a href="#Init" id="Init" class="autoheader_anchor">
-<h3 data-id="Init">3.6. Init</h3>
+<h3 data-id="Init">3.6. <code>Init</code></h3>
 </a>
 </div>
 <p>Takes a two-item-vector as right argument:</p>
@@ -156,13 +167,13 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <p>Returns <a href="#The-ns-namespace" class="bookmark_link">The “ns” namespace</a>.</p>
 <div class="h_tag">
 <a href="#MakeHTML_Doc" id="MakeHTML_Doc" class="autoheader_anchor">
-<h3 data-id="MakeHTML_Doc">3.7. MakeHTML_Doc</h3>
+<h3 data-id="MakeHTML_Doc">3.7. <code>MakeHTML_Doc</code></h3>
 </a>
 </div>
 <p>Takes HTML, typically created by calling <code>Process</code>, and makes it a fully fledged HTML document by adding &lt;body&gt;, &lt;head&gt; — with &lt;title&gt; — and &lt;html&gt; with the DocType.</p>
 <div class="h_tag">
 <a href="#MarkDown2HTML" id="MarkDown2HTML" class="autoheader_anchor">
-<h3 data-id="MarkDown2HTML">3.8. MarkDown2HTML</h3>
+<h3 data-id="MarkDown2HTML">3.8. <code>MarkDown2HTML</code></h3>
 </a>
 </div>
 <p>This ambivalent function requires some Markdown as right argument.</p>
@@ -178,13 +189,13 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <p>Note that in case the parameter <code>createFullHtmlPage</code> is <code>¯1</code> (the default value which means “undefiend”) the default behaviour of <code>MarkDown2HTML</code> is defined by the setting of the parameter <code>outputFilename</code>: if <code>outputFilename</code> is not empty then <code>createFullHtmlPage</code> will default to 1, otherwise to 0, and that's what <code>Markdown2HTML</code> will take into account.</p>
 <div class="h_tag">
 <a href="#Process" id="Process" class="autoheader_anchor">
-<h3 data-id="Process">3.9. Process</h3>
+<h3 data-id="Process">3.9. <code>Process</code></h3>
 </a>
 </div>
 <p>This function takes — and returns — an <code>ns</code> namespace which was typically created by calling <code>Init</code>.</p>
 <div class="h_tag">
 <a href="#ref_method" id="ref_method" class="autoheader_anchor">
-<h3 data-id="ref_method">3.10. Reference</h3>
+<h3 data-id="ref_method">3.10. <code>Reference</code></h3>
 </a>
 </div>
 <p>The function takes a Boolean right argument:</p>
@@ -195,9 +206,10 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}b
 <p>You might specify an optional left argument: a parameter space, typically created by calling the <code>CreateHelpParms</code> method. This allows creating a help file with non-default parameters. Of course this has only an effect when the right argument is a 1.</p>
 <p>Note that the file “MarkAPL.html” carries several embedded parameters — those cannot be overridden by a parameter namespace unless you assign a 1 to <code>ignoreEmbeddedParms</code>.</p>
 <p>In order to enable <code>Reference</code> to find the file “MarkAPL.html” (in case the defaults don't work) you must create a parameter space and then set <code>homeFolder</code>.</p>
+<p>If you specify a 1 as right argument but <code>Reference</code> can only find the HTML file but not the markdown file it will ignore the right argument and just put the file on display with your default browser.</p>
 <div class="h_tag">
 <a href="#Version" id="Version" class="autoheader_anchor">
-<h3 data-id="Version">3.11. Version</h3>
+<h3 data-id="Version">3.11. <code>Version</code></h3>
 </a>
 </div>
 <p>Returns the name, the version number — including the built-ID — and the version date of <strong><em>MarkAPL</em></strong>.</p>
@@ -298,7 +310,9 @@ Last line
 </a>
 </div>
 <p>The <code>ns</code> namespace is returned (created) by the <code>Init</code> method and modified by the <code>Process</code> method. It contains both input and output variables.</p>
-<p>Before <code>Process</code> is run the variables <code>emptyLines</code>, <code>leadingChars</code>, <code>markdown</code>, <code>markdownLC </code>and <code>withoutBlanks</code> hold data that is extracted from the Markdown. When <code>Process</code> is running block by block is processed and removed from these variables. At the same time the variable <code>parms.html</code> is collecting the resulting html. Other variables (<code>abbreviations</code>, <code>data</code>, <code>footnoteDefs</code>, <code>headers</code>, <code>linkRefs</code>, <code>parms</code>, <code>subToc</code> and <code>toc</code>) may or may not collect data in the process as well.</p>
+<p>Before <code>Process</code> is run the variables <code>emptyLines</code>, <code>leadingChars</code>, <code>markdown</code>, <code>markdownLC </code>and <code>withoutBlanks</code> hold data that is extracted from the Markdown.</p>
+<p><code>Process</code> then splits the markdown into appropriate blocks, and processes them one after the other, and removes from these variables.</p>
+<p>At the same time the variable <code>parms.html</code> is collecting the resulting html. Other variables (<code>abbreviations</code>, <code>data</code>, <code>footnoteDefs</code>, <code>headers</code>, <code>linkRefs</code>, <code>parms</code>, <code>subToc</code> and <code>toc</code>) may or may not collect data in the process as well.</p>
 <p>The two variables <code>report</code> and <code>lineNumber</code> are special, see there.</p>
 <div class="h_tag">
 <a href="#ns_details" id="ns_details" class="autoheader_anchor">
@@ -504,9 +518,9 @@ Last line
 <li>Nesting level. The first row must start with nesting level 0 or 1.</li>
 <li>Either a text vector or a vector of text vectors.</li>
 </ol>
-<p>Example; this:</p>
+<p>Example:</p>
 <pre><code> m←''
- m,←⊂0 1 'Level 1 a bull'
+ m,←⊂0 1 'Level 1 a bullet point'
  m,←⊂2 2 'Level 2 a num'
  m,←⊂2 2('Level 2 b num' '' 'Another para' '' '~~~' '{+⌿⍵}' '~~~')
  m,←⊂2 2 'Level 2 c num'
@@ -515,7 +529,7 @@ Last line
  ns←MarkAPL.Process ns</code></pre>
 <p>leads to this list:</p>
 <ul>
-<li>Level 1 a bull
+<li>Level 1 a bullet point
 <ol start="2">
 <li>Level 2 a num</li>
 <li>Level 2 b num
@@ -533,7 +547,7 @@ Last line
 <p>Without a left argument there are no column headers, and alignment is ruled by data type: strictly numeric columns are right-aligned, everything else is left-aligned:</p>
 <pre><code>      M←('APL' 99 'Really great')('Python' 70 'Nice')('Cobol' 1 'Oh dear')
       ⎕←MarkAPL.Matrix2MarkdownTable M
-|-|-:|-|
+|-|--|-|
 | APL | 99 | Really great |
 | Python | 70 | Nice |
 | Cobol | 1 | Oh dear |</code></pre>
@@ -563,7 +577,7 @@ Last line
       M←('APL' 99 'Really great')('Python' 70 'Nice')('Cobol' 1 'Oh|dear')
       ⎕←MarkAPL.Matrix2MarkdownTable M
 | Lang | Prod:Rank | Comment |
-|-|-:|:-:|
+|-|-|:-:|
 | APL | 99 | Really great |
 | Python | 70 | Nice `|`|
 | Cobol | 1 | Oh\|dear |</code></pre>
@@ -615,7 +629,8 @@ Last line
 <li>The input (Markdown)</li>
 <li>Any non-default settings of parameters</li>
 <li>A short description of the problem (not as short as “It did not work!”)
-<p>This is particularly important because I have received a number of bug reports where <strong><em>MarkAPL</em></strong> did <em>exactly</em> what it was supposed to do, so without knowing what the user expected I cannot explain why it did not fulfil the user's expectations, because it <em>did</em> work! One gentleman even insisted that there was nothing to explain because it was a no-brainer. Well, it wasn't.</p>
+<p>This is particularly important because I have received a number of bug reports where <strong><em>MarkAPL</em></strong> did <em>exactly</em> what it was supposed to do, so without knowing what the user expected I cannot explain why it did not fulfil the user's expectations, because it <em>did</em> work!</p>
+<p>One gentleman even insisted that there was nothing to explain because it was a no-brainer. Well, it wasn't.</p>
 <p>So please tell me what you expect to see.</p></li>
 <li>The version number of <strong><em>MarkAPL</em></strong>.</li>
 </ul>
@@ -626,8 +641,15 @@ Last line
 </div>
 <p>Before reporting a bug please check carefully your Markdown. More often than not mistakes in the Markdown are causing the problem.</p>
 <p>If you cannot work out why it goes wrong report it to me – see the previous topic for how to report a problem.</p>
-<p>This document refers to version 10.0 of <strong><em>MarkAPL</em></strong>.</p>
-<p>Kai Jaeger ⋄ APL Team Ltd ⋄ 2020-10-31</p>
+<p>This document refers to version 11.0 of <strong><em>MarkAPL</em></strong>.</p>
+<p>Kai Jaeger ⋄ APL Team Ltd ⋄ 2021-04-14</p>
+<div id="external_link_report" class="print_only">
+<hr>
+<p><strong>Link report</strong></p>
+<ul>
+<li><a href="https://github.com/aplteam/MarkAPL" class="external_link">https://github.com/aplteam/MarkAPL</a>: <br>MarkAPL project on GitHub</li>
+</ul>
+</div>
 <div id="footnotes_div">
 <hr>
 <p><strong>Footnotes</strong></p>

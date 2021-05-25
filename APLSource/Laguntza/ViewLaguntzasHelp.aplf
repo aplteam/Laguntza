@@ -1,7 +1,7 @@
  {ref}←ViewLaguntzasHelp dummy;⎕ML;⎕IO;expand;filename;msg;debug;tieNo;parms;ps
 ⍝ Puts Laguntza's own help on display
  ⎕ML←3 ⋄ ⎕IO←0
- filename←##.∆HOME,'/',File.GetHelpFileName
+ filename←GetHome'/',File.GetHelpFileName
  expand←'None'
  :If ~File.DoesFileExist filename
      msg←'Could not find:'filename
@@ -22,7 +22,7 @@
      :If 0≠≢parms
          ps.{⍎(0⊃⍵),'←1⊃⍵'}¨↓parms
      :EndIf
-     ps.folderName←##.∆HOME
+     ps.folderName←GetHome''
      :If File.DoesFileExist'help.ico'
          ps.helpIcon←'file:///',(↑⎕CMD'cd'),'\help.ico'
      :EndIf

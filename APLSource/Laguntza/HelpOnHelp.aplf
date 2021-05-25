@@ -3,7 +3,7 @@
      ∆Ref←⍵
      ps←CreateParms ⍬
      ps.helpCaption←'Laguntza''s Help'
-     ps.folderName←##.∆HOME
+     ps.folderName←'./Dist'GetHome''
      ps.userMode←1
      ps.expand←'None'
      {⍵.Wait}New ps
