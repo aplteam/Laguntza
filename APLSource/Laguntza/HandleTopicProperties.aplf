@@ -4,6 +4,7 @@
      testFlag←⍺
      (∆Ref in)←2↑⍵,⊂⍬
      in←{GetCurrentItem ∆Ref.n}⍣(⍬≡in)⊣in
+     ⍬≡in:⍬  ⍝ Windows bug: sometimes it pretends that no item is selected where there is
      rf←I.Parent⊃∆Ref.d.tree[in;]
      3=rf.⎕NC'∆TopicProperties':testFlag ManageTopicProperties ∆Ref in rf
      msg←⊂'There is no function ∆TopicProperties in ',(⍕rf),' yet.'

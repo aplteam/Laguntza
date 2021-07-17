@@ -8,7 +8,7 @@
  :For this :In list
      :If 2=⎕NC this
          body←⍎this
-         :If 0=∨/∨/¨'[DATA]:index'∘⍷¨##.Laguntza.body
+         :If 0=∨/∨/¨'[DATA]:index'∘⍷¨body
              ⎕←'⍝ ',this
              r,←⊂this
              counter+←1

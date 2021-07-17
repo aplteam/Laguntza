@@ -1,5 +1,9 @@
  History
  :Access Public shared
+⍝ * 5.0.2 ⋄ 2020??-??
+⍝   * The `Links` page was buggy.
+⍝ * 5.0.1 ⋄ 2020-06-16
+⍝    * Bug fix: `ReportMissingIndexEntries` crashed with a VALUE ERROR
 ⍝ * 5.0.0 ⋄ 2020-05-24
 ⍝   * BREAKING CHANGES:
 ⍝     * Requires at least version 18.0 of Dyalog APL.

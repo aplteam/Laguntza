@@ -2,8 +2,7 @@
 
 # Links
 
-Note that Laguntza's links use a non-standard way. In other words, links in Laguntza are
-different from ordinary Markdown links.
+Note that Laguntza's links are __not__ ordinary Markdown links.
 
 Links can be established in several ways all of which are discussed here:
 
@@ -50,12 +49,12 @@ This: `→[*.New]` is an APL link as you can see.
 This:
 
 ~~~
-This →[*.Links | Explains `link`] has some APL chars.
+This →[*.Links | Explains `link`] page has some APL chars.
 ~~~
 
 will be converted to this:
 
-The →[↑*.Links | "Link"] page has some APL chars.
+The →[↑*.Links | Explains `link`] page has some APL chars.
 
 ## MarkAPL's bookmark links
 
