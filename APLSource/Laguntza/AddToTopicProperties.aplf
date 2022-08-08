@@ -13,10 +13,6 @@
      body←⍪GetTopicPropertyTemplate ⍬
      body⍪←⍪ReformatTopicPropertyResult result
      parent.⎕FX,body
-     :If CheckOnEditFixForSaltHandler ⍬
-         cmd←(⍕parent),'.∆TopicProperties ',(GetSaltPath parent),'∆TopicProperties.dyalog -noprompt'
-         {}⎕SE.SALT.Save cmd
-     :Else
-         ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
-     :EndIf
+     ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
+     ∆Ref TellLinkAboutChange(⍕parent),'.∆TopicProperties'
  :EndIf

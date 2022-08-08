@@ -13,6 +13,7 @@
      okFlag←1
  :Until okFlag
  ∆Ref TellAcreAboutChange parent,'.∆DefaultPage'
+ ∆Ref TellLinkAboutChange parent,'.∆DefaultPage'
  {}Compile ∆Ref
  ∆Ref ShowTopic parent
 ⍝Done

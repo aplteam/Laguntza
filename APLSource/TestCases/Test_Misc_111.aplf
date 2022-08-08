@@ -16,7 +16,7 @@
  ps.trapErrors←0
  ps.visible←0
  ps.noClose←1
- #.⎕SHADOW'APLTreeUtils2'   ⍝ !! If APLTreeUtils cannot be found this will cause a crash
+ #.⎕SHADOW'APLTreeUtils2'   ⍝ !! If APLTreeUtils2 cannot be found this will cause a crash
  ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1
  ∆Process ref

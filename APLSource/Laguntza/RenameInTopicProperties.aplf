@@ -11,11 +11,6 @@
      :AndIf 0=1↑0⍴rc←parent EditFnsByQED'∆TopicProperties'
          . ⍝ Something went wrong - please investigate
      :EndIf
-     :If CheckOnEditFixForSaltHandler parent
-         path←GetSaltPath parent
-         cmd←(⍕parent),'.∆TopicProperties ',path,'/∆TopicProperties.dyalog -noprompt'
-         {}⎕SE.SALT.Save cmd
-     :Else
-         ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
-     :EndIf
+     ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
+     ∆Ref TellLinkAboutChange(⍕parent),'.∆TopicProperties'
  :EndIf

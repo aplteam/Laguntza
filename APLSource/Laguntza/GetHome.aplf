@@ -4,6 +4,7 @@
      ⍺←''
      add←⍵
      0<⎕NC'TatinVars.HOME':TatinVars.HOME,add
+     0<##.⎕NC'CiderConfig.HOME':##.CiderConfig.HOME,add
      postfix←⍺
      postfix,({((1⍴⍵)∊'/\')/'.'}add),add
  ⍝Done

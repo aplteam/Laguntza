@@ -24,7 +24,7 @@
          :EndIf
          'Laguntza'Show msg
          :If isDev
-             ∘∘∘
+             ∘∘∘ ⍝ Deliberate error
          :Else
              ⎕OFF
          :EndIf
@@ -46,7 +46,7 @@
      ref←New ps
      ⎕DQ ref
      :If isDev
-         ∘∘∘
+         ∘∘∘ ⍝ Deliberate error
      :Else
          ⎕OFF
      :EndIf

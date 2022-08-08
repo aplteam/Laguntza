@@ -17,7 +17,8 @@
      p.language←'en'                ⍝ Used to set the language in `<html lang="`.
      p.maxWidth←'900px'             ⍝ If you don't want to restrict the width set this to ⍬.
      p.noClose←0                    ⍝ 1=Don't close the Help, leave files tied etc, just set Visible←0. You must call "CloseHelp" eventually.
-     p.notifyAcre←1                 ⍝ Shall acre be notified. Normally only test cases will set this to 0.
+     p.notifyAcre←1                 ⍝ Shall acre be notified? Normally only test cases will set this to 0.
+     p.notifyLink←1                 ⍝ Shall Link be notified? Normally only test cases will set this to 0.
      p.page←0                       ⍝ The page to be shown at start time; Can be a row number, minimal or full link.
      p.posn←⍬ ⍬                     ⍝ Default position (might be overwritten from outside).
      p.printFontSize←'9pt'          ⍝ Defines the basic font size for printing. Everything else refers to this by either "em" or in percentage.

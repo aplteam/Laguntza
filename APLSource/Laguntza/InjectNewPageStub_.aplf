@@ -31,13 +31,8 @@
      :EndIf
      ⍎(⍕parent),'.',name,'←⎕SE.TEMP.',name
  :Until okFlag
- :If CheckOnEditFixForSaltHandler ⍬
-     path←GetSaltPath parent
-     cmd←'SALT.Save ',(⍕parent),'.',name,' ''',path,'\',name,'.dyalog'' -makedir -noprompt'
-     {}⎕SE.UCMD cmd
- :Else
-     ∆Ref TellAcreAboutChange(⍕parent),'.',name
- :EndIf
+ ∆Ref TellAcreAboutChange(⍕parent),'.',name
+ ∆Ref TellLinkAboutChange(⍕parent),'.',name
  ∆Ref AddToTopicProperties name parent
  {}Compile ∆Ref
  r←1

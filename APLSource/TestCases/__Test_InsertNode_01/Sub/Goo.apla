@@ -1,0 +1,8 @@
+(
+ '[DATA]:index=''This is about Goo'''
+ '# Goo'
+ ''
+ 'This is the "Goo" page'
+ ''
+ 'Go to →[Overview]'
+)
