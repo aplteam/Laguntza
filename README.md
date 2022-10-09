@@ -25,7 +25,7 @@ This is what `Laguntza`'s own help page looks like:
 To give it a try execute this:
 
 ```
-      ]TATIN.LoadPackage [tatin]Laguntza
+      ]TATIN.LoadPackages [tatin]Laguntza
 ```
 
 This downloads `Laguntza` and its dependencies, unzips it and loads it into a Dyalog session. Now you can view Laguntza's own Help System with this statement:
