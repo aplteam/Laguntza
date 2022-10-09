@@ -6,7 +6,7 @@
  '## Overview'
  ''
  'Normally all children of a given node, namespaces and variables alike, are listed'
- 'alphabetically with the namespaces first.'
+ 'alphabetically with any namespaces first.'
  ''
  'This may or may not be appropriate. Therefore there must be a way to define a different sequence.'
  ''

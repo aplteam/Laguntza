@@ -26,7 +26,7 @@
  '2. Words; a vector of text vectors with as many items as there are help pages/nodes. Every item'
  '   contains a list with words extracted from the corresponding help page. An item might be empty.'
  '3. Same as [2] but all words are lowercased.'
- '4. Index; this is a three-item vector with these pieces if information:'
+ '4. Index; this is a three-item vector with these pieces of information:'
  '   1. Entries as shown in the index.'
  '   1. Corresponding row number referring to the tree.'
  '   1. Matrix with information useful for searching and display purposes.'

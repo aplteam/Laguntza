@@ -1,7 +1,11 @@
  {ref}←ViewLaguntzasHelp dummy;⎕ML;⎕IO;expand;filename;msg;debug;tieNo;parms;ps
 ⍝ Puts Laguntza's own help on display
  ⎕ML←3 ⋄ ⎕IO←0
- filename←GetHome'/',File.GetHelpFileName
+ :If 0=⎕NC'TatinVars.HOME'
+ :AndIf 0=##.⎕NC'CiderConfig.HOME'
+     ##.FilesAndDirs.PolishCurrentDir
+ :EndIf
+ filename←GetHome'\',File.GetHelpFileName
  expand←'None'
  :If ~File.DoesFileExist filename
      msg←'Could not find:'filename

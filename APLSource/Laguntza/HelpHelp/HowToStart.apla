@@ -30,5 +30,10 @@
  '⎕nq ref ''Close'''
  '~~~'
  ''
- 'Since no filename was specified, the related files are stored in a folder in the Windows temp directory.'
+ 'Since no folder was specified, the related files are stored in a folder in the Windows temp directory.'
+ 'That''s fine for just playing with Laguntza, but if you are going to create a new help system you want'
+ 'it to be saved in a specific location.'
+ ''
+ 'For that to achieve you need to create a parameter space: see the next topic.'
+ ''
 )

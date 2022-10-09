@@ -4,7 +4,10 @@
      :If 9=⎕SE.⎕NC'Link'
          result←⎕SE.Link.Expunge name
          :If ∆Ref.p.reportToSession∧0=≢result
-             ⎕←'*** Link was told that "',(Laguntza.A.Last name),'" was deleted but wasn''t interested'
+         :OrIf 0≡result
+             ⎕←'*** Link was told that "',(A.Last name),'" was deleted but wasn''t interested'
+         :Else
+             :Return
          :EndIf
      :Else
          result←'No Link anywhere'
@@ -19,7 +22,7 @@
          result←'No acre anywhere'
      :EndIf
      :If ∆Ref.p.reportToSession∧0=≢result
-         ⎕←'*** acre was told that "',(Laguntza.A.Last name),'" was deleted but wasn''t interested'
+         ⎕←'*** acre was told that "',(A.Last name),'" was deleted but wasn''t interested'
      :EndIf
  :EndIf
  ⎕EX name

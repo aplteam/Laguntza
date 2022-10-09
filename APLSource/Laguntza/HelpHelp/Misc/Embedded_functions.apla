@@ -37,7 +37,7 @@
  'on. '
  ''
  'Note that the function **must** live in the parent namespace of the namespace where the help page lives because the name'
- 'of the function is not qualified.'
+ 'of the function is not fully qualified.'
  ''
  '~~~'
  '      # ⍎⍎⍎MyOwnFunction''John Doe''⍎⍎⍎'

@@ -11,7 +11,7 @@
  'Examples:'
  ''
  '~~~'
- '[DATA]:index=''keyword1 ⋄ keyword1'''
+ '[DATA]:index=''keyword1 ⋄ keyword2'''
  '[DATA]:index=''keyword3'''
  ' ...'
  '~~~'

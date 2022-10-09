@@ -16,6 +16,4 @@
  '`ref` is a reference pointing to the newly created help system.'
  ''
  'In case something is wrong with the argument(s) `CreateStub` throws an error.'
- ''
- 'If you want the new help system to be managed by SALT then →[*.SALT_and_Laguntza | look up the details] first.'
 )
