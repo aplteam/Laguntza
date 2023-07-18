@@ -27,7 +27,6 @@
      r⍪←'helpVersionDate' '' 1 0
      r⍪←'isRuntime' '' 1 0
      r⍪←'noClose' '' 1 0
-     r⍪←'notifyAcre' '' 1 0
      r⍪←'page' '' 1 0
      r⍪←'posn' '' 1 0
      r⍪←'regPath' 'regPath    ' 1 0

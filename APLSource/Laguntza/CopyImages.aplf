@@ -1,5 +1,6 @@
- {r}←CopyImages ∆Ref;home;target
+ {r}←CopyImages ∆Ref;home;target;path
  r←⍬
  target←∆Ref.p.folderName
- target ⎕NCOPY⍠('IfExists' 'Replace')⊣GetHome'/Images'
+ path←GetHome'\Assets/Images'
+ (target,'\Assets\') ⎕NCOPY⍠('IfExists' 'Replace')⊣path
 ⍝Done

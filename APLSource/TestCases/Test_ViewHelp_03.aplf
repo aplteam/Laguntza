@@ -1,4 +1,4 @@
- R←Test_ViewHelp_03(stopFlag batchFlag);⎕TRAP;ref;report;path;tempPath;processInfo;result;more;parms;pid;flag;success;zipFilename
+ R←Test_ViewHelp_03(stopFlag batchFlag);⎕TRAP;ref;report;processInfo;result;more;parms;pid;flag;success;rc
 ⍝ Test whether image shows or not. Was once a bug.
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
@@ -10,19 +10,9 @@
 
  R←T._Failed
 
- path←F.NormalizePath F.PWD,'\Dist\'
- tempPath←F.GetTempSubDir''
-
- Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
- zipFilename←↑zipFilename
-
- zipFilename ##.Laguntza.DotNetZip.UnzipTo tempPath
- 'Create!'F.CheckPath tempPath,'/help/files/Images'
- (tempPath,'/help/files/Images/')⎕NCOPY F.PWD,'\Images\FlipDB-Team.png'
-
  parms←Execute.DefaultParms
  parms.wait←0
- (rc processInfo result more)←parms Execute.Application tempPath,'/ViewHelp.exe page="Images"'
+ (rc processInfo result more)←parms Execute.Application ∆VIEWHELP_PATH,'/ViewHelp.exe page="Images"'
  'Something went terribly wrong'Assert 0=rc
  pid←2⊃processInfo
 
@@ -31,5 +21,4 @@
  →T.GoToTidyUp R
 
 ∆TidyUp:
- F.RmDir tempPath
 ⍝Done

@@ -1,0 +1,46 @@
+ R←Test_Linking_003(stopFlag batchFlag);⎕TRAP;ref;html;filename;brokenLinks;ambiguousLinks;noOf;has
+⍝ Test for three links to unknown targets but one is within back-ticks (code).
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ #.TestHelp.Page←''
+ #.TestHelp.Page,←⊂'# A Topic'
+ #.TestHelp.Page,←⊂''
+ #.TestHelp.Page,←⊂'~~~'
+ #.TestHelp.Page,←⊂'This topic contains a table'
+ #.TestHelp.Page,←⊂'|Styling Tag|Meaning|'
+ #.TestHelp.Page,←⊂'|Bold|Embolden the text.|'
+ #.TestHelp.Page,←⊂'|Italic|Italicize the text.|'
+ #.TestHelp.Page,←⊂'|Underline|Underline the text.|'
+ #.TestHelp.Page,←⊂'|`→↑*.Topic2`⋄`→[↑*.Topic2]`|'
+ #.TestHelp.Page,←⊂'|`→[Topic2]`|→[Topic2]|'
+ #.TestHelp.Page,←⊂'|`→10003`|→10003|'
+ #.TestHelp.Page,←⊂'|`→99999`|→99999|'
+ #.TestHelp.Page,←⊂'|`→[Unknown]`|→[Unknown]|'
+ #.TestHelp.Page,←⊂'~~~'
+ ref←StartHelp 0        ⍝ Default
+
+ ∆Process ref
+ brokenLinks←¯1 ##.Laguntza.Lint_.CheckBrokenLinks ref
+ →T.GoToTidyUp 0≠≢brokenLinks                                  ⍝ We expect no broken links
+ ambiguousLinks←¯1 ##.Laguntza.Lint_.CheckAmbiguousLinks ref
+ →T.GoToTidyUp 0≠≢ambiguousLinks                                ⍝ We expect no ambiguous link
+ filename←##.Laguntza.BuildDocFromAllPages ref
+ html←↑F.NGET filename
+ noOf←0 ⍝ There is no application of italic ...
+ noOf+←2×+/html∘{+/⍵⍷⍺}'Invalid link'
+ noOf+←2×+/html∘{+/⍵⍷⍺}'Ambiguous link'
+ has←+/¨html∘{+/⍵⍷⍺}¨'<em>' '</em>'
+ →T.GoToTidyUp≠/has
+ →T.GoToTidyUp noOf≠+/has
+ has←+/¨html∘{+/⍵⍷⍺}¨'<strong>' '</strong>'
+ →T.GoToTidyUp≠/has
+ →T.GoToTidyUp noOf≠+/has
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

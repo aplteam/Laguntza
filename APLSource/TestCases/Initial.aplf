@@ -1,4 +1,6 @@
  Initial
+ ⎕IO←0 ⋄ ⎕ML←3
+ A←APLTreeUtils2 ⋄ F←FilesAndDirs
  ∆DEBUG←' 'A.Last ⎕SE.UCMD'udebug on'
  ∆TestFolder←F.GetTempPath,'Laguntza'
  F.RmDir ∆TestFolder

@@ -17,7 +17,6 @@
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
  ps.source←#.TestHelp
  ps.trapErrors←1
- ps.notifyAcre←0
  ps.regPath←0
  ref←1 ##.Laguntza.New ps
  ref.⎕WS'Event' 9955 1

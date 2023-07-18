@@ -6,7 +6,6 @@
      f∨←0≠≢l
      f∧←0=ref.⎕NC'∆TopicProperties'
      r←ref{⍵:⍺⊣⍺.⎕FX Create∆TopicProperties ⍺ ⋄ ''}f
-     _←ref{⍵:TellAcreRegardingNew∆TopicProperty ⍺ ⋄ ⍬}0≠≢r
      _←ref{⍵:TellLinkRegardingNew∆TopicProperty ⍺ ⋄ ⍬}0≠≢r
      0=recursiveFlag:r
      0=≢l:r

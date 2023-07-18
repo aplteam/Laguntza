@@ -1,0 +1,34 @@
+ R←Test_Linking_014(stopFlag batchFlag);⎕TRAP;ref;html
+⍝ Test a link with a line break in between
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←T._Failed
+
+ #.⎕SHADOW'TestHelp'
+ 'TestHelp'#.⎕NS''
+ 'Sub1'#.TestHelp.⎕NS''
+ #.TestHelp.Sub1.Hello←'# Sub 1' '' '...'
+ 'Sub2'#.TestHelp.⎕NS''
+ #.TestHelp.Sub2.Page←''
+ #.TestHelp.Sub2.Page,←⊂'# A Topic'
+ #.TestHelp.Sub2.Page,←⊂''
+ #.TestHelp.Sub2.Page,←'This link →[#.TestHelp.Sub1.Hello |' 'Link text] has `]` a line break in between'
+
+ #.TestHelp.Sub2.Page,←'This link also →[#.TestHelp.Sub1.Hello |' 'Link text] has a line break in between'
+ #.TestHelp.Sub2.Page,←⊂''
+ #.TestHelp.Sub2.Page,←⊂'# One more Topic'
+ #.TestHelp.Sub2.Page,←⊂''
+ #.TestHelp.Sub2.Page,←⊂'This para has no link'
+
+ ref←StartHelp 0        ⍝ Default
+
+ ∆Process ref
+
+ html←⎕FREAD ref.f.tieNo 14
+
+ →T.PassesIf 2=+/'<a href="#1" class="bookmark_link">'⍷∊html
+
+ R←T._OK
+∆TidyUp:
+ ##.Laguntza.Reset
+⍝Done

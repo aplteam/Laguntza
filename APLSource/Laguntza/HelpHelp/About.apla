@@ -5,7 +5,7 @@
  ''
  'Laguntza sprang into existence as FlipDB''s internal help system. With'
  '[FlipDB](http://www.carlislegroup.com/products/flipdb) the goal was to implement as many things'
- 'as possible in Dyalog APL in order to have as much control as possible.'
+ 'as possible in Dyalog APL in order to have a maximum of control.'
  ''
  'In July 2014 [Carlisle Group](https://www.carlislegroup.com) decided to generalize the concept'
  'and make it independent from FlipDB. It was also decided to make it part of the'

@@ -16,14 +16,12 @@
  :If flag
      fullName←GetParentAndTopicNameAsText ∆Ref.d.tree[in;]
      ∆Ref DeleteAPL_Object fullName
-     ⎕EX fullName
      :If hasTopicProperties
          result←parent.⍎'∆TopicProperties ⍬'
          result⌿⍨←~result[;0]∊⊂name
          body←⍪GetTopicPropertyTemplate ⍬
          body⍪←⍪ReformatTopicPropertyResult result
          ⍎(' '≠1↑0⍴parent.⎕FX,body)/'. ⍝ Deliberate stop: something went wrong'
-         ∆Ref TellAcreAboutChange parentName,'.∆TopicProperties'
          ∆Ref TellLinkAboutChange parentName,'.∆TopicProperties'
      :EndIf
      {}Compile ∆Ref

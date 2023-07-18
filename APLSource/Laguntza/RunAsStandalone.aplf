@@ -1,4 +1,4 @@
- {r}←RunAsStandalone;ps;ref;⎕ML;⎕IO;cd;msg;filename;rc;folderName;expand;tieNo;⎕TRAP;parms;debug;isDev
+ {r}←RunAsStandalone;ps;ref;⎕ML;⎕IO;cd;msg;filename;rc;folderName;expand;tieNo;⎕TRAP;parms;debug;isDev;∆HOME
 ⍝ This function runs under ViewHelp.exe.
  ⎕ML←3 ⋄ ⎕IO←0
  r←⍬
@@ -39,7 +39,7 @@
      :EndIf
      ps.folderName←folderName
      :If File.DoesFileExist'help.ico'
-         ps.helpIcon←'file:///',(↑⎕CMD'cd'),'\help.ico'
+         ps.helpIcon←'file:///',(↑1 ⎕NPARTS''),'\help.ico'
      :EndIf
      ps.visible←1
      ps.page←GetPageName ⍬

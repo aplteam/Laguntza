@@ -43,6 +43,5 @@
      cmd←'"',(parms.saltFolder~'"'),'" -patterns=',name,' -loadfn -makedir -noprompt -clear'
      SaveHelpSystemWithSalt parms ref
  :EndIf
- r.n.∆Ref TellAcreAboutChange ref
  r.n.∆Ref TellLinkAboutChange ref
 ⍝Done

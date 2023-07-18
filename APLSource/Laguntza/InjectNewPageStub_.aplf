@@ -31,7 +31,6 @@
      :EndIf
      ⍎(⍕parent),'.',name,'←⎕SE.TEMP.',name
  :Until okFlag
- ∆Ref TellAcreAboutChange(⍕parent),'.',name
  ∆Ref TellLinkAboutChange(⍕parent),'.',name
  ∆Ref AddToTopicProperties name parent
  {}Compile ∆Ref

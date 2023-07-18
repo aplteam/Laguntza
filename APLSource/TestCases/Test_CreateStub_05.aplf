@@ -7,7 +7,7 @@
  ⎕SHADOW'__Test_05'
  ref←##.Laguntza.CreateStub'__Test_05'
  →T.GoToTidyUp 9≠⎕NC'__Test_05'
- →T.GoToTidyUp 15≠≢↑('recursive' 1)F.Dir ref.∆parms.folderName,'/'
+ →T.GoToTidyUp 16≠≢↑('recursive' 1)F.Dir ref.∆parms.folderName,'/'
 
  R←T._OK
 

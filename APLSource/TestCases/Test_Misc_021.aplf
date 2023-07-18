@@ -21,7 +21,6 @@
  ps←##.Laguntza.CreateParms ⍬
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
  ps.source←#.TEMP
- ps.notifyAcre←0
  ps.regPath←0
 
  ref←1 ##.Laguntza.New ps

@@ -1,0 +1,2 @@
+ ∆CheckTallyThreads y
+ {⍵:.}1≠≢⎕TNUMS
