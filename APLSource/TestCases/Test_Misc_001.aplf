@@ -4,7 +4,7 @@
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
  R←T._Failed
 
- ref←##.Laguntza.Selfie ⍬
+ ref←0 ##.Laguntza.Selfie ⍬
  ref.p.reportToSession←0
  F.DeleteFile ref.∆tempFilename
 

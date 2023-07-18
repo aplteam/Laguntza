@@ -44,7 +44,7 @@
                  :EndIf
              :EndIf
          :EndIf
-         {}{_←⎕DL ⍵ ⋄ ∇ ⍵}⍣(⊃waitFlag)⊣1     ⍝ Endless loop that allows us to have a RIDE and wait for an interrupt
+         {}{_←⎕DL ⍵ ⋄ ∇ ⍵}⍣(⊃waitFlag)⊣1 ⍝ Endless loop that allows us to have a RIDE and wait for an interrupt
      :EndIf
  :EndIf
 ⍝Done

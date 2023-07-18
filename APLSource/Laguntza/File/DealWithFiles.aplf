@@ -6,7 +6,8 @@
      ∆Ref←EstablishFileIndexVars ∆Ref
      ∆Ref.f.filename←GetHelpFileName
      flag←DoesFolderExist ∆Ref.p.folderName
-     _←MakeDir⍣(~flag)⊣∆Ref.p.folderName,'\CSS'
+     _←MakeDir⍣(~flag)⊣∆Ref.p.folderName,'\Assets\CSS'
+     _←MakeDir⍣(~flag)⊣∆Ref.p.folderName,'\Assets\Images'
      filename←∆Ref.p.folderName,'\',∆Ref.f.filename
      _←DeleteFile filename
      ∆Ref.f.tieNo←filename ⎕FCREATE 0

@@ -1,7 +1,7 @@
- {r}←{testflag}RenameHelpTopic(∆Ref in);fullPageName;pageName;parent;old;newName;oldTitle;msg;rc;path;cmd
+ {r}←{testflag}RenameHelpTopic(∆Ref in);fullPageName;pageName;parent;old;newName;oldTitle;msg;rc
 ⍝ Let user (developers only) edit item number ⍵.
 ⍝ The user is expected to have changed the name.
-⍝ If that is the case then the original one is deleted and Link/acre is told.
+⍝ If that is the case then the original one is deleted and Link is told.
 ⍝ This MUST NOT be called on any ∆DefaultPage.
  r←0
  testflag←{0<⎕NC ⍵:⍎⍵ ⋄ 0}'testflag'
@@ -25,30 +25,12 @@
      :EndIf
      {}testflag RenameInTopicProperties ∆Ref pageName newName parent
      ⍎(⍕parent),'.',newName,'←',fullPageName    ⍝ Copy old to new
-     ∘∘∘  ⍝TODO⍝
-     :If CheckOnEditFixForSaltHandler ⍬
-         path←GetSaltPath parent
-         cmd←'Salt.Save ',(⍕parent),'.',newName
-         cmd,←' ',path,'\',newName,'.dyalog -noprompt'
-         {}⎕SE.UCMD cmd
-         FilesAndDirs.DeleteFile path,'\',pageName,'.dyalog'
+     :If ∆Ref.p.notifyLink
+         {}⎕SE.Link.Add(⍕parent),'.',newName
+         {}⎕SE.Link.Expunge fullPageName
      :Else
-         :If ∆Ref.p.notifyLink
-             ∘∘∘   ⍝TODO⍝
-         :ElseIf ∆Ref.p.notifyAcre
-             :If 0<⎕SE.⎕NC'acre'
-                 {}⎕SE.UCMD'acre.SetChanged ',(⍕parent),'.',newName
-                 {}⎕SE.UCMD'acre.Erase ',fullPageName
-             :ElseIf 0<#.⎕NC'acre'
-                 #.acre.SetChanged(⍕parent),'.',newName
-                 :If 0=≢#.acre.Erase fullPageName
-                 :AndIf ∆Ref.p{0<⍺.⎕NC ⍵:⍺⍎⍵ ⋄ 1}'reportToSession'
-                     ⎕←'*** acre was told that "',pageName,'" was erased but it wasn''t interested.'
-                 :EndIf
-             :EndIf
-         :EndIf
+         ⎕EX(⍕parent),'.',pageName              ⍝ Remove old one
      :EndIf
-     ⎕EX(⍕parent),'.',pageName                        ⍝ Remove old one
      oldTitle←HTML.GetTitle old
      :If 0=testflag
          {}parent EditByQED newName

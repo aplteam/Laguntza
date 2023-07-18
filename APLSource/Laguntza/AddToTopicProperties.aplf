@@ -13,6 +13,5 @@
      body←⍪GetTopicPropertyTemplate ⍬
      body⍪←⍪ReformatTopicPropertyResult result
      parent.⎕FX,body
-     ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
-     ∆Ref TellLinkAboutChange(⍕parent),'.∆TopicProperties'
+     ∆Ref TellLinkAboutChange parent
  :EndIf

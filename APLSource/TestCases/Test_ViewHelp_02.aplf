@@ -1,4 +1,4 @@
- R←Test_ViewHelp_02(stopFlag batchFlag);⎕TRAP;ref;report;path;tempPath;rc;processInfo;result;more;parms;pid;flag;success;msg;zipFilename
+ R←Test_ViewHelp_02(stopFlag batchFlag);⎕TRAP;ref;report;rc;processInfo;result;more;parms;pid;flag;success;msg
 ⍝ Test relative (internal) paths with `ViewHelp.exe`. Was a bug introduced with version 2.0.0
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due to the "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
@@ -10,18 +10,9 @@
 
  R←T._Failed
 
- path←F.NormalizePath F.PWD,'\Dist\'
- tempPath←F.GetTempSubDir''
-
- Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
- zipFilename←↑zipFilename
- tempPath ⎕NCOPY⍠('IfExists' 'Replace')⊣'./Dist/ViewHelp.exe'
- tempPath ⎕NCOPY⍠('IfExists' 'Replace')⊣'./Dist/Laguntza.dcf'
- tempPath ⎕NCOPY⍠('IfExists' 'Replace')⊣'./Dist/CSS'
-
  parms←Execute.DefaultParms
  parms.wait←0
- (rc processInfo result more)←parms Execute.Application tempPath,'/ViewHelp.exe'
+ (rc processInfo result more)←parms Execute.Application ∆VIEWHELP_PATH,'/ViewHelp.exe'
  'Something went terribly wrong'Assert 0=rc
  pid←2⊃processInfo
 
@@ -30,5 +21,4 @@
  →T.GoToTidyUp R
 
 ∆TidyUp:
- F.RmDir tempPath
 ⍝Done

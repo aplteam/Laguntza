@@ -6,7 +6,6 @@
  ps.source←#.TestHelp
  ps.trapErrors←trapErrorsFlag
  ps.userMode←userModeFlag
- ps.notifyAcre←0
  ps.regPath←∆RegPath,'.'A.Last 1⊃⎕XSI
  ps.reportToSession←0
  ps.testMode←1

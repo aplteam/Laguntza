@@ -11,6 +11,5 @@
      :AndIf 0=1↑0⍴rc←parent EditFnsByQED'∆TopicProperties'
          . ⍝ Something went wrong - please investigate
      :EndIf
-     ∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
      ∆Ref TellLinkAboutChange(⍕parent),'.∆TopicProperties'
  :EndIf

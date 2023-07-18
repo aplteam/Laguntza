@@ -1,44 +1,51 @@
- Make flag;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;parms;rc;zipFilename
-⍝ 4.0.0 - 2022-10-09
+ Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;parms;rc;zipFilename;parms2
+⍝ 5.0.0 - 2023-07-10
 ⍝ See also: History
- :If flag
-     home←##.CiderConfig.HOME,'/'
-     targetPath←home,'Dist/'
-     {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'       ⍝ avoids creating a link in # that point to ⎕SE
+ :If ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
+     ⍝ --- Preparation ---------------------------------------
+     home←##.CiderConfig.HOME,'\'
+     targetPath←home,'Dist\'
      C←##.CiderConfig
+     M←⎕SE.MakeHelpers
      myUCMDsFolder←M.GetMyUCMDsFolder'\'
      name←'Laguntza'
-     tempFolder←(M.##.F.GetTempSubDir name),'/'
-    ⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝⍝
+     tempFolder←(M.##.F.GetTempSubDir name),'\'
+     ⍝ --- Create the package --------------------------------
      M.RecreateFolder targetPath
-     M.IncreaseBuildID'#.',name,'.',name,'.Version'
+     M.IncreaseBuildIDInFunction'#.',name,'.',name,'.Version'
+     M.CreateAPI ##.Laguntza ##.Laguntza.Public'API'
      {}⎕SE.Cider.CloseProject''                       ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
+     ⎕EX'M'
      0 ⎕SAVE ⎕WSID
      #.⎕EX ⎕NL⍳16
-     ⎕LX←'#.',name,'.Selfie 0'
+     {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'       ⍝ avoids creating a link in # that points to ⎕SE
+     ⎕LX←'#.',name,'.RunAsStandalone'
      '#.Laguntza.Laguntza'#.⎕CY ⎕WSID
-     {}⎕SE.Tatin.LoadDependencies(home,'packages/')#.Laguntza  ⍝ Yes, this IS correct: we reorganize the WS
+     {}⎕SE.Tatin.LoadDependencies(home,'packages\')#.Laguntza  ⍝ Yes, this IS correct: we reorganize the WS
      0 ⎕SAVE ⎕WSID
-     (home,'CSS')M.CopyTo tempFolder
-     (home,'APLSource/Laguntza')M.CopyTo tempFolder
-     (tempFolder,'APLSource')⎕NMOVE tempFolder,'Laguntza'
-     (home,'CSS')M.CopyTo tempFolder
-     (home,'Images')M.CopyTo tempFolder
-     (home,'apl-package.json')M.CopyTo tempFolder
-     (home,'\packages\apl-dependencies.txt')M.CopyTo tempFolder
-     parms←M.CreateStandAloneExeParms(tempFolder,'ViewHelp.exe')'#.Laguntza'
-     parms.CompanyName←'Kai Jaeger'
-     parms.Icon←tempFolder,'Images/ViewHelp.ico'
-     parms.ProductName←name
-     {}M.MakeStandAloneRunTimeExe parms
+     (home,'Assets\CSS')M.CopyTo tempFolder,'Assets\'
+     (home,'Assets\Images')M.CopyTo tempFolder,'Assets\'
      'CiderConfig'#.⎕NS''                    ⍝ This is required by ...
      #.CiderConfig.HOME←home                 ⍝ ... CompileHelpFileInto
      #.Laguntza.HelpHelp #.Laguntza.CompileHelpFileInto tempFolder  ⍝ !
-     zipFilename←⎕SE.Tatin.Pack tempFolder tempFolder
+     (C.HOME,'\')⎕NCOPY⍠('IfExists' 'Replace')⊣tempFolder,'Laguntza.dcf'
+     parms2←⎕SE.Tatin.CreateBuildParms C.HOME
+     parms2.targetPath←tempFolder
+     parms2.version←2⊃#.Laguntza.Version
+     zipFilename←⎕SE.Tatin.BuildPackage parms2
      {⍵:0 0⍴⍬ ⋄ 'Something went wrong'⎕SIGNAL 11}0<≢zipFilename
      zipFilename M.CopyTo targetPath
-     M.##.F.RmDir tempFolder
+     ⍝ --- Create the stand-alone-EXE ------------------------
+     1 ⎕NDELETE C.HOME,'\ViewHelp.exe'
+     parms←M.CreateStandAloneExeParms(targetPath,'ViewHelp.exe')'#.Laguntza'
+     parms.CompanyName←'Kai Jaeger'
+     parms.Icon←tempFolder,'Assets\Images\ViewHelp.ico'
+     parms.ProductName←name
+     {}M.MakeStandAloneRunTimeExe parms
+     ⍝ --- Cleaning up ---------------------------------------
+     {}M.##.F.RmDirByForce tempFolder
+     ⎕NDELETE C.HOME,'\Laguntza.dcf'
      ⎕←'Clearing the workspace...'
      ⎕CLEAR
  :EndIf

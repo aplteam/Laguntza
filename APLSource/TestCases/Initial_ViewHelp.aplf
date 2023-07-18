@@ -1,2 +1,11 @@
- r←Initial_ViewHelp
- r←1 ∆YesOrNo'Did you run ]runmake and ]acre.refresh?!'
+ Initial_ViewHelp;path;zipFilename;tempPath
+ tempPath←F.GetTempSubDir''
+ ∆VIEWHELP_PATH←F.GetTempSubDir''
+ path←F.NormalizePath ##.CiderConfig.HOME,'\Dist\'
+ Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
+ zipFilename←↑zipFilename
+ zipFilename ZipArchive.UnzipTo tempPath
+ ∆VIEWHELP_PATH ⎕NCOPY⍠('IfExists' 'Replace')⊣##.CiderConfig.HOME,'/Dist/ViewHelp.exe'
+ ∆VIEWHELP_PATH ⎕NCOPY⍠('IfExists' 'Replace')⊣tempPath,'/Laguntza.dcf'
+ ∆VIEWHELP_PATH ⎕NCOPY⍠('IfExists' 'Replace')⊣tempPath,'/Assets'
+⍝Done

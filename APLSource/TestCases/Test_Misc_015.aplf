@@ -14,7 +14,6 @@
  ps.folderName←GetPathForTempHelpProject↑¯1↑'.'A.Split 0⊃⎕XSI
  ps.source←#.TestHelp
  ps.trapErrors←1
- ps.notifyAcre←0
  ps.regPath←0
  ps.maxWidth←'1200px'
 

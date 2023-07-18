@@ -5,7 +5,7 @@
  R←T._Failed
 
  buff←1↓↑,/(⎕UCS 13),¨#.Laguntza.Laguntza.HelpHelp.Overview
- version←{⍵↑⍨⌊/⍵⍳' ',⎕UCS 13}'This Help refers to Laguntza version '{⍵↓⍨(≢⍺)+1⍳⍨⍺⍷⍵}buff
+ version←{⍵↑⍨⌊/⍵⍳' ',⎕UCS 13}'This Help is for Laguntza version '{⍵↓⍨(≢⍺)+1⍳⍨⍺⍷⍵}buff
  CutVersionNo←{⍵/⍨2>+\'.'=⍵}
  →T.PassesIf≡/CutVersionNo¨(1⊃##.Laguntza.Version)version
 

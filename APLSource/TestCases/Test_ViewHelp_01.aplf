@@ -8,18 +8,18 @@
      :Return
  :EndIf
 
- path←'expand'F.NormalizePath'Dist\'
+ path←'expand'F.NormalizePath ##.CiderConfig.HOME,'\Dist\'
  tempPath←F.GetTempSubDir''
 
  Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
  zipFilename←↑zipFilename
 
  rc←zipFilename ##.Laguntza.DotNetZip.UnzipTo tempPath
- tempPath ⎕NCOPY⍠('IfExists' 'Replace')⊣'./Dist/ViewHelp.exe'
+ tempPath ⎕NCOPY⍠('IfExists' 'Replace')⊣##.CiderConfig.HOME,'\Dist\ViewHelp.exe'
 
  parms←Execute.DefaultParms
  parms.wait←0
- (rc processInfo result more)←parms Execute.Application tempPath,'/ViewHelp.exe'
+ (rc processInfo result more)←parms Execute.Application tempPath,'\ViewHelp.exe'
  'Something went terribly wrong'Assert 0=rc
  pid←2⊃processInfo
  Assert pid∊(GetAllTasks ⍬)[;1]

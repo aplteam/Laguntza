@@ -16,4 +16,9 @@
  '→[##.##.CreateParms]'
  '~~~'
  ''
+ 'Notes:'
+ ''
+ '* If the link comes from an ordinary page you can link to sibling and their children.'
+ '* If the link comes from a node page you can link only to child pages, or you must use the `##` syntax'
+ '  to climb the ladder up.'
 )

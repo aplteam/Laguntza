@@ -7,7 +7,7 @@
      folder←'help\'
  :EndIf
  folder←⎕C folder
- folder,←(~(¯1↑folder)∊'\/')/'/'
+ folder←FilesAndDirs.AddTrailingSep folder
  ps←CreateParms ⍬
  ps.source←source
  ps.folderName←folder

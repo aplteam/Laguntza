@@ -22,6 +22,6 @@
  '   Note however that Laguntza will always copy the files `cssPrintFilename` and `cssScreenFilename` '
  '   are pointing to into the folder `→[*.folderName]`.'
  '   '
- 'Note that for <pre> and <code> you should not use a "font-width" higher than 400 if you wish line-drawing'
+ 'Note that for `<pre>` and `<code>` you should not use a "font-width" higher than 400 if you wish line-drawing'
  'characters to look okay with DPI scaling on.'
 )
