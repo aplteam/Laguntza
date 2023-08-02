@@ -4,7 +4,7 @@ _Laguntza_ means "Help" in Basque.
 
 Laguntza takes Markdown (in the workspace) as input and creates a help system from it.
 
-Since version 5.0. Laguntza is a package and can be installed or loaded with the Dyalog package manager Tatin[^tatin].
+Since version 5.0. Laguntza is a package that can be installed or loaded with the Dyalog package manager Tatin[^tatin].
 
 ## Requirements 
 
@@ -20,7 +20,7 @@ It has the benefit of allowing you to edit your help pages with the function edi
 
 This is what `Laguntza`'s own help page looks like:
 
-![](Images/Laguntza_01.png)
+![](/Assets/Images/Laguntza_01.png)
 
 To give it a try execute this:
 
@@ -51,7 +51,7 @@ You can create your own help system by executing these statements:
 
 You may investigate this new help system with the Workspace Explorer:
 
-![](Images/Laguntza_02.png)
+![](/Assets/Images/Laguntza_02.png)
 
 Note how the namespaces reflect nodes and the variables reflect help topics.
 
@@ -59,7 +59,7 @@ You can edit any help page by pressing Ctrl+Enter or selecting "Edit Help page" 
 
 This is what a typical help variable looks like:
 
-![](Images/Laguntza_03.png)
+![](/Assets/Images/Laguntza_03.png)
 
 
 [^tatin]: _Tatin_ is a package manager for Dyalog APL packages;
