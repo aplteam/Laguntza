@@ -31,7 +31,7 @@ To give it a try execute this:
 This downloads `Laguntza` and its dependencies, unzips it and loads it into a Dyalog session. Now you can view Laguntza's own Help System with this statement:
 
 ```
-      #.Laguntza.ViewLaguntzasHelp ⍬
+      #.Laguntza.Selfie 0
 ```
 
 
@@ -64,3 +64,4 @@ This is what a typical help variable looks like:
 
 [^tatin]: _Tatin_ is a package manager for Dyalog APL packages;
 The project lives on <https://github.com/aplteam/Tatin>; The principal Tatin server is <https://tatin.dev>
+
