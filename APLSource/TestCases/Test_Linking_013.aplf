@@ -36,7 +36,7 @@
  →T.PassesIf(⊂'<p><a href="#0" class="bookmark_link">Page1</a></p>')∊html
 
  html←⎕FREAD tieNo,10+4
- →T.PassesIf∨/'<pre><code>{+/⍳⍴⍵}→[*.Page3]</code></pre>'⍷∊html
+ →T.PassesIf∧/'<pre tabindex="0"><code>{+/⍳⍴⍵}' '→[*.Page3]</code></pre>'∊html
  →T.PassesIf(⊂'<p><a href="#2" class="bookmark_link">Page3</a></p>')∊html
 
  R←T._OK

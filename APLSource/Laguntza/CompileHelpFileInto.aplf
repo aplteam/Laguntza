@@ -14,7 +14,7 @@
  ∆Ref←CompileHelpFile ps
  icon←Icons.CreateIcon #
 
- ⍝ ----------- Bug <02144>: this causes a DOMAIN ERROR
+ ⍝ ----------- Bug <02144>: this causes a DOMAIN ERROR  ⍝TODO⍝
  ⍝icon.File←folder,'\help.ICO'
  ⍝icon.FileWrite
  ⍝

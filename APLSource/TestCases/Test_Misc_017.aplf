@@ -20,7 +20,7 @@
 
  ref←1 ##.Laguntza.New ps
  html←⎕FREAD ref.f.tieNo 12
- →T.PassesIf 1=+/'<pre><code>## ⍎⍎⍎##._TestFns⍎⍎⍎</code></pre>'⍷∊html
+ →T.PassesIf 1=+/'<pre tabindex="0"><code>## ⍎⍎⍎##._TestFns⍎⍎⍎</code></pre>'⍷∊html
 
  R←T._OK
 
