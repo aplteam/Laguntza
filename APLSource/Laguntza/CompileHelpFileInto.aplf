@@ -13,6 +13,12 @@
  ps.folderName←folder
  ∆Ref←CompileHelpFile ps
  icon←Icons.CreateIcon #
- icon.File←folder,'\help.ico'
- icon.FileWrite
+
+ ⍝ ----------- Bug <02144>: this causes a DOMAIN ERROR
+ ⍝icon.File←folder,'\help.ICO'
+ ⍝icon.FileWrite
+ ⍝
+ ⍝ ----------- Workaround:
+ (folder,'help.ICO')⎕NCOPY⍠('IfExists' 'Replace')⊣icon.File
+
 ⍝Done
