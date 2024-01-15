@@ -1,4 +1,6 @@
 (
+ '* 6.1.1 ⋄ 2024-01-15'
+ '  * Bug fix: the package did not contain ViewHelp.exe as an asset'
  '* 6.1.0 ⋄ 2024-01-11'
  '  * Packages updates, particularly MarkAPL'
  '* 6.0.0 ⋄ 2023-07-11'
