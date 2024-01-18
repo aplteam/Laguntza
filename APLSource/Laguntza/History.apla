@@ -1,4 +1,8 @@
 (
+ '* 6.1.2 ⋄ 2024-01-18                '
+ '  * Check added to `Make`: version number in the package config and returned by the `Version`'
+ '    function must match each either (except the build number)'
+ '  * Version function does not reference TatinVars anymore'
  '* 6.1.1 ⋄ 2024-01-15'
  '  * Bug fix: the package did not contain ViewHelp.exe as an asset'
  '* 6.1.0 ⋄ 2024-01-11'

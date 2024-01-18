@@ -1,5 +1,5 @@
-  Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms
-⍝ 5.1.0 - 2024-01-15
+ Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;cfg
+⍝ 5.2.0 - 2024-01-18
  :If ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
     ⍝ --- Preparation ---------------------------------------
      C←##.CiderConfig
@@ -9,12 +9,20 @@
      myUCMDsFolder←M.GetMyUCMDsFolder'\'
      name←'Laguntza'
      tempFolder←(M.##.F.GetTempSubDir name),'\'
+    ⍝ --- Check version number
+     cfg←M.GetPackageCfg ##.CiderConfig.HOME,'/apl-package.json'
+     :If ≢/M.DropBuildNumber¨#.Laguntza.Laguntza.Version cfg.version
+         ⎕←'*** Cannot return because there is a problem with the version number:'
+         ⎕←'#.Laguntza.Laguntza.Version: ',M.DropBuildNumber #.Laguntza.Laguntza.Version
+         ⎕←'Package config file:         ',M.DropBuildNumber cfg.version
+         :Return
+     :EndIf
     ⍝ --- Create the WS --------------------------------
      M.RecreateFolder targetPath
      M.CreateAPI ##.Laguntza ##.Laguntza.Public'API'
      {}⎕SE.Cider.CloseProject''                       ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
-     ⎕EX'M'
+     ⎕EX¨'M' 'cfg'
      0 ⎕SAVE ⎕WSID
      #.⎕EX ⎕NL⍳16
      {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'       ⍝ avoids creating a link in # that points to ⎕SE
