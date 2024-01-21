@@ -1,12 +1,21 @@
- r←GetHome add;path;F
-⍝ Tries first ##.TatinVars and then ##.CiderConfig.HOME.\\
-⍝ If both fail it settles for the current directory.\\
+ r←GetHome add;path;F;name;extension
+⍝ Tries to find the folder where Assets\ can be found.
+⍝ 1. It checks whether it is running as part of ViewHelp.exe, and if so takes the path to the EXE
+⍝ 2. It checks for ##.TatinVars being available
+⍝ 3. It checks for ##.CiderConfig.HOME.
+⍝ 4. If all fail it tries to settle for the current directory
+⍝ If all fail an error is thrown
  F←FilesAndDirs
- :If 0<⎕NC'TatinVars.HOME'
-     r←TatinVars.HOME,add
+ (path name extension)←1 ⎕NPARTS 0⊃2 ⎕NQ #'GetCommandLineArgs'
+ add←{⍵↓⍨((1↑⍵)∊'/\')}add
+ :If 'ViewHelp'≡name
+ :AndIf '.exe'≡extension
+ :AndIf ⎕NEXISTS r←path,F.AddTrailingSep add
+ :ElseIf 0<⎕NC'TatinVars.HOME'
+ :AndIf ⎕NEXISTS r←(F.AddTrailingSep TatinVars.HOME),add
  :ElseIf 0<##.⎕NC'CiderConfig.HOME'
-     r←##.CiderConfig.HOME,add
- :Else
-     r←'.\',(F.AddTrailingSep postfix),add
+ :AndIf ⎕NEXISTS r←(F.AddTrailingSep ##.CiderConfig.HOME),add
+ :ElseIf ~⎕NEXISTS r←'.\',F.AddTrailingSep add
+     'Cannot find the Assets\ folder'⎕SIGNAL 6
  :EndIf
 ⍝Done

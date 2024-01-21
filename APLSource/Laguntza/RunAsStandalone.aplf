@@ -3,6 +3,7 @@
  ⎕ML←3 ⋄ ⎕IO←0
  r←⍬
  AllowContinueWS ⍬
+ ∆KAI←2 ⎕NQ #'GetCommandLine'
  :If 0
      ⎕TRAP←0 'S'
      AllowRide 4613

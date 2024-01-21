@@ -1,5 +1,5 @@
- Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;cfg
-⍝ 5.2.0 - 2024-01-18
+ Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;cfg;msg
+⍝ 5.2.0 - 2024-01-20
  :If ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
     ⍝ --- Preparation ---------------------------------------
      C←##.CiderConfig
@@ -9,12 +9,18 @@
      myUCMDsFolder←M.GetMyUCMDsFolder'\'
      name←'Laguntza'
      tempFolder←(M.##.F.GetTempSubDir name),'\'
-    ⍝ --- Check version number
+    ⍝ --- Version number
+     M.IncreaseBuildIDInFunction'#.Laguntza.Laguntza.Version'
      cfg←M.GetPackageCfg ##.CiderConfig.HOME,'/apl-package.json'
-     :If ≢/M.DropBuildNumber¨#.Laguntza.Laguntza.Version cfg.version
-         ⎕←'*** Cannot return because there is a problem with the version number:'
-         ⎕←'#.Laguntza.Laguntza.Version: ',M.DropBuildNumber #.Laguntza.Laguntza.Version
-         ⎕←'Package config file:         ',M.DropBuildNumber cfg.version
+     :If ≢/M.DropBuildNumber¨(2⊃#.Laguntza.Laguntza.Version)cfg.version
+         msg←''
+         msg,←⊂'Cannot run because there is a problem with the version number:'
+         msg,←⊂'#.Laguntza.Laguntza.Version: ',M.DropBuildNumber 2⊃#.Laguntza.Laguntza.Version
+         msg,←⊂'Package config file:         ',M.DropBuildNumber cfg.version
+         msg←↑msg
+         msg←'*'⍪msg⍪'*'
+         msg←'*',msg,'*'
+         ⎕←msg
          :Return
      :EndIf
     ⍝ --- Create the WS --------------------------------
@@ -28,7 +34,7 @@
      {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'       ⍝ avoids creating a link in # that points to ⎕SE
      ⎕LX←'#.',name,'.RunAsStandalone'
      '#.Laguntza.Laguntza'#.⎕CY ⎕WSID
-     {}⎕SE.Tatin.LoadDependencies(home,'packages\')#.Laguntza  ⍝ Yes, this IS correct: we reorganize the WS
+     {}2 ⎕SE.Tatin.LoadDependencies(home,'packages\')#.Laguntza  ⍝ Yes, this IS correct: we reorganize the WS
      0 ⎕SAVE ⎕WSID
     ⍝ --- Copy stuff around
      (home,'Assets\CSS')M.CopyTo tempFolder,'Assets\'
@@ -40,7 +46,7 @@
      parms.Icon←tempFolder,'Assets\Images\ViewHelp.ico'
      parms.ProjectName←parms.ProductName←name
      {}M.MakeStandAloneRunTimeExe parms
-     (targetPath,'ViewHelp.exe')M.CopyTo home,'\Assets\'
+     (targetPath,'ViewHelp.exe')M.CopyTo home,'\'
     ⍝ --- Create the package --------------------------------
      'CiderConfig'#.⎕NS''                    ⍝ This is required by ...
      #.CiderConfig.HOME←home                 ⍝ ... CompileHelpFileInto
@@ -48,7 +54,7 @@
      (C.HOME,'\')⎕NCOPY⍠('IfExists' 'Replace')⊣tempFolder,'Laguntza.dcf'
      parms2←⎕SE.Tatin.CreateBuildParms C.HOME
      parms2.targetPath←tempFolder
-     parms2.version←#.Laguntza.Version
+     parms2.version←2⊃#.Laguntza.Version
      zipFilename←⎕SE.Tatin.BuildPackage parms2
      {⍵:0 0⍴⍬ ⋄ 'Something went wrong'⎕SIGNAL 11}0<≢zipFilename
      zipFilename M.CopyTo targetPath
