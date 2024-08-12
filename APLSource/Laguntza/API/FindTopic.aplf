@@ -1,1 +1,1 @@
- FindTopic←{⍺←⊢ ⋄ ⍺ ##.FindTopic ⍵}
+FindTopic←{⍺←⊢ ⋄ ⍺ ##.FindTopic ⍵}

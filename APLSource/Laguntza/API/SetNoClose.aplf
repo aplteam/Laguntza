@@ -1,1 +1,1 @@
- SetNoClose←{⍺←⊢ ⋄ ⍺ ##.SetNoClose ⍵}
+SetNoClose←{⍺←⊢ ⋄ 1:shy←⍺ ##.SetNoClose ⍵}

@@ -1,1 +1,1 @@
- CompileHelpFile←{1:shy←##.CompileHelpFile ⍵}
+CompileHelpFile←{##.CompileHelpFile ⍵}

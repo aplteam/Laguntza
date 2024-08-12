@@ -1,1 +1,1 @@
- SetVisible←{⍺←⊢ ⋄ ⍺ ##.SetVisible ⍵}
+SetVisible←{⍺←⊢ ⋄ 1:shy←⍺ ##.SetVisible ⍵}

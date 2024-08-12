@@ -25,7 +25,7 @@
      :EndIf
     ⍝ --- Create the WS --------------------------------
      M.RecreateFolder targetPath
-     M.CreateAPI ##.Laguntza ##.Laguntza.Public'API'
+     {}⎕SE.Tatin.CreateAPIfromCFG ##.Laguntza cfg
      {}⎕SE.Cider.CloseProject''                       ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
      ⎕EX¨'M' 'cfg'

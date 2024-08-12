@@ -1,1 +1,1 @@
- GetNoClose←{⍺←⊢ ⋄ ⍺ ##.GetNoClose ⍵}
+GetNoClose←{⍺←⊢ ⋄ 1:shy←⍺ ##.GetNoClose ⍵}

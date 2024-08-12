@@ -1,4 +1,8 @@
 (
+ '* 6.2.0 ⋄ 2024-08-12'
+ '  * Packages updated'
+ '* 6.1.3 ⋄ 2024-01-26'
+ '  * Bug fix in `GetHome`'
  '* 6.1.2 ⋄ 2024-01-21'
  '  * Check added to `Make`: version number in the package config and returned by the `Version`'
  '    function must match each either (except the build number)'

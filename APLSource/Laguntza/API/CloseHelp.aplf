@@ -1,1 +1,1 @@
- CloseHelp←{1:shy←##.CloseHelp ⍵}
+CloseHelp←{##.CloseHelp ⍵}
