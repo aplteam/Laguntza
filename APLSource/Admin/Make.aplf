@@ -1,6 +1,7 @@
  Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;cfg;msg
-⍝ 5.2.0 - 2024-01-20
+⍝ 5.3.0 - 2024-11-30
  :If ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
+     :If 0=⎕SE.⎕NC'MakeHelpers' ⋄ {}⎕SE.Tatin.LoadPackages'[tatin]MakeHelpers'⎕SE ⋄ :EndIf
     ⍝ --- Preparation ---------------------------------------
      C←##.CiderConfig
      home←C.HOME,'\'

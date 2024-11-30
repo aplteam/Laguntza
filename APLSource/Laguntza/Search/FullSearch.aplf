@@ -1,12 +1,12 @@
  FullSearch←{
      ∆Ref←⍺
      A←∆Ref.d.A
-     (ss lf mhw sai)←⍵                          ⍝ Search String, lower case flag, match whole words only, search "as is"
-     lc←lf∘{⍺:0(819⌶)⍵ ⋄ ⍵}                     ⍝ Make fns that translates (or not) to lowercase according to "lowercase flag"
+     (ss lcf mhw sai)←⍵                         ⍝ Search String, lower case flag, match whole words only, search "as is"
+     lc←lcf∘{⍺:⎕C ⍵ ⋄ ⍵}                        ⍝ Make fns that translates (or not) to lowercase according to "lowercase flag"
      sai:∆Ref(lc SearchAsIs)ss
      ss←' 'A.Split ss                           ⍝ Split
      ss←mhw{⍺:CR,⍵,CR ⋄ ⍵}¨ss                   ⍝ Add CR if mhw
-     words←∆Ref ReadWords lf                    ⍝ Get all words from file
+     words←∆Ref ReadWords lcf                   ⍝ Get all words from file
      ss2←lc ss
      bool←∧/¨ss2∘{∨/¨⍺⍷¨⊂⍵}¨words               ⍝ Perform the search
      ls←⍸bool                                   ⍝ Lines with hits

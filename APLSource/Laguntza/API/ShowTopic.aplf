@@ -1,1 +1,1 @@
-ShowTopic←{⍺←⊢ ⋄ shy←⍺ ##.ShowTopic ⍵ ⋄ 1:shy}
+ShowTopic←{⍺←⊢ ⋄ 1:shy←⍺ ##.ShowTopic ⍵}
