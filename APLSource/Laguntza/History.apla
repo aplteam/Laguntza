@@ -1,4 +1,6 @@
 (
+ '* 7.0.1 ⋄ 2025-05-11'
+ '  Bug fix: dependency file was not part of the projecct'
  '* 7.0.0 ⋄ 2025-05-11'
  '  * Potentially breaking changes'
  '    * `Version` returns a text vector with the version number from the package config file'

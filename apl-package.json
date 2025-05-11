@@ -19,5 +19,5 @@
   source: "APLSource/Laguntza",
   tags: "help,markdown",
   userCommandScript: "",
-  version: "7.0.0+304",
+  version: "7.0.1+304",
 }

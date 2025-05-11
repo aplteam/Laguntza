@@ -1,6 +1,6 @@
  Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;msg;cfg
-⍝ 5.4.0 - 2025-05-11
- :If ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
+⍝ 5.4.1 - 2025-05-11
+ :If 1 ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
      :If 0=⎕SE.⎕NC'MakeHelpers' ⋄ {}⎕SE.Tatin.LoadPackages'[tatin]MakeHelpers'⎕SE ⋄ :EndIf
     ⍝ --- Preparation ---------------------------------------
      C←##.CiderConfig
@@ -38,6 +38,7 @@
     ⍝ --- Copy stuff over  ----------------------------------
      (C.HOME,'\APLSource')M.CopyTo tempFolder
      (C.HOME,'\apl-package.json')M.CopyTo tempFolder
+     (C.HOME,'/packages/apl-dependencies.txt')M.CopyTo tempFolder
      (C.HOME,'\ViewHelp.exe')M.CopyTo tempFolder
     ⍝ --- Create the package --------------------------------
      'CiderConfig'#.⎕NS''                    ⍝ This is required by ...
@@ -51,6 +52,7 @@
      {⍵:0 0⍴⍬ ⋄ 'Something went wrong'⎕SIGNAL 11}0<≢zipFilename
     ⍝ --- Cleaning up ---------------------------------------
      {}M.##.F.RmDirByForce tempFolder
+     ⎕←'*** Do not forget to make ViewHelp.exe part of the release on GitHub'
      ⎕←'Clearing the workspace...'
      ⎕CLEAR
  :EndIf

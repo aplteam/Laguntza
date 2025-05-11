@@ -7,7 +7,7 @@
  buff←1↓↑,/(⎕UCS 13),¨#.Laguntza.Laguntza.HelpHelp.Overview
  version←{⍵↑⍨⌊/⍵⍳' ',⎕UCS 13}'This Help is for Laguntza version '{⍵↓⍨(≢⍺)+1⍳⍨⍺⍷⍵}buff
  CutVersionNo←{⍵/⍨2>+\'.'=⍵}
- →T.PassesIf≡/CutVersionNo¨(1⊃##.Laguntza.Version)version
+ →T.PassesIf≡/CutVersionNo¨(##.Laguntza.Version)version
 
  R←T._OK
 ⍝Done
