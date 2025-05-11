@@ -15,7 +15,7 @@
  '~~~'
  ''
  'there is actually a default, provided that `→[*.helpCaption]` is not empty: it''s '
- '`''HKCUSoftwareAPLTreeLaguntza'',helpCaption`.'
+ '`''HKCU\Software\APLTree\Laguntza\'',helpCaption`.'
  ''
  'If `helpCaption` is empty, too, then the mechanism of saving individual settings in the Windows'
  'Registry is **effectively disabled**.'

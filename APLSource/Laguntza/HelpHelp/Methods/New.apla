@@ -13,7 +13,7 @@
  '**not** destroy the GUI. Use the `→[*.CloseHelp]` method to achieve this.'
  ''
  'Via the reference you can access data easily, but you are **not** permitted to actually change'
- 'anything. If you want to change a property like "visible" use one of official methods like'
+ 'anything. If you want to change a property like "visible", use one of official methods like'
  '`→[*.SetVisible]`. The following examples assume that the name of the  reference pointing to the'
  'help is `ref`.'
  ''

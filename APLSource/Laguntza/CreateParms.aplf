@@ -10,8 +10,7 @@
      p.helpAbout←'Laguntza' 'Written by Kai Jaeger'
      p.helpCaption←'Laguntza'       ⍝ General caption used in all GUI controls.
      p.helpIcon←''                  ⍝ Filename of an ICO file or ref pointing to an ICO object. Empty results in default icon.
-     p.helpVersion←1⊃Version
-     p.helpVersionDate←2⊃Version
+     p.helpVersion←Version
      p.expand←'Level1'              ⍝ May be one of: "All", "Level1" or "None.
      p.isRuntime←IsRunTime ⍬
      p.language←'en'                ⍝ Used to set the language in `<html lang="`.
@@ -23,7 +22,6 @@
      p.printFontSize←'9pt'          ⍝ Defines the basic font size for printing. Everything else refers to this by either "em" or in percentage.
      p.regPath←''                   ⍝ Path to Windows Registry. Becomes "Software\APLTree\Laguntza\",helpCaption if empty. 0 disables mechanism.
      p.reportToSession←¯1           ⍝ 1=report problems (like broken links etc) to the session. Defaults to `isRuntime`.
-     p.saltFolder←''                ⍝ If not empty then all vars & ∆TopicProperties are saved in files within that folder.
      p.screenFontSize←'16px'        ⍝ Defines the basic font size for the screen. Everything else refers to this by either "em" or in percentage.
      p.size←⍬ ⍬                     ⍝ Default size (might be overwritten from outside).
      p.source←''                    ⍝ Ref to the NS that contains the Help system. Needed for compilation & development only.

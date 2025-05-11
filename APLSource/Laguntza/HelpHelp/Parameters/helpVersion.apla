@@ -7,6 +7,6 @@
  ''
  'You might want to replace this by your own piece of information.'
  ''
- 'If you don''t want this information (together with `→[*.helpVersionDate]`) to make an appearance at all'
+ 'If you don''t want this information to make an appearance at all'
  'then simply set both parameters to `''''`.'
 )

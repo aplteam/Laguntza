@@ -11,7 +11,7 @@
  'editing a topic, the context menu is not available to you.'
  ''
  'There is an easy escape route: fire up a second instance of the same help system in a different'
- 'workspace. Then you can use of this one for displaying topics and copying links and the other one'
+ 'workspace. Then you can use this one for displaying topics and copying links and the other one'
  'for editing topics.'
  ''
  'However, keep in mind that the second instance won''t reflect any of your changes. If you make '

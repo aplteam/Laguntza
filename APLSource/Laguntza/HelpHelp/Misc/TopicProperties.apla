@@ -8,7 +8,7 @@
  'Normally all children of a given node, namespaces and variables alike, are listed'
  'alphabetically with any namespaces first.'
  ''
- 'This may or may not be appropriate. Therefore there must be a way to define a different sequence.'
+ 'This may or may not be appropriate. Therefore there must be a way to define a different order.'
  ''
  'Also, the names of namespaces are used for the captions in the tree  view (after replacing any'
  'underscore characters by a space). Again this might not be appropriate; for example, you cannot'
@@ -77,7 +77,7 @@
  ''
  'In the Developer''s menu there is a command "ReportTopicProperties" which checks **all**'
  '`∆TopicProperties` and reports its findings to the session. Any variable representing a help'
- 'topic that exists but is not mentioned by its `∆TopicProperties` won''t show so this is important thing '
- 'to check.'
+ 'topic that exists but is not mentioned by its `∆TopicProperties` won''t show, so this is important '
+ 'thing to check.'
  ''
 )

@@ -1,5 +1,5 @@
 (
- '[DATA]:index=''CreateStub ⋄ Create a new help system ⋄ SALT'''
+ '[DATA]:index=''CreateStub ⋄ Create a new help system'''
  ''
  '# {ref} ← {parms} CreateStub name'
  ''

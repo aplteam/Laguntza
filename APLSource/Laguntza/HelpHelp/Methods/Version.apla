@@ -3,11 +3,6 @@
  ''
  '# (name version date)←Version'
  ''
- 'Returns information regarding Laguntza:'
- ''
- '1. Name'
- '1. Version number (a.b.c)'
- '1. Version date (yyyy-mm-dd)'
- ''
+ 'Returns version information regarding Laguntza. The information stems from the package config file.'
  ''
 )

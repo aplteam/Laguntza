@@ -3,7 +3,7 @@
   assets: "Assets",
   description: "Managing and displaying help pages based on markdown files",
   documentation: "",
-  files: "Laguntza.dcf,ViewHelp.exe",
+  files: "Laguntza.dcf",
   group: "aplteam",
   io: 0,
   license: "MIT",
@@ -19,5 +19,5 @@
   source: "APLSource/Laguntza",
   tags: "help,markdown",
   userCommandScript: "",
-  version: "6.3.0+300",
+  version: "7.0.0+304",
 }

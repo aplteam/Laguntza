@@ -59,10 +59,10 @@
  'name that starts with an underscore character without it making the rest of the help page Italic.'
  ''
  '~~~'
- '\\_varsName\\_ but not italic'
+ '\_varsName\_ but not italic'
  '~~~       '
  ''
  'Leads to this:'
  ''
- '\\_varsName\\_ but not italic'
+ '\_varsName\_ but not italic'
 )

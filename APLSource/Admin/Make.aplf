@@ -1,5 +1,5 @@
- Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;cfg;msg
-⍝ 5.3.0 - 2024-11-30
+ Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;msg;cfg
+⍝ 5.4.0 - 2025-05-11
  :If ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
      :If 0=⎕SE.⎕NC'MakeHelpers' ⋄ {}⎕SE.Tatin.LoadPackages'[tatin]MakeHelpers'⎕SE ⋄ :EndIf
     ⍝ --- Preparation ---------------------------------------
@@ -10,20 +10,7 @@
      myUCMDsFolder←M.GetMyUCMDsFolder'\'
      name←'Laguntza'
      tempFolder←(M.##.F.GetTempSubDir name),'\'
-    ⍝ --- Version number
-     M.IncreaseBuildIDInFunction'#.Laguntza.Laguntza.Version'
-     cfg←M.GetPackageCfg ##.CiderConfig.HOME,'/apl-package.json'
-     :If ≢/M.DropBuildNumber¨(2⊃#.Laguntza.Laguntza.Version)cfg.version
-         msg←''
-         msg,←⊂'Cannot run because there is a problem with the version number:'
-         msg,←⊂'#.Laguntza.Laguntza.Version: ',M.DropBuildNumber 2⊃#.Laguntza.Laguntza.Version
-         msg,←⊂'Package config file:         ',M.DropBuildNumber cfg.version
-         msg←↑msg
-         msg←'*'⍪msg⍪'*'
-         msg←'*',msg,'*'
-         ⎕←msg
-         :Return
-     :EndIf
+     cfg←M.EditPackageConfigFile ##.Laguntza.TatinVars
     ⍝ --- Create the WS --------------------------------
      M.RecreateFolder targetPath
      {}⎕SE.Tatin.CreateAPIfromCFG ##.Laguntza cfg
@@ -48,17 +35,20 @@
      parms.ProjectName←parms.ProductName←name
      {}M.MakeStandAloneRunTimeExe parms
      (targetPath,'ViewHelp.exe')M.CopyTo home,'\'
+    ⍝ --- Copy stuff over  ----------------------------------
+     (C.HOME,'\APLSource')M.CopyTo tempFolder
+     (C.HOME,'\apl-package.json')M.CopyTo tempFolder
+     (C.HOME,'\ViewHelp.exe')M.CopyTo tempFolder
     ⍝ --- Create the package --------------------------------
      'CiderConfig'#.⎕NS''                    ⍝ This is required by ...
      #.CiderConfig.HOME←home                 ⍝ ... CompileHelpFileInto
      #.Laguntza.HelpHelp #.Laguntza.CompileHelpFileInto tempFolder  ⍝ !
      (C.HOME,'\')⎕NCOPY⍠('IfExists' 'Replace')⊣tempFolder,'Laguntza.dcf'
-     parms2←⎕SE.Tatin.CreateBuildParms C.HOME
-     parms2.targetPath←tempFolder
-     parms2.version←2⊃#.Laguntza.Version
+     parms2←⎕SE.Tatin.CreateBuildParms tempFolder
+     parms2.targetPath←C.HOME,'\Dist'
+     parms2.version←#.Laguntza.Version
      zipFilename←⎕SE.Tatin.BuildPackage parms2
      {⍵:0 0⍴⍬ ⋄ 'Something went wrong'⎕SIGNAL 11}0<≢zipFilename
-     zipFilename M.CopyTo targetPath
     ⍝ --- Cleaning up ---------------------------------------
      {}M.##.F.RmDirByForce tempFolder
      ⎕←'Clearing the workspace...'

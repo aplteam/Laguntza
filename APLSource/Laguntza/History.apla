@@ -1,4 +1,11 @@
 (
+ '* 7.0.0 ⋄ 2025-05-11'
+ '  * Potentially breaking changes'
+ '    * `Version` returns a text vector with the version number from the package config file'
+ '    * The parameter `helpVersionDate` has been removed'
+ '  * Laguntza''s own help polished'
+ '  * Packages updated'
+ '  * All SALT-related stuff was removed from Laguntza'
  '* 6.3.0 ⋄ 2024-11-30'
  '  * 819⌶ replace by ⎕C'
  '  * Packages updated for 20.0-readyness'

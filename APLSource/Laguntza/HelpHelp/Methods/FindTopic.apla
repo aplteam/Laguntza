@@ -19,7 +19,7 @@
  '→[#.folder1.TopicName]'
  '~~~'
  ''
- 'Note that any link can be enclosed by ticks in order to make it appear like APL code; this:'
+ 'Note that any link can be enclosed by single ticks in order to mark it as APL code; this:'
  ''
  '~~~'
  '`→[*.New]`'

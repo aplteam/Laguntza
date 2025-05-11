@@ -22,7 +22,7 @@
  'source #.Laguntza.CompileHelpFilesInto '''''
  '~~~'
  ''
- 'Instead of passing an empty vector as right argument (which defaults to `Help\\` in'
+ 'Instead of passing an empty vector as right argument (which defaults to `Help\` in'
  'the current directory) you can specify a directory as right argument:'
  ''
  '~~~'

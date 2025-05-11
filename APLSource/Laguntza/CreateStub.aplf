@@ -38,10 +38,5 @@
  ref2.Foo←'[DATA]:index=''This is about Foo''' '# Foo' '' 'This is the "Foo" page' '' 'Go to →[Overview]'
  ref2.Goo←'[DATA]:index=''This is about Goo''' '# Goo' '' 'This is the "Goo" page' '' 'Go to →[Overview]'
  r←1 New parms
- :If 0≠≢parms.saltFolder
- :AndIf CheckOnEditFixForSaltHandler ⍬
-     cmd←'"',(parms.saltFolder~'"'),'" -patterns=',name,' -loadfn -makedir -noprompt -clear'
-     SaveHelpSystemWithSalt parms ref
- :EndIf
  r.n.∆Ref TellLinkAboutChange ref
 ⍝Done

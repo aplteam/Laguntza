@@ -31,7 +31,6 @@
      r⍪←'Changing_the_layout' 'Changing the layout' 1 0
      r⍪←'The_CSS_folder' '' 1 0
      r⍪←'The_icon' 'Icons and images' 1 0
-     r⍪←'SALT' '' 0 0
      r⍪←'About' 'About Laguntza' 1 0
      r
  }

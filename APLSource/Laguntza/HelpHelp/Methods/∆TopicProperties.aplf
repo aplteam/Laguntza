@@ -24,11 +24,9 @@
      r⍪←'FindTopic' '' 1 0
      r⍪←'GetNoClose' '' 1 0
      r⍪←'Inject∆TopicProperties' '' 1 0
-     r⍪←'LoadHelpWithSalt' '' 1 0
      r⍪←'ListHelpForms' '' 1 0
      r⍪←'New' '' 1 0
      r⍪←'Reset' '' 1 0
-     r⍪←'SaveHelpSystemWithSalt' '' 1 0
      r⍪←'SetNoClose' '' 1 0
      r⍪←'GetVisible' '' 1 0
      r⍪←'SetVisible' '' 1 0

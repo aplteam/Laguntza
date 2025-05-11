@@ -24,15 +24,12 @@
      r⍪←'helpCaption' '' 1 0
      r⍪←'helpIcon' '' 1 0
      r⍪←'helpVersion' '' 1 0
-     r⍪←'helpVersionDate' '' 1 0
      r⍪←'isRuntime' '' 1 0
      r⍪←'noClose' '' 1 0
      r⍪←'page' '' 1 0
      r⍪←'posn' '' 1 0
      r⍪←'regPath' 'regPath    ' 1 0
      r⍪←'reportToSession' '' 1 0
-     r⍪←'saltFolder' '' 1 0
-     r⍪←'saltFolder' '' 0 0
      r⍪←'size' '' 1 0
      r⍪←'source' '' 1 0
      r⍪←'splitterPosn' '' 1 0
