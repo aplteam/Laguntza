@@ -1,5 +1,6 @@
  Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;msg;cfg
-⍝ 5.4.1 - 2025-05-11
+⍝ 5.5.0 - 2025-05-12
+ 'This function cannot run while threads are running'Assert 1=≢⎕TNUMS
  :If 1 ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
      :If 0=⎕SE.⎕NC'MakeHelpers' ⋄ {}⎕SE.Tatin.LoadPackages'[tatin]MakeHelpers'⎕SE ⋄ :EndIf
     ⍝ --- Preparation ---------------------------------------
@@ -17,9 +18,10 @@
      {}⎕SE.Cider.CloseProject''                       ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
      ⎕EX¨'M' 'cfg'
+     {1=≢⎕TNUMS:r←1 ⋄ 20<⍵:r←0 ⋄ _←⎕DL 0.2 ⋄ ∇ ⍵+1}1
      0 ⎕SAVE ⎕WSID
      #.⎕EX ⎕NL⍳16
-     {⍵:.}' '≠1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'       ⍝ avoids creating a link in # that points to ⎕SE
+     'Something is not right!'Assert' '=1↑0⍴⎕FX↑'r←M' 'r←⎕SE.MakeHelpers'       ⍝ avoids creating a link in # that points to ⎕SE
      ⎕LX←'#.',name,'.RunAsStandalone'
      '#.Laguntza.Laguntza'#.⎕CY ⎕WSID
      {}2 ⎕SE.Tatin.LoadDependencies(home,'packages\')#.Laguntza  ⍝ Yes, this IS correct: we reorganize the WS

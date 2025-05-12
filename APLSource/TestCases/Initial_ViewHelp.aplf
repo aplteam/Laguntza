@@ -2,7 +2,7 @@
  tempPath←F.GetTempSubDir''
  ∆VIEWHELP_PATH←F.GetTempSubDir''
  path←F.NormalizePath ##.CiderConfig.HOME,'\Dist\'
- Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
+ Assert 1=≢zipFilename←F.ListFiles2 path,'*.zip'
  zipFilename←↑zipFilename
  zipFilename ZipArchive.UnzipTo tempPath
  ∆VIEWHELP_PATH ⎕NCOPY⍠('IfExists' 'Replace')⊣##.CiderConfig.HOME,'/Dist/ViewHelp.exe'

@@ -11,7 +11,7 @@
  path←'expand'F.NormalizePath ##.CiderConfig.HOME,'\Dist\'
  tempPath←F.GetTempSubDir''
 
- Assert 1=≢zipFilename←F.ListFiles path,'*.zip'
+ Assert 1=≢zipFilename←F.ListFiles2 path,'*.zip'
  zipFilename←↑zipFilename
 
  rc←zipFilename ##.Laguntza.DotNetZip.UnzipTo tempPath
