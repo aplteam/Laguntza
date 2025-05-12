@@ -1,4 +1,8 @@
 (
+ '* 7.0.2 ⋄ 2025-05-12'
+ '  * `About` now expands the path the help system was loaded from'
+ '  * The parameter `helpVersionDate` has been brought back but is now optional '
+ '  * `About` adds `helpVersionDate` if defined and not empty to the pieces of information presented to the user'
  '* 7.0.1 ⋄ 2025-05-11'
  '  Bug fix: dependency file was not part of the projecct'
  '* 7.0.0 ⋄ 2025-05-11'

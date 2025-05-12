@@ -11,6 +11,7 @@
      p.helpCaption←'Laguntza'       ⍝ General caption used in all GUI controls.
      p.helpIcon←''                  ⍝ Filename of an ICO file or ref pointing to an ICO object. Empty results in default icon.
      p.helpVersion←Version
+     p.helpVersionDate←''           ⍝ Version date (optional)
      p.expand←'Level1'              ⍝ May be one of: "All", "Level1" or "None.
      p.isRuntime←IsRunTime ⍬
      p.language←'en'                ⍝ Used to set the language in `<html lang="`.
