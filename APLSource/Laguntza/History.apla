@@ -1,4 +1,6 @@
 (
+ '* 7.0.3 ⋄ 2025-08-24'
+ '  * Packages updated: `FilesAndDirs` and `MarkAPL`'
  '* 7.0.2 ⋄ 2025-05-12'
  '  * `About` now expands the path the help system was loaded from'
  '  * The parameter `helpVersionDate` has been brought back but is now optional '
