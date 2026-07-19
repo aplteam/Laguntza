@@ -1,11 +1,11 @@
 {
   packageID: [
-    "aplteam-OS-4.0.0",
-    "aplteam-MarkAPL-14.2.0",
-    "aplteam-FilesAndDirs-7.1.0",
+    "aplteam-OS-4.1.0",
+    "aplteam-MarkAPL-15.0.0",
+    "aplteam-FilesAndDirs-7.1.1",
     "aplteam-DotNetZip-3.1.0",
     "aplteam-APLTreeUtils2-1.4.1",
-    "aplteam-CommTools-2.0.1",
+    "aplteam-CommTools-2.0.2",
   ],
   principal: [
     1,

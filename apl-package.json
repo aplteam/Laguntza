@@ -1,6 +1,7 @@
 {
   api: "API",
   assets: "Assets",
+  checkLICENSEfile: 1,
   description: "Managing and displaying help pages based on markdown files",
   documentation: "",
   files: "Laguntza.dcf",
@@ -19,5 +20,5 @@
   source: "APLSource/Laguntza",
   tags: "help,markdown",
   userCommandScript: "",
-  version: "7.0.3+304",
+  version: "7.1.0+304",
 }

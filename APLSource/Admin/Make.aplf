@@ -1,5 +1,5 @@
  Make;home;targetPath;C;myUCMDsFolder;name;tempFolder;M;rc;zipFilename;parms2;parms;msg;cfg
-⍝ 5.5.0 - 2025-05-12
+⍝ 5.6.0 - 2026-07-19
  'This function cannot run while threads are running'Assert 1=≢⎕TNUMS
  :If 1 ##.TestCases.CommTools.YesOrNo'Sure you want to build "Laguntza"? The project will be closed and the WS destroyed in the process!'
      :If 0=⎕SE.⎕NC'MakeHelpers' ⋄ {}⎕SE.Tatin.LoadPackages'[tatin]MakeHelpers'⎕SE ⋄ :EndIf
@@ -15,6 +15,7 @@
     ⍝ --- Create the WS --------------------------------
      M.RecreateFolder targetPath
      {}⎕SE.Tatin.CreateAPIfromCFG ##.Laguntza cfg
+     ⎕EX{⍵/⍨'#._tatin.'{⍺∘≡¨(≢⍺)↑¨⍵}⍕∘⍎¨⍵}#.Laguntza.Laguntza.{(⊂(⍕⎕THIS),'.'),¨' '~⍨¨↓⎕NL ⍵}9 ⍝ Delete all packages
      {}⎕SE.Cider.CloseProject''                       ⍝ Precaution
      ⎕WSID←tempFolder,name,'.dws'
      ⎕EX¨'M' 'cfg'
@@ -42,6 +43,7 @@
      (C.HOME,'\apl-package.json')M.CopyTo tempFolder
      (C.HOME,'/packages/apl-dependencies.txt')M.CopyTo tempFolder
      (C.HOME,'\ViewHelp.exe')M.CopyTo tempFolder
+     (C.HOME,'\LICENSE')M.CopyTo tempFolder
     ⍝ --- Create the package --------------------------------
      'CiderConfig'#.⎕NS''                    ⍝ This is required by ...
      #.CiderConfig.HOME←home                 ⍝ ... CompileHelpFileInto
