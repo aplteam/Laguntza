@@ -1,7 +1,5 @@
 (
- '[DATA]:index=''Special attributes ⋄ Attributes, special ⋄ ID, assign a ⋄ Class, assign a ⋄ Assign class or ID'''
- '[DATA]:index=''pre-defined classes ⋄ Classes, predefined ⋄ Center text, table or image'''
- '[DATA]:index=''Table, center ⋄ Paragraph, center ⋄ Image, center ⋄ Font size, paragraphs'''
+ '[DATA]:index=''Special attributes ⋄ Attributes, special ⋄ ID, assign a ⋄ Class, assign a ⋄ Assign class or ID ⋄ pre-defined classes ⋄ Classes, predefined ⋄ Center text, table or image ⋄⋄ Table, center ⋄ Paragraph, center ⋄ Image, center ⋄ Font size, paragraphs'''
  ''
  '# Special attributes'
  ''
