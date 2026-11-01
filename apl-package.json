@@ -10,7 +10,7 @@
   license: "MIT",
   lx: "",
   maintainer: "kai@aplteam.com",
-  minimumAplVersion: "18.0",
+  minimumAplVersion: "18.2",
   ml: 3,
   name: "Laguntza",
   os_lin: 0,
@@ -20,5 +20,5 @@
   source: "APLSource/Laguntza",
   tags: "help,markdown",
   userCommandScript: "",
-  version: "7.1.0+304",
+  version: "7.2.0+304",
 }
